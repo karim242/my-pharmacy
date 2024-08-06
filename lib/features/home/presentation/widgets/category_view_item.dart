@@ -1,16 +1,17 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:my_pharmacy/core/utils/app_colors.dart';
-import 'package:my_pharmacy/core/utils/app_images.dart';
 import 'package:my_pharmacy/core/utils/app_router.dart';
 import 'package:my_pharmacy/core/utils/text_styles.dart';
+import 'package:my_pharmacy/features/home/data/models/category_model.dart';
+
+import '../../../../core/widget/add_to_cart_btn.dart';
 
 class CategoryViewItem extends StatelessWidget {
-  const CategoryViewItem({super.key});
-
+  const CategoryViewItem({super.key, required this.category});
+final CategoryModel category;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -31,7 +32,7 @@ class CategoryViewItem extends StatelessWidget {
                     topLeft: Radius.circular(6),
                     topRight: Radius.circular(6),
                   ),
-                  child: Image.asset(AppImages.elezabyImage),
+                  child: Image.asset(category.image),
                 ),
                 Positioned(
                   bottom: 0,
@@ -56,7 +57,7 @@ class CategoryViewItem extends StatelessWidget {
                                 fontSize: 6, color: AppColors.secondColor),
                           ),
                           Text(
-                            '200',
+                           category.price.toString(),
                             style: TextStyles.textStyle9
                                 .copyWith(color: AppColors.secondColor),
                           ),
@@ -67,14 +68,14 @@ class CategoryViewItem extends StatelessWidget {
             ),
           ),
           Text(
-            'كريم أساس سافورا',
+           category.title,
             style: TextStyles.textStyle12.copyWith(
                 color: AppColors.secondColor, fontWeight: FontWeight.bold),
           ),
-          const Padding(
+           Padding(
             padding: EdgeInsets.symmetric(vertical: 8.0),
             child: Text(
-              'صيدلية الطرشوبي',
+              category.pharmacyName,
               style: TextStyles.textStyle9,
             ),
           ),
@@ -82,33 +83,4 @@ class CategoryViewItem extends StatelessWidget {
         ],
       ),
     );
-  }
-}
-
-class AddToCartBtn extends StatelessWidget {
-  const AddToCartBtn({
-    super.key, this.onTap,
-  });
-final void Function()? onTap;
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap:onTap ,
-      child: Container(
-        width: 95.w,
-        height: 24.h,
-        decoration: BoxDecoration(
-            color: AppColors.primaryColor,
-            borderRadius: BorderRadius.circular(6)),
-        child: Center(
-          child: Text(
-            'إضافة الي السلة',
-            style: TextStyles.textStyle11.copyWith(
-                // fontSize: 9,
-                fontWeight: FontWeight.bold),
-          ),
-        ),
-      ),
-    );
-  }
-}
+  }}

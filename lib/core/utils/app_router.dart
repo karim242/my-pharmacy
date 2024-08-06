@@ -9,6 +9,7 @@ import 'package:my_pharmacy/features/home/presentation/view/categories_view.dart
 import 'package:my_pharmacy/features/home/presentation/view/category_details_view.dart';
 import 'package:my_pharmacy/features/home/presentation/view/nearest_pharmacy_view.dart';
 import 'package:my_pharmacy/features/home/presentation/view/offer_view.dart';
+import 'package:my_pharmacy/features/home/presentation/view/pharmacy_details_view.dart';
 import 'package:my_pharmacy/features/home/presentation/view/root_view.dart';
 import 'package:my_pharmacy/features/splash/view/splash_view.dart';
 
@@ -24,6 +25,8 @@ abstract class AppRouter {
   static const String kOffer50View  = '/Offer50View';
   static const String kCategoryView  = '/CategoryView';
   static const String kCategoryDetailsView = '/CategoryDetailsView';
+  static const String kPharmacyDetailsView = '/pharmacyDetailsView';
+
 
 
 
@@ -76,6 +79,10 @@ abstract class AppRouter {
     GoRoute(
       path: kCategoryDetailsView,
       builder: (context, state) => const CategoryDetailsView()
+    ),
+    GoRoute(
+      path: kPharmacyDetailsView,
+      builder: (context, state) => const PharmacyDetailsView()
     ),
   ]);
 }

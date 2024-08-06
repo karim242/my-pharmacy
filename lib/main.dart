@@ -24,15 +24,15 @@ class Mypharmacy extends StatelessWidget {
         routerConfig: AppRouter.router,
       debugShowCheckedModeBanner: false,
   locale: const Locale('ar'), // Set default locale to Arabic
-      supportedLocales:const [
-         Locale('en', ''), // English
-         Locale('ar', ''), // Arabic
-      ],
       localizationsDelegates:const [
+       // AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
-        // Add your custom localization delegate here if you have one
+      ],
+      supportedLocales:const [
+         Locale('en', ''),
+         Locale('ar', ''),
       ],
        theme: ThemeData(
           fontFamily: 'Cairo',

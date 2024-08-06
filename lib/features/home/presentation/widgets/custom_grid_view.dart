@@ -1,7 +1,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:my_pharmacy/features/home/presentation/widgets/category_view_Item.dart';
+import 'package:my_pharmacy/features/home/data/models/category_model.dart';
+import 'package:my_pharmacy/features/home/presentation/widgets/category_view_item.dart';
 
 class CategoriesGridView extends StatelessWidget {
   const CategoriesGridView({super.key});
@@ -14,8 +15,8 @@ class CategoriesGridView extends StatelessWidget {
       crossAxisSpacing: 12,
       axisDirection: AxisDirection.down,
       children: List.generate(
-        30,
-        (index) => const CategoryViewItem (),
+        categoryList.length,
+        (index) =>  CategoryViewItem (category: categoryList[index],),
       ),
     ); 
      }

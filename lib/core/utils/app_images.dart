@@ -16,4 +16,6 @@ class AppImages{
   static const String categoryImg= 'assets/images/categoryimg.png';
 
 static const String elezabyImage= 'assets/images/elezabyImage.jpg';
+static const String tarshobyImage= 'assets/images/tarshoby_img.webp';
+
 }

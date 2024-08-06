@@ -1,0 +1,17 @@
+{
+    "login_screen_title": "تسجيل الدخول",
+    "phone_number": "رقم الهاتف",
+    "password": "كلمة المرور",
+    "login_button": "تسجيل الدخول",
+    "forgot_password": "هل نسيت كلمة المرور؟",
+    "sign_up": "ليس لديك حساب؟ إنشاء حساب",
+    "home": "الرئيسية",
+    "welcome_message": "مرحبًا بك في الشاشة الرئيسية!",
+    "profile": "الملف الشخصي",
+    "name": "الاسم",
+    "email": "البريد الإلكتروني",
+    "update_profile": "تحديث الملف",
+    "settings": "الإعدادات",
+    "language": "اللغة",
+    "logout": "تسجيل الخروج"
+  }

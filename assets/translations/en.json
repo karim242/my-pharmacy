@@ -1,0 +1,17 @@
+{
+    "login_screen_title": "Login",
+    "phone_number": "Phone Number",
+    "password": "Password",
+    "login_button": "Login",
+    "forgot_password": "Forgot Password?",
+    "sign_up": "Don't have an account? Sign Up",
+    "home": "Home",
+    "welcome_message": "Welcome to the Home Screen!",
+    "profile": "Profile",
+    "name": "Name",
+    "email": "Email",
+    "update_profile": "Update Profile",
+    "settings": "Settings",
+    "language": "Language",
+    "logout": "Logout"
+  }
