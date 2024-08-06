@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
+import 'package:my_pharmacy/core/utils/app_router.dart';
+import 'package:my_pharmacy/core/utils/app_strings.dart';
 import 'package:my_pharmacy/core/widget/custom_title.dart';
 import 'package:my_pharmacy/features/home/presentation/widgets/categories_row.dart';
 import 'package:my_pharmacy/features/home/presentation/widgets/nearest_pharmacy_list.dart';
@@ -19,17 +22,25 @@ class HomeView extends StatelessWidget {
               // SizedBox(height: 50.0.h),
               const SearchRow(),
               SizedBox(height: 21.0.h),
-              const TitleText(title: 'الفئات'),
+              const TitleText(title: AppStrings.kCategory),
               SizedBox(height: 10.0.h), // Add space between SearchRow and CategoriesRow
                // Add space between SearchRow and CategoriesRow
              const CategoryList(),
              SizedBox(height: 25.0.h),
-              const TitleText(title: ' الصيدليات القريبة اليك'),
-          
+               TitleText(title: AppStrings.kNearestString,
+                onTap: (){
+                  GoRouter.of(context).push(AppRouter.kNearestPharmacyView);
+
+              },),
+        
                SizedBox(height: 15.0.h),
              const NearestPharmacyList(),
              SizedBox(height: 40.0.h),
-              const TitleText(title: 'عروض  %50'),
+               TitleText(title:AppStrings.kOffer50,
+                onTap: (){
+                  GoRouter.of(context).push(AppRouter.kOffer50View);
+
+              }, ),
                 SizedBox(height: 15.0.h),
              const NearestPharmacyList(),
           

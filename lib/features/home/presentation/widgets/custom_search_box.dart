@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:my_pharmacy/core/app_colors.dart';
+import 'package:my_pharmacy/core/utils/app_colors.dart';
+import 'package:my_pharmacy/core/utils/app_strings.dart';
 
 class CustomSearchBox extends StatelessWidget {
   const CustomSearchBox({super.key});
@@ -17,7 +18,7 @@ class CustomSearchBox extends StatelessWidget {
             borderRadius: BorderRadius.circular(7.0),
             borderSide: BorderSide(color:AppColors.primaryColor),
           ),
-          hintText: 'بحث',
+          hintText:AppStrings.kSearchString,
           prefixIcon: Icon(Icons.search,color: AppColors.secondColor,)
          
         ),

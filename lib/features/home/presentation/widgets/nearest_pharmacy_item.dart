@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:my_pharmacy/core/app_images.dart';
-import 'package:my_pharmacy/core/text_styles.dart';
+import 'package:my_pharmacy/core/utils/app_images.dart';
+import 'package:my_pharmacy/core/utils/text_styles.dart';
 
 class NearestPharmacyItem extends StatelessWidget {
   const NearestPharmacyItem({super.key});

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+  <g id="delivery_dining_black_24dp" transform="translate(0.281)">
+    <g id="Group_20" data-name="Group 20">
+      <rect id="Rectangle_18" data-name="Rectangle 18" width="20" height="20" transform="translate(-0.281)" fill="none"/>
+    </g>
+    <g id="Group_22" data-name="Group 22" transform="translate(1.643 4.108)">
+      <g id="Group_21" data-name="Group 21">
+        <path id="Path_12" data-name="Path 12" d="M15.968,6.643A1.648,1.648,0,0,0,14.325,5H11.86V6.643h2.465V8.821l-2.859,3.574H8.573V8.287H5.287A3.286,3.286,0,0,0,2,11.573v2.465H3.643a2.465,2.465,0,1,0,4.93,0h3.681L15.968,9.4ZM6.108,14.86a.824.824,0,0,1-.822-.822H6.93A.824.824,0,0,1,6.108,14.86Z" transform="translate(-2 -5)" fill="#5e5eaa"/>
+        <rect id="Rectangle_19" data-name="Rectangle 19" width="4" height="2" transform="translate(2.076 0.892)" fill="#5e5eaa"/>
+        <path id="Path_13" data-name="Path 13" d="M18.465,13a2.465,2.465,0,1,0,2.465,2.465A2.462,2.462,0,0,0,18.465,13Zm0,3.287a.822.822,0,1,1,.822-.822A.824.824,0,0,1,18.465,16.287Z" transform="translate(-4.497 -6.427)" fill="#5e5eaa"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_pharmacy/core/app_colors.dart';
+import 'package:my_pharmacy/core/utils/app_colors.dart';
 import 'package:my_pharmacy/features/home/presentation/view/cart_view.dart';
 import 'package:my_pharmacy/features/home/presentation/view/chatting_view.dart';
 import 'package:my_pharmacy/features/home/presentation/view/home_view.dart';

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
-import 'package:my_pharmacy/core/app_colors.dart';
-import 'package:my_pharmacy/core/app_router.dart';
-import 'package:my_pharmacy/core/text_styles.dart';
+import 'package:my_pharmacy/core/utils/app_colors.dart';
+import 'package:my_pharmacy/core/utils/app_router.dart';
+import 'package:my_pharmacy/core/utils/text_styles.dart';
 
 class CustomLoginRow extends StatelessWidget {
   const CustomLoginRow({super.key});

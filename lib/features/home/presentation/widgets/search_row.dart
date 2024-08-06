@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:my_pharmacy/core/app_images.dart';
+import 'package:my_pharmacy/core/utils/app_images.dart';
 import 'package:my_pharmacy/features/home/presentation/widgets/custom_search_box.dart';
 
 class SearchRow extends StatelessWidget {

@@ -8,7 +8,10 @@ class AppImages{
   static const String settingIcon= 'assets/images/settings.svg';
   static const String chatIcon= 'assets/images/chatbubbles.svg';
   static const String handBagIcon= 'assets/images/hand_bag.svg';
-  
+  static const String phoneIcon= 'assets/images/phone_icon.svg';
+  static const String locationIcon= 'assets/images/location_icon.svg';
+  static const String deliveryIcon= 'assets/images/delivery_icon.svg';
+
 
   static const String categoryImg= 'assets/images/categoryimg.png';
 

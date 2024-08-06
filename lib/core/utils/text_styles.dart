@@ -1,7 +1,7 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:my_pharmacy/core/app_colors.dart';
+import 'package:my_pharmacy/core/utils/app_colors.dart';
 
 abstract class TextStyles {
   static const textStyle16 = TextStyle(
