@@ -5,4 +5,5 @@ class AppStrings{
   static const String kCategory ='الفئات';
   static const String kOffer50 = 'عروض  %50';
   static const String kConversations = 'المحادثات';
+  static const String kBuyCart = 'سلة المشتريات';
 }
