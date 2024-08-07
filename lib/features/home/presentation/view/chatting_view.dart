@@ -1,57 +1,104 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:my_pharmacy/core/utils/app_strings.dart';
-import 'package:my_pharmacy/core/widget/custom_title.dart';
-import 'package:my_pharmacy/features/home/data/models/chat_model.dart';
-import 'package:intl/intl.dart';
+import 'package:my_pharmacy/core/utils/app_colors.dart';
+import 'package:my_pharmacy/core/utils/text_styles.dart';
+import 'package:my_pharmacy/features/home/presentation/widgets/active_chat_box.dart';
 
-class ChattingView extends StatelessWidget {
+class ChattingView extends StatefulWidget {
   const ChattingView({super.key});
+
+  @override
+  State<ChattingView> createState() => _ChattingViewState();
+}
+
+class _ChattingViewState extends State<ChattingView> {
+  final _controller = ScrollController();
+
+  TextEditingController controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-   
-      body: Padding(
-        padding:  EdgeInsets.only(right: 38.0,left: 38.0,top: 70.0.h),
-        child: const SingleChildScrollView(
-          child:  Column(
-        children: [
-          TitleText(title: AppStrings.kConversations,),
-          ConversationsList(),
-        ],
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        backgroundColor: AppColors.primaryColor,
+        title: const Text(
+          'صيدلية الطرشوبي',
+          style: TextStyles.textStyle20,
+        ),
+        centerTitle: true,
       ),
-    ),
-    ),
-    );
-  }
-}
-
-class ConversationsList extends StatelessWidget {
-  const ConversationsList({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-      physics: const NeverScrollableScrollPhysics(),
-      shrinkWrap: true,
-      itemCount: chats.length,
-      itemBuilder: (context, index) {
-        final chat = chats[index];
-        return ListTile(
-          leading: CircleAvatar(
-            backgroundImage: NetworkImage(chat.avatarUrl),
-          ),
-          title: Text(chat.name),
-          subtitle: Text(chat.lastMessage),
-          trailing: Text(DateFormat('hh:mm a').format(chat.time)),
-          onTap: () {}
-          
-            
-        );
-      },
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 38.0, vertical: 10),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(
+              child: ListView.builder(
+                  reverse: true,
+                  itemCount: 10,
+                  shrinkWrap: true,
+                  itemBuilder: (context, index) {
+                    return const ActiveChattingBox();
+                    // const InActiveChattingBox();
+                  }),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 8.0),
+              child: Row(
+                children: [
+                 const Padding(
+                    padding:  EdgeInsets.symmetric(horizontal: 4),
+                    child:  Icon(
+                      Icons.image,
+                      size: 24,
+                      color: AppColors.primaryColor,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 34.h,
+                    width: 228.w,
+                    child: TextField(
+                      controller: controller,
+                      onSubmitted: (data) {
+                        controller.clear();
+                        _controller.animateTo(0,
+                            duration: const Duration(milliseconds: 500),
+                            curve: Curves.easeIn);
+                      },
+                      decoration: InputDecoration(
+                        hintText: ' اكتب رسالتك',
+                        filled: true,
+                        contentPadding: EdgeInsets.all(4),
+                        fillColor: AppColors.lightGrayColor,
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide.none,
+                          borderRadius: BorderRadius.circular(6),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(6),
+                            borderSide: BorderSide.none),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 4),
+                    child: CircleAvatar(
+                      radius: 15.r,
+                      backgroundColor: AppColors.primaryColor,
+                      child: const Icon(
+                        Icons.send,
+                        size: 18,
+                        color: AppColors.whiteColor,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

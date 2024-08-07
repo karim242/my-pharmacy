@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_pharmacy/core/utils/app_colors.dart';
 import 'package:my_pharmacy/features/home/presentation/view/cart_view.dart';
-import 'package:my_pharmacy/features/home/presentation/view/chatting_view.dart';
+import 'package:my_pharmacy/features/home/presentation/view/conversation_view.dart';
 import 'package:my_pharmacy/features/home/presentation/view/home_view.dart';
 import 'package:my_pharmacy/features/home/presentation/view/setting_view.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -17,7 +17,7 @@ class _RootViewState extends State<RootView> {
   int _selectedIndex = 3;
   static const List<Widget> _widgetOptions = <Widget>[
     SettingView(),
-    ChattingView(),
+    ConversationView(),
     CartView(),
     HomeView(),
   ];
