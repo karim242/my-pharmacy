@@ -4,18 +4,18 @@ import 'package:my_pharmacy/core/utils/text_styles.dart';
 
 class TextAndPriceRow extends StatelessWidget {
   const TextAndPriceRow({
-    super.key,
-     this.textColor, this.fontWeigh,
+    super.key,required this.title, required this.price,
   });
-  final Color? textColor;
- final FontWeight? fontWeigh;
+
+  final String title;
+  final double price;
   @override
   Widget build(BuildContext context) {
     return  Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          "totalPrice.title",
+         title,
           style: TextStyles.textStyle12.copyWith(
             color: AppColors.blackColor
           )
@@ -24,7 +24,7 @@ class TextAndPriceRow extends StatelessWidget {
           //height: 44,
           width: 176,
           child: Text(
-            "price",
+            price.toString(),
             textAlign: TextAlign.end,
 style: TextStyles.textStyle12.copyWith(
             color: AppColors.blackColor

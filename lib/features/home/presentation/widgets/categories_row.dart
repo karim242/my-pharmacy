@@ -18,13 +18,13 @@ class CategoryList extends StatelessWidget {
           itemCount: 5,
           itemBuilder: (context, index) {
             return  Padding(
-              padding:  EdgeInsets.only(left: 10.0),
+              padding: const EdgeInsets.only(left: 10.0),
               child: GestureDetector(
                 onTap: (){
                   // Add your onTap action here
                   GoRouter.of(context).push(AppRouter.kCategoryView);
                 },
-                child: CategoryItem()),
+                child:const CategoryItem()),
             );
           }),
     );

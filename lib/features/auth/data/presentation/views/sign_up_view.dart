@@ -55,7 +55,7 @@ class SignUpView extends StatelessWidget {
                SizedBox(
                 height: 23.h,
               ),
-              CustomButton(lebale: 'انشاء حساب ',)
+             const CustomButton(lebale: 'انشاء حساب ',)
             ]
         ),
       )

@@ -69,7 +69,7 @@ class _ChattingViewState extends State<ChattingView> {
                       decoration: InputDecoration(
                         hintText: ' اكتب رسالتك',
                         filled: true,
-                        contentPadding: EdgeInsets.all(4),
+                        contentPadding:const EdgeInsets.all(4),
                         fillColor: AppColors.lightGrayColor,
                         border: OutlineInputBorder(
                           borderSide: BorderSide.none,

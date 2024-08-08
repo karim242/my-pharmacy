@@ -73,13 +73,13 @@ final CategoryModel category;
                 color: AppColors.secondColor, fontWeight: FontWeight.bold),
           ),
            Padding(
-            padding: EdgeInsets.symmetric(vertical: 8.0),
+            padding:const EdgeInsets.symmetric(vertical: 8.0),
             child: Text(
               category.pharmacyName,
               style: TextStyles.textStyle9,
             ),
           ),
-          AddToCartBtn()
+         const AddToCartBtn()
         ],
       ),
     );

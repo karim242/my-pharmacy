@@ -15,7 +15,7 @@ class CustomLoginRow extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       
       children: [
-      Text('ليس لديك حساب؟',style: TextStyles.textStyle10,),
+     const Text('ليس لديك حساب؟',style: TextStyles.textStyle10,),
       GestureDetector(onTap: (){
               GoRouter.of(context).push(AppRouter.kSigUpView);
 

@@ -82,7 +82,7 @@ class CategoryDetailsView extends StatelessWidget {
                   SizedBox(height: 15.h),
                   const TitleText(title: 'الاختيارات'),
                   SizedBox(height: 10.h),
-                  ChoiceItemListRow(),
+                  const ChoiceItemListRow(),
                   SizedBox(height: 15.h),
                   const TitleText(title: 'الوصف'),
                   SizedBox(height: 7.h),

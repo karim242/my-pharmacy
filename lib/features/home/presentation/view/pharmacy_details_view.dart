@@ -65,7 +65,7 @@ class PharmacyDetailsView extends StatelessWidget {
               SizedBox(
                 height: 22.h,
               ),
-              CategoriesGridView()
+            const  CategoriesGridView()
             ],
           ),
         ),

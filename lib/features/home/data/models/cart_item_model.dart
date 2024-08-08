@@ -26,5 +26,12 @@ final List<CartItemModel> cartItems = [
       price: 39.99,
       quantity: 2,
     ),
+     CartItemModel(
+      name: 'كريم أساس سافورا',
+      imageUrl: AppImages.elezabyImage,
+      price: 19.99,
+      quantity: 1,
+    ),
+    
     // Add more CartItem objects
   ];

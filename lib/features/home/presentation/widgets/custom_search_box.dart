@@ -13,13 +13,13 @@ class CustomSearchBox extends StatelessWidget {
             width: 258.w,
       child: TextField(
         decoration: InputDecoration(
-          contentPadding: EdgeInsets.all(2),
+          contentPadding:const EdgeInsets.all(2),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(7.0),
-            borderSide: BorderSide(color:AppColors.primaryColor),
+            borderSide: const BorderSide(color:AppColors.primaryColor),
           ),
           hintText:AppStrings.kSearchString,
-          prefixIcon: Icon(Icons.search,color: AppColors.secondColor,)
+          prefixIcon:const Icon(Icons.search,color: AppColors.secondColor,)
          
         ),
       ),

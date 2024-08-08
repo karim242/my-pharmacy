@@ -34,7 +34,7 @@ int selectedIndex = -1;
                   }
                 });
                 },
-                child: ChoiceItemRow(color: Color(0xffE2CC98),  isSelected: selectedIndex == index,)),
+                child: ChoiceItemRow(color:const Color(0xffE2CC98),  isSelected: selectedIndex == index,)),
             );
                
           }),

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
-import 'package:my_pharmacy/core/utils/app_router.dart';
 import 'package:my_pharmacy/core/utils/app_strings.dart';
 import 'package:my_pharmacy/core/widget/custom_title.dart';
 import 'package:my_pharmacy/features/home/data/models/chat_model.dart';
