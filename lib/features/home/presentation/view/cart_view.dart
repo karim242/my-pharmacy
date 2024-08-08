@@ -16,22 +16,29 @@ class CartView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        automaticallyImplyLeading: false, // Removes the back button
+
+        title: const TitleText(title: AppStrings.kBuyCart,),
+      ),
       body: Padding(
-        padding: EdgeInsets.only(right: 38.0, left: 38.0, top: 70.0.h),
+        padding: const EdgeInsets.only(right: 38.0, left: 38.0, ),
         child: SingleChildScrollView(
           child: Column(
-            children: [
-              Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const TitleText(title: AppStrings.kBuyCart),
-                  const SizedBox(height: 8),
+                  // const SizedBox(height: 8),
                   Text('الطرشوبي',
-                      style: TextStyles.textStyle10.copyWith(
+                      style: TextStyles.textStyle14.copyWith(
                         color: AppColors.blackColor,
+                            fontWeight: FontWeight.w400,
+
                       )),
-                ],
-              ),
+                
+                          SizedBox(height: 20.h),
+
               const CartItemList(),
               SizedBox(height: 20.h),
               TextField(

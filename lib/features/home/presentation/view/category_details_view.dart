@@ -94,7 +94,7 @@ class CategoryDetailsView extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      AddToCartBtn(width: 143,height: 34,),
+                      AddToCartBtn(width: 136,height: 34,),
                       CallUsBtn()
 
                     ],

@@ -15,7 +15,7 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding:  EdgeInsets.only(right: 38.0.w,left: 38.0.w,top: 70.0.h),
+        padding:  EdgeInsets.only(right: 20.0.w,left: 20.0.w,top: 70.0.h),
         child: SingleChildScrollView(
           child: Column(
             children: [

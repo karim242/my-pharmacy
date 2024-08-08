@@ -56,7 +56,7 @@ class PharmacyDetailsView extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   AddToCartBtn(
-                    width: 143,
+                    width: 136,
                     height: 34,
                   ),
                   CallUsBtn()

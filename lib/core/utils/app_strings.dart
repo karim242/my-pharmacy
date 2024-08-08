@@ -17,4 +17,7 @@ class AppStrings{
   static const String kCity = ' المدينة';
   static const String kPaymentInRecive = 'الدفع عند الاستلام';
   static const String kPaymentByVisa = 'الدفع بالفيزا';
+  static const String kSetting ='الإعدادات';
+
+  static const String kPersonalInfoView = 'المعلومات الشخصية';
 }
