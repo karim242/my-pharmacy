@@ -26,7 +26,7 @@ final double? height;
           child: Text(
             'إضافة الي السلة',
             style: TextStyles.textStyle11.copyWith(
-                // fontSize: 9,
+                fontSize: 9,
                 fontWeight: FontWeight.bold),
           ),
         ),

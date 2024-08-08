@@ -16,7 +16,7 @@ final CategoryModel category;
   Widget build(BuildContext context) {
     return SizedBox(
       width: 100.w,
-      height: 158.h,
+      height: 180.h,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -73,7 +73,7 @@ final CategoryModel category;
                 color: AppColors.secondColor, fontWeight: FontWeight.bold),
           ),
            Padding(
-            padding:const EdgeInsets.symmetric(vertical: 8.0),
+            padding: EdgeInsets.symmetric(vertical: 8.0.h),
             child: Text(
               category.pharmacyName,
               style: TextStyles.textStyle9,

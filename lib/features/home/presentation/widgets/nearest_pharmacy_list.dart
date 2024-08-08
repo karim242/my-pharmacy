@@ -8,7 +8,7 @@ class NearestPharmacyList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
      return SizedBox(
-      height: MediaQuery.sizeOf(context).height * 0.15,
+      height: MediaQuery.sizeOf(context).height * 0.2,
       child: ListView.builder(
           scrollDirection: Axis.horizontal,
           itemCount: nearestPharmacyList.length,

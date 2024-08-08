@@ -43,32 +43,25 @@ class _ChattingViewState extends State<ChattingView> {
                     // const InActiveChattingBox();
                   }),
             ),
+            
             Padding(
               padding: const EdgeInsets.only(top: 8.0),
               child: Row(
                 children: [
-                 const Padding(
-                    padding:  EdgeInsets.symmetric(horizontal: 4),
-                    child:  Icon(
+              
+                  SizedBox(
+                    height: 34.h,
+                    width: 240.w,
+                    child: TextField(
+                   
+                      decoration: InputDecoration(
+                        hintText: ' اكتب رسالتك',
+                        filled: true,
+                        suffixIcon: const Icon(
                       Icons.image,
                       size: 24,
                       color: AppColors.primaryColor,
                     ),
-                  ),
-                  SizedBox(
-                    height: 34.h,
-                    width: 228.w,
-                    child: TextField(
-                      controller: controller,
-                      onSubmitted: (data) {
-                        controller.clear();
-                        _controller.animateTo(0,
-                            duration: const Duration(milliseconds: 500),
-                            curve: Curves.easeIn);
-                      },
-                      decoration: InputDecoration(
-                        hintText: ' اكتب رسالتك',
-                        filled: true,
                         contentPadding:const EdgeInsets.all(4),
                         fillColor: AppColors.lightGrayColor,
                         border: OutlineInputBorder(
@@ -86,9 +79,9 @@ class _ChattingViewState extends State<ChattingView> {
                     child: CircleAvatar(
                       radius: 15.r,
                       backgroundColor: AppColors.primaryColor,
-                      child: const Icon(
+                      child:  Icon(
                         Icons.send,
-                        size: 18,
+                        size: 16.r,
                         color: AppColors.whiteColor,
                       ),
                     ),

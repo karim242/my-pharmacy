@@ -6,9 +6,15 @@ class AppStrings{
   static const String kOffer50 = 'عروض  %50';
   static const String kConversations = 'المحادثات';
   static const String kBuyCart = 'سلة المشتريات';
+  static const String kPaymentString = ' الدفع';
   static const String kNextString =  'التالي';
   static const String kBackString =  'السابق';
   static const String kName = 'الاسم';
   static const String kAddress ="العنوان";
   static const String kPhone = 'رقم الهاتف';
+
+  static const String kGovernorate = ' المحافظة';
+  static const String kCity = ' المدينة';
+  static const String kPaymentInRecive = 'الدفع عند الاستلام';
+  static const String kPaymentByVisa = 'الدفع بالفيزا';
 }

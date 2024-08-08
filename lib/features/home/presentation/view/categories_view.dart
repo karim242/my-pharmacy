@@ -11,7 +11,7 @@ class CategoriesView extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Scaffold(
        body: Padding(
-        padding: EdgeInsets.only(right: 38.0, left: 38.0, top: 50.0.h),
+        padding: EdgeInsets.only(right: 38.0.w, left: 38.0.w, top: 50.0.h),
         child: SingleChildScrollView(
           child: Column(
             children: [
