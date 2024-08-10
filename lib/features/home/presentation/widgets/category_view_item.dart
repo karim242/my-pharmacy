@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:my_pharmacy/core/routes/routes_names.dart';
 import 'package:my_pharmacy/core/utils/app_colors.dart';
-import 'package:my_pharmacy/core/utils/app_router.dart';
+import 'package:my_pharmacy/core/routes/app_router.dart';
 import 'package:my_pharmacy/core/utils/text_styles.dart';
 import 'package:my_pharmacy/features/home/data/models/category_model.dart';
 
@@ -11,7 +12,7 @@ import '../../../../core/widget/add_to_cart_btn.dart';
 
 class CategoryViewItem extends StatelessWidget {
   const CategoryViewItem({super.key, required this.category});
-final CategoryModel category;
+  final CategoryModel category;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -21,10 +22,10 @@ final CategoryModel category;
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           GestureDetector(
-            onTap:(){
+            onTap: () {
               //Navgat to category detials
-              GoRouter.of(context).push(AppRouter.kCategoryDetailsView);
-            } ,
+              GoRouter.of(context).push(RoutesNames.kCategoryDetailsView);
+            },
             child: Stack(
               children: [
                 ClipRRect(
@@ -57,7 +58,7 @@ final CategoryModel category;
                                 fontSize: 6, color: AppColors.secondColor),
                           ),
                           Text(
-                           category.price.toString(),
+                            category.price.toString(),
                             style: TextStyles.textStyle9
                                 .copyWith(color: AppColors.secondColor),
                           ),
@@ -68,19 +69,20 @@ final CategoryModel category;
             ),
           ),
           Text(
-           category.title,
+            category.title,
             style: TextStyles.textStyle12.copyWith(
                 color: AppColors.secondColor, fontWeight: FontWeight.bold),
           ),
-           Padding(
+          Padding(
             padding: EdgeInsets.symmetric(vertical: 8.0.h),
             child: Text(
               category.pharmacyName,
               style: TextStyles.textStyle9,
             ),
           ),
-         const AddToCartBtn()
+          const AddToCartBtn()
         ],
       ),
     );
-  }}
+  }
+}

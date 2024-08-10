@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:my_pharmacy/core/utils/app_router.dart';
+import 'package:my_pharmacy/core/routes/app_router.dart';
+import 'package:my_pharmacy/core/routes/routes_names.dart';
 import 'package:my_pharmacy/core/utils/app_strings.dart';
 import 'package:my_pharmacy/core/widget/custom_title.dart';
 
@@ -13,19 +14,20 @@ class SettingView extends StatefulWidget {
 }
 
 class _SettingViewState extends State<SettingView> {
-    bool _isSwitchedOn = true; // Initial state of the switch
+  bool _isSwitchedOn = true; // Initial state of the switch
 
   void _toggleSwitch(bool value) {
     setState(() {
       _isSwitchedOn = value;
       // Add your logic here for what should happen when the switch is toggled
       if (_isSwitchedOn) {
-       // print('Notifications turned on');
+        // print('Notifications turned on');
       } else {
-      //  print('Notifications turned off');
+        //  print('Notifications turned off');
       }
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +47,7 @@ class _SettingViewState extends State<SettingView> {
               leading: const Icon(Icons.arrow_back_ios),
               title: const Text(AppStrings.kPersonalInfoString),
               onTap: () {
-                GoRouter.of(context).push(AppRouter.kPersonalInfoView);
+                GoRouter.of(context).push(RoutesNames.kPersonalInfoView);
                 // Handle navigation to personal information screen
               },
             ),
@@ -55,7 +57,7 @@ class _SettingViewState extends State<SettingView> {
               title: const Text(AppStrings.kSaveTitle),
               onTap: () {
                 // Handle navigation to saved addresses screen
-                GoRouter.of(context).push(AppRouter.kAddressSavedView);
+                GoRouter.of(context).push(RoutesNames.kAddressSavedView);
               },
             ),
             const Divider(),
@@ -64,10 +66,7 @@ class _SettingViewState extends State<SettingView> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const Text('الإشعارات'),
-                Switch(
-                  value: _isSwitchedOn,
-                  onChanged: _toggleSwitch
-                ),
+                Switch(value: _isSwitchedOn, onChanged: _toggleSwitch),
               ],
             ),
             const Spacer(),
