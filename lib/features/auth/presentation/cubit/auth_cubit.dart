@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:my_pharmacy/features/auth/data/models/user_model.dart';
 import 'package:my_pharmacy/features/auth/data/repo/auth_repo_interface.dart';
 
@@ -16,6 +17,8 @@ class AuthCubit extends Cubit<AuthState> {
       final user = await authRepository.getUserInfo(userCredential.id);
 
       emit(SignInSuccessState(user: user));
+    } on FirebaseAuthException catch (e) {
+      _sigInHandelException(e);
     } catch (e) {
       emit(SignInFailureState(errMessage: e.toString()));
     }
@@ -42,6 +45,8 @@ class AuthCubit extends Cubit<AuthState> {
       );
       await authRepository.updateUserInfo(updatedUser);
       emit(SignUpSuccessState(user: updatedUser));
+    } on FirebaseAuthException catch (e) {
+      _sigUpHandelException(e);
     } catch (e) {
       SignUpFailureState(errMessage: e.toString());
     }
@@ -69,6 +74,31 @@ class AuthCubit extends Cubit<AuthState> {
       emit(UserInfoUpdateSuccessState(user: updatedUser));
     } catch (e) {
       emit(UserInfoUpdateFailureState(errMessage: e.toString()));
+    }
+  }
+
+  void _sigUpHandelException(FirebaseAuthException e) {
+    if (e.code == 'weak-password') {
+      emit(
+          SignUpFailureState(errMessage: 'The password provided is too weak.'));
+    } else if (e.code == 'email-already-in-use') {
+      emit(SignUpFailureState(
+          errMessage: 'The account already exists for that email'));
+    } else if (e.code == 'invalid-email') {
+      emit(SignUpFailureState(errMessage: 'The email is invalid'));
+    } else {
+      emit(SignUpFailureState(errMessage: e.code));
+    }
+  }
+
+  void _sigInHandelException(FirebaseAuthException e) {
+    if (e.code == 'user-not-found') {
+      emit(SignInFailureState(errMessage: "No user found for that email"));
+    } else if (e.code == 'wrong-password') {
+      emit(SignInFailureState(
+          errMessage: 'Wrong password provided for that user'));
+    } else {
+      emit(SignInFailureState(errMessage: "Check your email and password"));
     }
   }
 }
