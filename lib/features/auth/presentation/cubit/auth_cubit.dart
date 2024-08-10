@@ -93,6 +93,7 @@ class AuthCubit extends Cubit<AuthState> {
 
   void _sigInHandelException(FirebaseAuthException e) {
     if (e.code == 'user-not-found') {
+      print("gfggggggggggggggggg");
       emit(SignInFailureState(errMessage: "No user found for that email"));
     } else if (e.code == 'wrong-password') {
       emit(SignInFailureState(
