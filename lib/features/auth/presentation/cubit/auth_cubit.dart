@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:my_pharmacy/features/auth/data/models/user_model.dart';
-import 'package:my_pharmacy/features/auth/data/repo/auth_repo_interface.dart';
+import 'package:my_pharmacy/features/auth/data/repo/auth_repo_abstract.dart';
 
 part 'auth_state.dart';
 
@@ -99,6 +99,26 @@ class AuthCubit extends Cubit<AuthState> {
           errMessage: 'Wrong password provided for that user'));
     } else {
       emit(SignInFailureState(errMessage: "Check your email and password"));
+    }
+  }
+
+  Future<void> sendPasswordResetEmail(String email) async {
+    emit(PasswordResetEmailLoadingState());
+    try {
+      await authRepository.sendPasswordResetEmail(email);
+      emit(PasswordResetEmailSuccessState());
+    } catch (e) {
+      emit(PasswordResetEmailFailureState(errMessage: e.toString()));
+    }
+  }
+
+  Future<void> confirmPasswordReset(String otp, String newPassword) async {
+    emit(PasswordResetConfirmLoadingState());
+    try {
+      await authRepository.confirmPasswordReset(otp, newPassword);
+      emit(PasswordResetConfirmSuccessState());
+    } catch (e) {
+      emit(PasswordResetConfirmFailureState(errMessage: e.toString()));
     }
   }
 }

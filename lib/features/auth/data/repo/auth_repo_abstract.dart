@@ -6,4 +6,6 @@ abstract class AuthRepository {
   Future<void> updateUserInfo(UserModel user);
   Future<UserModel> getUserInfo(String userId);
   Future<void> signOut();
+  Future<void> sendPasswordResetEmail(String email);
+  Future<void> confirmPasswordReset(String otp, String newPassword);
 }

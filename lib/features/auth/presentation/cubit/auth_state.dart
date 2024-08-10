@@ -50,6 +50,36 @@ final class UserInfoUpdateFailureState extends AuthState {
   UserInfoUpdateFailureState({required this.errMessage});
 }
 
+final class EmailVerificationLoadingState extends AuthState {}
+
+final class EmailVerificationSuccessState extends AuthState {}
+
+final class EmailVerificationFailureState extends AuthState {
+  final String errMessage;
+
+  EmailVerificationFailureState({required this.errMessage});
+}
+
+final class PasswordResetEmailLoadingState extends AuthState {}
+
+final class PasswordResetEmailSuccessState extends AuthState {}
+
+final class PasswordResetEmailFailureState extends AuthState {
+  final String errMessage;
+
+  PasswordResetEmailFailureState({required this.errMessage});
+}
+
+final class PasswordResetConfirmLoadingState extends AuthState {}
+
+final class PasswordResetConfirmSuccessState extends AuthState {}
+
+final class PasswordResetConfirmFailureState extends AuthState {
+  final String errMessage;
+
+  PasswordResetConfirmFailureState({required this.errMessage});
+}
+
 final class AuthUnauthenticated extends AuthState {}
 
 final class AuthError extends AuthState {

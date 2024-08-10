@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:my_pharmacy/features/auth/data/models/user_model.dart';
-import 'package:my_pharmacy/features/auth/data/repo/auth_repo_interface.dart';
+import 'package:my_pharmacy/features/auth/data/repo/auth_repo_abstract.dart';
 
 class AuthRepoImplementation implements AuthRepository {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
@@ -48,6 +48,26 @@ class AuthRepoImplementation implements AuthRepository {
       return UserModel.fromJson(doc.data()!);
     } else {
       throw Exception("User not found");
+    }
+  }
+
+  @override
+  @override
+  Future<void> confirmPasswordReset(String otp, String newPassword) async {
+    try {
+      await _firebaseAuth.confirmPasswordReset(
+          code: otp, newPassword: newPassword);
+    } catch (e) {
+      throw Exception('Failed to reset password: $e');
+    }
+  }
+
+  @override
+  Future<void> sendPasswordResetEmail(String email) async {
+    try {
+      await _firebaseAuth.sendPasswordResetEmail(email: email);
+    } catch (e) {
+      throw Exception('Failed to send password reset email: $e');
     }
   }
 }
