@@ -1,58 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:my_pharmacy/core/utils/app_strings.dart';
+import 'package:my_pharmacy/core/widget/custom_title.dart';
+import 'package:my_pharmacy/features/home/presentation/widgets/payment_textfield.dart';
 
 class ChangePasswordSheet extends StatelessWidget {
+  const ChangePasswordSheet({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
+    return  Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 38.0,vertical: 20),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text(
-            'تغيير كلمة المرور',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          ),
-          SizedBox(height: 20),
-          TextField(
-            obscureText: true,
-            decoration: InputDecoration(
-              hintText: 'كلمة المرور الحالية',
-              filled: true,
-              fillColor: Colors.grey[300],
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(8),
-                borderSide: BorderSide.none,
-              ),
-            ),
-          ),
-          SizedBox(height: 10),
-          TextField(
-            obscureText: true,
-            decoration: InputDecoration(
-              hintText: 'كلمة المرور الجديدة',
-              filled: true,
-              fillColor: Colors.grey[300],
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(8),
-                borderSide: BorderSide.none,
-              ),
-            ),
-          ),
-          SizedBox(height: 10),
-          TextField(
-            obscureText: true,
-            decoration: InputDecoration(
-              hintText: 'تأكيد كلمة المرور الجديدة',
-              filled: true,
-              fillColor: Colors.grey[300],
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(8),
-                borderSide: BorderSide.none,
-              ),
-            ),
-          ),
-          SizedBox(height: 20),
+         const TitleText(title: AppStrings.kChangePassword),
+          SizedBox(height: 30.h),
+          const PaymentTextField(hintText: AppStrings.kCurrentPassword),
+                    SizedBox(height: 10.h),
+                   const PaymentTextField(hintText: AppStrings.kNewPassword),
+
+          SizedBox(height: 10.h),
+                   const PaymentTextField(hintText: AppStrings.kConfirmPassword),
+
+          SizedBox(height: 20.h),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -61,16 +33,16 @@ class ChangePasswordSheet extends StatelessWidget {
                   Navigator.pop(context);
                 },
                 style: OutlinedButton.styleFrom(
-                  minimumSize: Size(100, 40),
+                  minimumSize: const Size(100, 40),
                 ),
-                child: Text('إلغاء'),
+                child: const Text('إلغاء'),
               ),
               ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
-                  minimumSize: Size(100, 40),
+                  minimumSize: const Size(100, 40),
                 ),
-                child: Text('حفظ'),
+                child: const Text('حفظ'),
               ),
             ],
           ),

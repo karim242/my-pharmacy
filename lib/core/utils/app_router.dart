@@ -4,6 +4,7 @@ import 'package:my_pharmacy/features/auth/data/presentation/views/forget_passwor
 import 'package:my_pharmacy/features/auth/data/presentation/views/forget_password_three.dart';
 import 'package:my_pharmacy/features/auth/data/presentation/views/sign_in_view.dart';
 import 'package:my_pharmacy/features/auth/data/presentation/views/sign_up_view.dart';
+import 'package:my_pharmacy/features/home/presentation/view/address_saved_view.dart';
 import 'package:my_pharmacy/features/home/presentation/view/categories_view.dart';
 import 'package:my_pharmacy/features/home/presentation/view/category_details_view.dart';
 import 'package:my_pharmacy/features/home/presentation/view/chatting_view.dart';
@@ -33,7 +34,7 @@ abstract class AppRouter {
 
   static const String kPersonalInfoView = '/PersonalInfoView';
 
-
+static const String kAddressSavedView = '/AddressSavedView';
 
 
 
@@ -100,6 +101,10 @@ abstract class AppRouter {
      GoRoute(
       path: kPersonalInfoView,
       builder: (context, state) => const PersonalInfoView()
+    ),
+       GoRoute(
+      path: kAddressSavedView,
+      builder: (context, state) => const AddressSavedView()
     ),
   ]);
 }

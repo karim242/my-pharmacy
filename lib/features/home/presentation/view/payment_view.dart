@@ -18,20 +18,24 @@ class _PaymentViewState extends State<PaymentView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        leading: GestureDetector(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: const Icon(Icons.arrow_back_ios)),
+        title: const TitleText(title: AppStrings.kPaymentString),
+      ),
       body: Padding(
-        padding: EdgeInsets.only(right: 38.0, left: 38.0, top: 70.0.h),
+        padding: const EdgeInsets.only(
+          right: 38.0,
+          left: 38.0,
+        ),
         child: SingleChildScrollView(
           child: Column(
             children: [
-              ListTile(
-                contentPadding: EdgeInsets.zero,
-                leading: GestureDetector(
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                    child: const Icon(Icons.arrow_back_ios)),
-                title: const TitleText(title: AppStrings.kPaymentString),
-              ),
               SizedBox(height: 30.h),
               const PaymentTextField(hintText: AppStrings.kName),
               SizedBox(height: 16.h),

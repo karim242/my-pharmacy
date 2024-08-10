@@ -12,33 +12,35 @@ class CustomBackGround extends StatelessWidget {
 final Widget child;
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Positioned(
+    return SingleChildScrollView(
+      child: Stack(
+        children: [
+          Positioned(
+              
+              child: Image.asset(
+                AppImages.backgroundAuth,
+                height: 264.h,
+                fit: BoxFit.cover,
+                color: AppColors.primaryColor,
+              )),
+          Positioned(
             
             child: Image.asset(
-              AppImages.backgroundAuth,
+              AppImages.shadow,
               height: 264.h,
               fit: BoxFit.cover,
-              color: AppColors.primaryColor,
-            )),
-        Positioned(
-          
-          child: Image.asset(
-            AppImages.shadow,
-            height: 264.h,
-            fit: BoxFit.cover,
+            ),
           ),
-        ),
-        Padding(
-          padding:  EdgeInsets.only(right: 38.0,left: 38.0,top:86.0.h),
-          child:AnimatedCrossFade(
-              firstChild: const SizedBox(), 
-              secondChild: child,
-               crossFadeState: CrossFadeState.showSecond,
-                duration: const Duration(seconds: 1),)
-        ),
-      ],
+          Padding(
+            padding:  EdgeInsets.only(right: 38.0,left: 38.0,top:86.0.h),
+            child:AnimatedCrossFade(
+                firstChild: const SizedBox(), 
+                secondChild: child,
+                 crossFadeState: CrossFadeState.showSecond,
+                  duration: const Duration(seconds: 1),)
+          ),
+        ],
+      ),
     );
   }
 }

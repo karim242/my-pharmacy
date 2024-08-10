@@ -12,7 +12,7 @@ class PersonalInfoView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const TitleText(
-          title: AppStrings.kPersonalInfoView,
+          title: AppStrings.kPersonalInfoString,
         ),
         backgroundColor: Colors.white,
         elevation: 0,

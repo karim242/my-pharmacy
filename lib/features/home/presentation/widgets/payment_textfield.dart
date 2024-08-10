@@ -3,8 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_pharmacy/core/utils/app_colors.dart';
 
 class PaymentTextField extends StatelessWidget {
-  const PaymentTextField({super.key, required this.hintText});
+  const PaymentTextField({super.key, required this.hintText, this.obscureText=false});
   final String hintText;
+ final bool? obscureText ;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -14,9 +15,12 @@ class PaymentTextField extends StatelessWidget {
         // onSubmitted: (data) {
 
         // },
+             obscureText: obscureText!,
+
         decoration: InputDecoration(
           hintText: hintText,
           filled: true,
+          
           //contentPadding:const EdgeInsets.all(16),
           fillColor: AppColors.lightGrayColor,
           border: OutlineInputBorder(

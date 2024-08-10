@@ -36,19 +36,19 @@ class ForgetPasswordSecond extends StatelessWidget {
               children: [
                 const CustomForgetBox(),
                 SizedBox(
-                  width: 15.w,
+                  width: 10.w,
                 ),
                 const CustomForgetBox(),
                 SizedBox(
-                  width: 15.w,
+                  width: 10.w,
                 ),
                 const CustomForgetBox(),
                 SizedBox(
-                  width: 15.w,
+                  width: 10.w,
                 ),
                 const CustomForgetBox(),
                 SizedBox(
-                  width: 15.w,
+                  width: 10.w,
                 ),
                 const CustomForgetBox(),
               ],

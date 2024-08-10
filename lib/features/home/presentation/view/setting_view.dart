@@ -43,7 +43,7 @@ class _SettingViewState extends State<SettingView> {
           children: [
             ListTile(
               leading: const Icon(Icons.arrow_back_ios),
-              title: const Text('المعلومات الشخصية'),
+              title: const Text(AppStrings.kPersonalInfoString),
               onTap: () {
                 GoRouter.of(context).push(AppRouter.kPersonalInfoView);
                 // Handle navigation to personal information screen
@@ -52,9 +52,10 @@ class _SettingViewState extends State<SettingView> {
             const Divider(),
             ListTile(
               leading: const Icon(Icons.arrow_back_ios),
-              title: const Text('العنوان المحفوظ'),
+              title: const Text(AppStrings.kSaveTitle),
               onTap: () {
                 // Handle navigation to saved addresses screen
+                GoRouter.of(context).push(AppRouter.kAddressSavedView);
               },
             ),
             const Divider(),
