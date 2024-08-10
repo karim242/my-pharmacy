@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'package:my_pharmacy/core/routes/routes_names.dart';
 import 'package:my_pharmacy/features/auth/presentation/views/forget_password_frist.dart';
 import 'package:my_pharmacy/features/auth/presentation/views/forget_password_second.dart';
 import 'package:my_pharmacy/features/auth/presentation/views/forget_password_three.dart';
@@ -17,73 +18,59 @@ import 'package:my_pharmacy/features/home/presentation/view/root_view.dart';
 import 'package:my_pharmacy/features/splash/view/splash_view.dart';
 
 abstract class AppRouter {
-  static const String kSplashView = '/';
-  static const String kSiginView = '/siginView';
-  static const String kSigUpView = '/signUpView';
-  static const String kForgetPassOne = '/ForgetPasswordFrist';
-  static const String kForgetPassTwo = '/ForgetPasswordSecond';
-  static const String kForgetPassThree = '/ForgetPasswordThree';
-  static const String kRootView = '/RootView';
-  static const String kNearestPharmacyView = '/NearestPharmacyView';
-  static const String kOffer50View = '/Offer50View';
-  static const String kCategoryView = '/CategoryView';
-  static const String kCategoryDetailsView = '/CategoryDetailsView';
-  static const String kPharmacyDetailsView = '/pharmacyDetailsView';
-  static const String kChattingView = '/ChattingView';
-  static const String kPaymentView = '/PaymentView';
-
-  static const String kPersonalInfoView = '/PersonalInfoView';
-
-  static const String kAddressSavedView = '/AddressSavedView';
-
   static final router = GoRouter(routes: [
     GoRoute(
-      path: kSplashView,
+      path: RoutesNames.kSplashView,
       builder: (context, state) => const SplashView(),
     ),
     GoRoute(
-      path: kSiginView,
+      path: RoutesNames.kSiginView,
       builder: (context, state) => const SignInView(),
     ),
     GoRoute(
-      path: kSigUpView,
+      path: RoutesNames.kSigUpView,
       builder: (context, state) => const SignUpView(),
     ),
     GoRoute(
-      path: kForgetPassOne,
+      path: RoutesNames.kForgetPassOne,
       builder: (context, state) => const ForgetPasswordFrist(),
     ),
     GoRoute(
-      path: kForgetPassTwo,
+      path: RoutesNames.kForgetPassTwo,
       builder: (context, state) => const ForgetPasswordSecond(),
     ),
     GoRoute(
-        path: kForgetPassThree,
+        path: RoutesNames.kForgetPassThree,
         builder: (context, state) => const ForgetPasswordThree()),
-    GoRoute(path: kRootView, builder: (context, state) => const RootView()),
     GoRoute(
-        path: kNearestPharmacyView,
+        path: RoutesNames.kRootView,
+        builder: (context, state) => const RootView()),
+    GoRoute(
+        path: RoutesNames.kNearestPharmacyView,
         builder: (context, state) => const NearestPharmacyView()),
     GoRoute(
-        path: kOffer50View, builder: (context, state) => const Offer50View()),
+        path: RoutesNames.kOffer50View,
+        builder: (context, state) => const Offer50View()),
     GoRoute(
-        path: kCategoryView,
+        path: RoutesNames.kCategoryView,
         builder: (context, state) => const CategoriesView()),
     GoRoute(
-        path: kCategoryDetailsView,
+        path: RoutesNames.kCategoryDetailsView,
         builder: (context, state) => const CategoryDetailsView()),
     GoRoute(
-        path: kPharmacyDetailsView,
+        path: RoutesNames.kPharmacyDetailsView,
         builder: (context, state) => const PharmacyDetailsView()),
     GoRoute(
-        path: kChattingView, builder: (context, state) => const ChattingView()),
+        path: RoutesNames.kChattingView,
+        builder: (context, state) => const ChattingView()),
     GoRoute(
-        path: kPaymentView, builder: (context, state) => const PaymentView()),
+        path: RoutesNames.kPaymentView,
+        builder: (context, state) => const PaymentView()),
     GoRoute(
-        path: kPersonalInfoView,
+        path: RoutesNames.kPersonalInfoView,
         builder: (context, state) => const PersonalInfoView()),
     GoRoute(
-        path: kAddressSavedView,
+        path: RoutesNames.kAddressSavedView,
         builder: (context, state) => const AddressSavedView()),
   ]);
 }

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:my_pharmacy/core/routes/routes_names.dart';
 import 'package:my_pharmacy/core/utils/app_colors.dart';
 import 'package:my_pharmacy/core/utils/app_images.dart';
-import 'package:my_pharmacy/core/utils/app_router.dart';
+import 'package:my_pharmacy/core/routes/app_router.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -13,7 +14,6 @@ class SplashView extends StatefulWidget {
 
 class _SplashViewState extends State<SplashView> {
   @override
-
   void initState() {
     super.initState();
     _navigateToAuth();
@@ -21,13 +21,12 @@ class _SplashViewState extends State<SplashView> {
 
   _navigateToAuth() async {
     await Future.delayed(const Duration(milliseconds: 3000), () {
-       GoRouter.of(context).push(AppRouter.kSiginView);
+      GoRouter.of(context).push(RoutesNames.kSiginView);
     }); // Delay for 3 seconds
     // Navigate to the main screen
-  
   }
-    @override
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.primaryColor,
@@ -35,12 +34,12 @@ class _SplashViewState extends State<SplashView> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Center(
-            child:AnimatedCrossFade(
-              firstChild: const SizedBox(), 
-              secondChild: Image.asset(AppImages.logo),
-               crossFadeState: CrossFadeState.showSecond,
-                duration: const Duration(seconds: 1),)
-          ),
+              child: AnimatedCrossFade(
+            firstChild: const SizedBox(),
+            secondChild: Image.asset(AppImages.logo),
+            crossFadeState: CrossFadeState.showSecond,
+            duration: const Duration(seconds: 1),
+          )),
         ],
       ),
     );

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
+import 'package:my_pharmacy/core/routes/routes_names.dart';
 import 'package:my_pharmacy/core/utils/app_colors.dart';
 import 'package:my_pharmacy/core/utils/app_images.dart';
-import 'package:my_pharmacy/core/utils/app_router.dart';
+import 'package:my_pharmacy/core/routes/app_router.dart';
 import 'package:my_pharmacy/core/utils/text_styles.dart';
 
 class CategoryList extends StatelessWidget {
@@ -17,14 +18,14 @@ class CategoryList extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           itemCount: 5,
           itemBuilder: (context, index) {
-            return  Padding(
+            return Padding(
               padding: const EdgeInsets.only(left: 10.0),
               child: GestureDetector(
-                onTap: (){
-                  // Add your onTap action here
-                  GoRouter.of(context).push(AppRouter.kCategoryView);
-                },
-                child:const CategoryItem()),
+                  onTap: () {
+                    // Add your onTap action here
+                    GoRouter.of(context).push(RoutesNames.kCategoryView);
+                  },
+                  child: const CategoryItem()),
             );
           }),
     );

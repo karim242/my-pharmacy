@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:my_pharmacy/core/routes/routes_names.dart';
 import 'package:my_pharmacy/core/utils/app_colors.dart';
 import 'package:my_pharmacy/core/utils/app_images.dart';
-import 'package:my_pharmacy/core/utils/app_router.dart';
+import 'package:my_pharmacy/core/routes/app_router.dart';
 import 'package:my_pharmacy/core/utils/text_styles.dart';
 import 'package:my_pharmacy/features/auth/presentation/widgets/custom_background.dart';
 import 'package:my_pharmacy/features/auth/presentation/widgets/custom_button.dart';
@@ -50,7 +51,7 @@ class SignInView extends StatelessWidget {
                 alignment: Alignment.centerRight,
                 child: GestureDetector(
                   onTap: () {
-                    GoRouter.of(context).push(AppRouter.kForgetPassOne);
+                    GoRouter.of(context).push(RoutesNames.kForgetPassOne);
                   },
                   child: Text(
                     ' هل نسيت كلمة المرور؟',
@@ -65,7 +66,7 @@ class SignInView extends StatelessWidget {
             CustomButton(
               lebale: 'تسجيل الدخول',
               onTap: () {
-                GoRouter.of(context).push(AppRouter.kRootView);
+                GoRouter.of(context).push(RoutesNames.kRootView);
               },
             ),
             SizedBox(
