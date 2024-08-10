@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:my_pharmacy/features/auth/data/models/user_model.dart';
 import 'package:my_pharmacy/features/auth/data/repo/auth_repo_abstract.dart';
@@ -70,4 +69,6 @@ class AuthRepoImplementation implements AuthRepository {
       throw Exception('Failed to send password reset email: $e');
     }
   }
+  
+  
 }
