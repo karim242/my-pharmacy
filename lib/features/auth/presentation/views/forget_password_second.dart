@@ -5,9 +5,9 @@ import 'package:my_pharmacy/core/utils/app_colors.dart';
 import 'package:my_pharmacy/core/utils/app_images.dart';
 import 'package:my_pharmacy/core/utils/app_router.dart';
 import 'package:my_pharmacy/core/utils/text_styles.dart';
-import 'package:my_pharmacy/features/auth/data/presentation/widgets/custom_background.dart';
-import 'package:my_pharmacy/features/auth/data/presentation/widgets/custom_button.dart';
-import 'package:my_pharmacy/features/auth/data/presentation/widgets/custom_forget_box.dart';
+import 'package:my_pharmacy/features/auth/presentation/widgets/custom_background.dart';
+import 'package:my_pharmacy/features/auth/presentation/widgets/custom_button.dart';
+import 'package:my_pharmacy/features/auth/presentation/widgets/custom_forget_box.dart';
 
 class ForgetPasswordSecond extends StatelessWidget {
   const ForgetPasswordSecond({super.key});

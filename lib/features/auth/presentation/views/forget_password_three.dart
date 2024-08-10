@@ -3,9 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_pharmacy/core/utils/app_colors.dart';
 import 'package:my_pharmacy/core/utils/app_images.dart';
 import 'package:my_pharmacy/core/utils/text_styles.dart';
-import 'package:my_pharmacy/features/auth/data/presentation/widgets/custom_background.dart';
-import 'package:my_pharmacy/features/auth/data/presentation/widgets/custom_button.dart';
-import 'package:my_pharmacy/features/auth/data/presentation/widgets/custom_text_field.dart';
+import 'package:my_pharmacy/features/auth/presentation/widgets/custom_background.dart';
+import 'package:my_pharmacy/features/auth/presentation/widgets/custom_button.dart';
+import 'package:my_pharmacy/features/auth/presentation/widgets/custom_text_field.dart';
 
 class ForgetPasswordThree extends StatelessWidget {
   const ForgetPasswordThree({super.key});
@@ -30,19 +30,21 @@ class ForgetPasswordThree extends StatelessWidget {
           SizedBox(
             height: 40.h,
           ),
-            const CustomTextField(
-                labelText: 'كلمة المرور الجديدة ',
-              ),
-               SizedBox(
-                height: 26.h,
-              ),
-              const CustomTextField(
-                labelText: ' تأكيد كلمة المرور الجديدة',
-              ),
-                SizedBox(
-                height: 26.h,
-              ),
-              const CustomButton(lebale: 'انتهيت',),
+          const CustomTextField(
+            labelText: 'كلمة المرور الجديدة ',
+          ),
+          SizedBox(
+            height: 26.h,
+          ),
+          const CustomTextField(
+            labelText: ' تأكيد كلمة المرور الجديدة',
+          ),
+          SizedBox(
+            height: 26.h,
+          ),
+          const CustomButton(
+            lebale: 'انتهيت',
+          ),
         ]),
       ),
     );
