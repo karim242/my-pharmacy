@@ -1,5 +1,8 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:my_pharmacy/core/routes/routes_names.dart';
+import 'package:my_pharmacy/core/services/service_locator.dart';
+import 'package:my_pharmacy/features/auth/presentation/cubit/auth_cubit.dart';
 import 'package:my_pharmacy/features/auth/presentation/views/forget_password_frist.dart';
 import 'package:my_pharmacy/features/auth/presentation/views/forget_password_second.dart';
 import 'package:my_pharmacy/features/auth/presentation/views/forget_password_three.dart';
@@ -25,11 +28,18 @@ abstract class AppRouter {
     ),
     GoRoute(
       path: RoutesNames.kSiginView,
-      builder: (context, state) => const SignInView(),
+      builder: (context, state) => BlocProvider(
+        create: (context) => getIt<AuthCubit>(),
+        child: const SignInView(),
+      ),
     ),
     GoRoute(
       path: RoutesNames.kSigUpView,
-      builder: (context, state) => const SignUpView(),
+      
+       builder: (context, state) => BlocProvider(
+        create: (context) => getIt<AuthCubit>(),
+        child:  const SignUpView(),
+    ),
     ),
     GoRoute(
       path: RoutesNames.kForgetPassOne,

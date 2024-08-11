@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_pharmacy/core/routes/app_router.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:my_pharmacy/core/services/service_locator.dart';
 import 'package:my_pharmacy/firebase_options.dart';
 
 void main() async {
@@ -11,6 +12,8 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+    setupLocator();
+
   runApp(const Mypharmacy());
 }
 

@@ -20,7 +20,7 @@ class _SplashViewState extends State<SplashView> {
 
   _navigateToAuth() async {
     await Future.delayed(const Duration(milliseconds: 3000), () {
-      GoRouter.of(context).push(RoutesNames.kSiginView);
+      GoRouter.of(context).replace(RoutesNames.kSiginView);
     }); // Delay for 3 seconds
     // Navigate to the main screen
   }
