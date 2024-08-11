@@ -23,7 +23,7 @@ class InnerSearchRow extends StatelessWidget {
       child: Icon(Icons.arrow_back_ios_new,size: 19,)),
               Padding(
       padding:  EdgeInsets.only(right: 3.0.w),
-      child:  CustomSearchBox(),
+      child:  const CustomSearchBox(),
     ),
             ],
              );

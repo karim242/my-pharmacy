@@ -3,7 +3,6 @@ import 'package:go_router/go_router.dart';
 import 'package:my_pharmacy/core/routes/routes_names.dart';
 import 'package:my_pharmacy/core/utils/app_colors.dart';
 import 'package:my_pharmacy/core/utils/app_images.dart';
-import 'package:my_pharmacy/core/routes/app_router.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
