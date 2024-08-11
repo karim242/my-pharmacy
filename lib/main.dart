@@ -25,7 +25,7 @@ class Mypharmacy extends StatelessWidget {
         splitScreenMode: true,
         builder: (_, child) {
           return MaterialApp.router(
-            routerConfig: AppRouter.router,
+              routerConfig: AppRouter.router,
             debugShowCheckedModeBanner: false,
             locale: const Locale('ar'),
             localizationsDelegates: const [
