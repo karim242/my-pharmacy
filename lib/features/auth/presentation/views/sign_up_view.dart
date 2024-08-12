@@ -19,9 +19,8 @@ class SignUpView extends StatefulWidget {
 }
 
 class _SignUpViewState extends State<SignUpView> {
-
-final TextEditingController _nameController = TextEditingController();
-final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
 
   final TextEditingController _phoneController = TextEditingController();
   final TextEditingController _addressController = TextEditingController();
@@ -36,9 +35,6 @@ final TextEditingController _emailController = TextEditingController();
     _passwordController.dispose();
     super.dispose();
   }
-
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +57,6 @@ final TextEditingController _emailController = TextEditingController();
               ),
               SizedBox(
                 height: 24.h,
-
               ),
               CustomTextField(
                 labelText: AppStrings.kName,
@@ -70,7 +65,7 @@ final TextEditingController _emailController = TextEditingController();
               SizedBox(
                 height: 26.h,
               ),
-               CustomTextField(
+              CustomTextField(
                 labelText: AppStrings.kEmail,
                 controller: _emailController,
               ),
@@ -104,19 +99,13 @@ final TextEditingController _emailController = TextEditingController();
                 onTap: () {
                   BlocProvider.of<AuthCubit>(context).signUp(
                     email: _emailController.text,
-                     password:  _passwordController.text, 
-                     name: _nameController.text,
-                      phone: _phoneController.text, 
-                      address:   _addressController.text
-,
-                    
-                  
-                   
-                     );
+                    password: _passwordController.text,
+                    name: _nameController.text,
+                    phone: _phoneController.text,
+                    address: _addressController.text,
+                  );
                 },
               )
-
-
             ]),
           )),
     );
