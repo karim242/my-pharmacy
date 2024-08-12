@@ -4,7 +4,6 @@ import 'package:go_router/go_router.dart';
 import 'package:my_pharmacy/core/routes/routes_names.dart';
 import 'package:my_pharmacy/core/utils/app_colors.dart';
 import 'package:my_pharmacy/core/utils/app_images.dart';
-import 'package:my_pharmacy/core/routes/app_router.dart';
 import 'package:my_pharmacy/core/utils/text_styles.dart';
 import 'package:my_pharmacy/features/auth/presentation/widgets/custom_background.dart';
 import 'package:my_pharmacy/features/auth/presentation/widgets/custom_button.dart';

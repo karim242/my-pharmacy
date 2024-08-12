@@ -16,7 +16,7 @@ class SearchRow extends StatelessWidget {
       children: [
         Padding(
           padding:  EdgeInsets.only(left: 2.0.w),
-          child:  CustomSearchBox(),
+          child:  const CustomSearchBox(),
         ),
        
            SvgPicture.asset(AppImages.handBagIcon,),

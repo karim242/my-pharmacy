@@ -9,10 +9,14 @@ class CustomTextField extends StatelessWidget {
       required this.labelText,
       this.maxLines = 1,
       this.onSaved,
-      this.onChanged});
+      this.onChanged,
+      this.controller,
+       this.obscureText=false});
 
   final String labelText;
   final int maxLines;
+  final TextEditingController? controller;
+  final bool? obscureText;
 
   final void Function(String?)? onSaved;
 
@@ -22,6 +26,8 @@ class CustomTextField extends StatelessWidget {
     return SizedBox(
       height: 40.h,
       child: TextFormField(
+        controller: controller,
+        obscureText: obscureText!,
         style: const TextStyle(color: AppColors.whiteColor),
         onChanged: onChanged,
         onSaved: onSaved,
@@ -36,8 +42,6 @@ class CustomTextField extends StatelessWidget {
         maxLines: maxLines,
         decoration: InputDecoration(
           labelText: labelText,
-         
-         
           labelStyle: TextStyles.textStyle12,
           fillColor: AppColors.whiteColor,
           enabledBorder: buildBorder(),

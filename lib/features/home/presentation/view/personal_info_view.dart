@@ -44,7 +44,7 @@ class PersonalInfoView extends StatelessWidget {
                     borderRadius:
                         BorderRadius.vertical(top: Radius.circular(25.0)),
                   ),
-                  builder: (context) => ChangePasswordSheet(),
+                  builder: (context) => const ChangePasswordSheet(),
                 );
               },
               child: const Text(
