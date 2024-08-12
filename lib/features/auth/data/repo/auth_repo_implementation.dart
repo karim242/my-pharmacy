@@ -8,11 +8,13 @@ class AuthRepoImplementation implements AuthRepository {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   @override
-  Future<void> signUp(String email, String password) async {
-    await _firebaseAuth.createUserWithEmailAndPassword(
+  Future<User> signUp(String email, String password) async {
+  final UserCredential userCredential =  await _firebaseAuth.createUserWithEmailAndPassword(
       email: email,
       password: password,
     );
+    final user = userCredential.user;
+    return user!;
   }
 
   @override
@@ -69,6 +71,15 @@ class AuthRepoImplementation implements AuthRepository {
     } catch (e) {
       throw Exception('Failed to send password reset email: $e');
     }
+  }
+  
+  @override
+  Future<void> addUser(UserModel user) async{
+    CollectionReference users = FirebaseFirestore.instance.collection("users");
+
+    await users.add(user.toJson());
+
+
   }
   
   

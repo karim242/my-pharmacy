@@ -33,18 +33,19 @@ required String phone,
   ) async {
     emit(SignUpLoadingState());
     try {
-      await authRepository.signUp(email, password);
-      final user = await authRepository.signIn(email, password);
-      currentUser = user;
-      final updatedUser = UserModel(
-        id: user.id,
+      User  user =  await authRepository.signUp(email, password);
+      //final user = await authRepository.signIn(email, password);
+        final uid = user.uid;
+    //  currentUser = user;
+      final newUser = UserModel(
+        id: uid,
         name: name,
-        email: user.email,
+        email: email,
         phoneNumber: phone,
         address: address,
       );
-      await authRepository.updateUserInfo(updatedUser);
-      emit(SignUpSuccessState(user: updatedUser));
+      await authRepository.addUser(newUser);
+      emit(SignUpSuccessState(user: newUser));
     } on FirebaseAuthException catch (e) {
       _sigUpHandelException(e);
     } catch (e) {
