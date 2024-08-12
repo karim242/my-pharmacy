@@ -54,6 +54,12 @@ class AuthCubit extends Cubit<AuthState> {
     }
   }
 
+  Future<void>signOut()async {
+ await authRepository.signOut();
+    
+    
+  }
+
   Future<void> updateUserInfo(
     String name,
     String phone,

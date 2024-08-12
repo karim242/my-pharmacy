@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:my_pharmacy/core/routes/routes_names.dart';
-import 'package:my_pharmacy/core/services/service_locator.dart';
 import 'package:my_pharmacy/core/utils/app_colors.dart';
 import 'package:my_pharmacy/core/utils/app_images.dart';
 import 'package:my_pharmacy/core/utils/app_strings.dart';
@@ -15,25 +14,15 @@ import 'package:my_pharmacy/features/auth/presentation/widgets/custom_button.dar
 import 'package:my_pharmacy/features/auth/presentation/widgets/custom_row_login.dart';
 import 'package:my_pharmacy/features/auth/presentation/widgets/custom_text_field.dart';
 
-class SignInView extends StatefulWidget {
-  const SignInView({super.key});
+class SignInView extends StatelessWidget {
+   SignInView({super.key});
 
-  @override
-  State<SignInView> createState() => _SignInViewState();
-}
-
-class _SignInViewState extends State<SignInView> {
+ 
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey();
 
-  @override
-  void dispose() {
-    _emailController.dispose();
-    _passwordController.dispose();
-    super.dispose();
-  }
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,7 +48,7 @@ class _SignInViewState extends State<SignInView> {
                   const Align(
                     alignment: Alignment.centerRight,
                     child: Text(
-                      "تسجيل الدخول",
+                   AppStrings.kSignIn ,
                       style: TextStyles.textStyle20,
                     ),
                   ),
@@ -67,7 +56,7 @@ class _SignInViewState extends State<SignInView> {
                     height: 24.h,
                   ),
                   CustomTextField(
-                    labelText: AppStrings.kPhone,
+                    labelText: AppStrings.kEmail,
                     controller: _emailController,
                   ),
                   SizedBox(
@@ -76,6 +65,7 @@ class _SignInViewState extends State<SignInView> {
                   CustomTextField(
                     controller: _passwordController,
                     labelText: AppStrings.kPassword,
+                    obscureText: true,
                   ),
                   SizedBox(
                     height: 20.h,

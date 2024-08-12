@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:my_pharmacy/core/routes/routes_names.dart';
 import 'package:my_pharmacy/core/utils/app_strings.dart';
 import 'package:my_pharmacy/core/widget/custom_title.dart';
+import 'package:my_pharmacy/features/auth/presentation/cubit/auth_cubit.dart';
 
 class SettingView extends StatefulWidget {
   const SettingView({super.key});
@@ -73,6 +75,8 @@ class _SettingViewState extends State<SettingView> {
               child: TextButton(
                 onPressed: () {
                   // Handle logout action
+                  BlocProvider.of<AuthCubit>(context).signOut();
+                  GoRouter.of(context).replace(RoutesNames.kSplashView);
                 },
                 child: const Text(
                   'تسجيل الخروج',

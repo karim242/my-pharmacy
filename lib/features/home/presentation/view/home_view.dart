@@ -23,18 +23,16 @@ class HomeView extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                TextButton(
-                    onPressed: () {
-                      BlocProvider.of<HomeCubit>(context).loadCategories();
-                    },
-                    child: const Text('تسجيل الخروج')),
+                // TextButton(
+                //     onPressed: () {
+                //       BlocProvider.of<HomeCubit>(context).loadCategories();
+                //     },
+                //     child: const Text('تسجيل الخروج')),
                 // SizedBox(height: 50.0.h),
                 const SearchRow(),
                 SizedBox(height: 21.0.h),
                 const TitleText(title: AppStrings.kCategory),
-                SizedBox(
-                    height: 10.0
-                        .h), // Add space between SearchRow and CategoriesRow
+                SizedBox(height: 10.0.h), // Add space between SearchRow and CategoriesRow
                 // Add space between SearchRow and CategoriesRow
                 const CategoryList(),
                 SizedBox(height: 25.0.h),

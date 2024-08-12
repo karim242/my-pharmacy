@@ -11,6 +11,7 @@ import 'package:my_pharmacy/features/auth/presentation/cubit/auth_cubit.dart';
 import 'package:my_pharmacy/features/auth/presentation/widgets/custom_background.dart';
 import 'package:my_pharmacy/features/auth/presentation/widgets/custom_button.dart';
 import 'package:my_pharmacy/features/auth/presentation/widgets/custom_text_field.dart';
+import 'package:my_pharmacy/core/widget/custom_toast.dart';
 
 class SignUpView extends StatelessWidget {
   SignUpView({super.key});
@@ -29,13 +30,12 @@ class SignUpView extends StatelessWidget {
         body: BlocConsumer<AuthCubit, AuthState>(
           listener: (context, state) {
             if (state is SignUpSuccessState) {
-              //  _showToast("تم إنشاء الحساب بنجاح!");
-              // يمكنك التنقل إلى الشاشة الرئيسية أو أي شاشة أخرى بعد النجاح
+                showToast("تم إنشاء الحساب بنجاح!");
               GoRouter.of(context).push(
                 RoutesNames.kRootView,
               );
             } else if (state is SignUpFailureState) {
-              //  _showToast(state.errMessage);
+               showToast(state.errMessage);
             }
           },
           builder: (context, state) {

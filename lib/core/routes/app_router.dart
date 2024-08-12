@@ -31,7 +31,7 @@ abstract class AppRouter {
       path: RoutesNames.kSiginView,
       builder: (context, state) => BlocProvider(
         create: (context) => getIt<AuthCubit>(),
-        child: const SignInView(),
+        child: SignInView(),
       ),
     ),
     GoRoute(
@@ -54,8 +54,15 @@ abstract class AppRouter {
         builder: (context, state) => const ForgetPasswordThree()),
     GoRoute(
         path: RoutesNames.kRootView,
-        builder: (context, state) => BlocProvider(
-              create: (context) => getIt<HomeCubit>(),
+        builder: (context, state) => MultiBlocProvider(
+              providers: [
+                BlocProvider(
+                  create: (context) => getIt<HomeCubit>(),
+                ),
+                BlocProvider(
+                  create: (context) => getIt<AuthCubit>(),
+                ),
+              ],
               child: const RootView(),
             )),
     GoRoute(
