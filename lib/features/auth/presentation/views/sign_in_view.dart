@@ -41,7 +41,7 @@ class _SignInViewState extends State<SignInView> {
       body: BlocConsumer<AuthCubit, AuthState>(
         listener: (context, state) {
           if (state is SignInSuccessState) {
-            showToast("msg");
+            GoRouter.of(context).push(RoutesNames.kRootView);
           } else if (state is SignInFailureState) {
             showToast(state.errMessage);
           }
@@ -108,7 +108,6 @@ class _SignInViewState extends State<SignInView> {
                                 _emailController.text,
                                 _passwordController.text,
                               );
-                              GoRouter.of(context).push(RoutesNames.kRootView);
                             }
                           },
                         ),

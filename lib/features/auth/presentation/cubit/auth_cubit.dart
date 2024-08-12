@@ -10,6 +10,7 @@ class AuthCubit extends Cubit<AuthState> {
   UserModel? currentUser;
 
   AuthCubit(this.authRepository) : super(AuthInitial());
+
   Future<void> signIn(String email, String password) async {
     emit(SignInLoadingState());
     try {
@@ -24,19 +25,18 @@ class AuthCubit extends Cubit<AuthState> {
     }
   }
 
-  Future<void> signUp(
-   {required String email,
+  Future<void> signUp({
+    required String email,
     required String password,
-   required String name,
-required String phone,
-   required  String address,}
-  ) async {
+    required String name,
+    required String phone,
+    required String address,
+  }) async {
     emit(SignUpLoadingState());
     try {
-      User  user =  await authRepository.signUp(email, password);
-      //final user = await authRepository.signIn(email, password);
-        final uid = user.uid;
-    //  currentUser = user;
+      final userCredential = await authRepository.signUp(email, password);
+      final uid = userCredential.user!.uid;
+
       final newUser = UserModel(
         id: uid,
         name: name,
@@ -45,11 +45,12 @@ required String phone,
         address: address,
       );
       await authRepository.addUser(newUser);
+
       emit(SignUpSuccessState(user: newUser));
     } on FirebaseAuthException catch (e) {
       _sigUpHandelException(e);
     } catch (e) {
-      SignUpFailureState(errMessage: e.toString());
+      emit(SignUpFailureState(errMessage: e.toString()));
     }
   }
 
@@ -94,7 +95,6 @@ required String phone,
 
   void _sigInHandelException(FirebaseAuthException e) {
     if (e.code == 'user-not-found') {
-      print("gfggggggggggggggggg");
       emit(SignInFailureState(errMessage: "No user found for that email"));
     } else if (e.code == 'wrong-password') {
       emit(SignInFailureState(
