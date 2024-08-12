@@ -12,102 +12,114 @@ import 'package:my_pharmacy/features/auth/presentation/widgets/custom_background
 import 'package:my_pharmacy/features/auth/presentation/widgets/custom_button.dart';
 import 'package:my_pharmacy/features/auth/presentation/widgets/custom_text_field.dart';
 
-class SignUpView extends StatelessWidget {
-  SignUpView({super.key});
+class SignUpView extends StatefulWidget {
+  const SignUpView({super.key});
 
-  final TextEditingController _nameController = TextEditingController();
-  final TextEditingController _emailController = TextEditingController();
+  @override
+  State<SignUpView> createState() => _SignUpViewState();
+}
+
+class _SignUpViewState extends State<SignUpView> {
+
+final TextEditingController _nameController = TextEditingController();
+final TextEditingController _emailController = TextEditingController();
 
   final TextEditingController _phoneController = TextEditingController();
   final TextEditingController _addressController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
   @override
+  void dispose() {
+    _nameController.dispose();
+    _emailController.dispose();
+    _phoneController.dispose();
+    _addressController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
+
+
+
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: AppColors.primaryColor,
-        body: BlocConsumer<AuthCubit, AuthState>(
-          listener: (context, state) {
-            if (state is SignUpSuccessState) {
-              //  _showToast("تم إنشاء الحساب بنجاح!");
-              // يمكنك التنقل إلى الشاشة الرئيسية أو أي شاشة أخرى بعد النجاح
-              GoRouter.of(context).push(
-                RoutesNames.kSigUpView,
-              );
-            } else if (state is SignUpFailureState) {
-              //  _showToast(state.errMessage);
-            }
-          },
-          builder: (context, state) {
-            return CustomBackGround(
-              child: Column(children: [
-                Image.asset(AppImages.logo),
-                SizedBox(
-                  height: 74.h,
+    return BlocProvider(
+      create: (context) => getIt<AuthCubit>(),
+      child: Scaffold(
+          backgroundColor: AppColors.primaryColor,
+          body: CustomBackGround(
+            child: Column(children: [
+              Image.asset(AppImages.logo),
+              SizedBox(
+                height: 74.h,
+              ),
+              const Align(
+                alignment: Alignment.centerRight,
+                child: Text(
+                  AppStrings.kCreateAccount,
+                  style: TextStyles.textStyle20,
                 ),
-                const Align(
-                  alignment: Alignment.centerRight,
-                  child: Text(
-                    AppStrings.kCreateAccount,
-                    style: TextStyles.textStyle20,
-                  ),
-                ),
-                SizedBox(
-                  height: 24.h,
-                ),
-                CustomTextField(
-                  labelText: AppStrings.kName,
-                  controller: _nameController,
-                ),
-                SizedBox(
-                  height: 26.h,
-                ),
-                CustomTextField(
-                  labelText: AppStrings.kEmail,
-                  controller: _emailController,
-                ),
-                SizedBox(
-                  height: 26.h,
-                ),
-                CustomTextField(
-                  labelText: AppStrings.kPhone,
-                  controller: _phoneController,
-                ),
-                SizedBox(
-                  height: 26.h,
-                ),
-                CustomTextField(
-                  labelText: AppStrings.kAddress,
-                  controller: _addressController,
-                ),
-                SizedBox(
-                  height: 26.h,
-                ),
-                CustomTextField(
-                  labelText: AppStrings.kPassword,
-                  controller: _passwordController,
-                  obscureText: true,
-                ),
-                SizedBox(
-                  height: 23.h,
-                ),
-                state is SignUpLoadingState
-                    ? const CircularProgressIndicator()
-                    : CustomButton(
-                        lebale: AppStrings.kCreateAccount,
-                        onTap: () {
-                          BlocProvider.of<AuthCubit>(context).signUp(
-                            email: _emailController.text,
-                            password: _passwordController.text,
-                            name: _nameController.text,
-                            phone: _phoneController.text,
-                            address: _addressController.text,
-                          );
-                        },
-                      )
-              ]),
-            );
-          },
-        ));
+              ),
+              SizedBox(
+                height: 24.h,
+
+              ),
+              CustomTextField(
+                labelText: AppStrings.kName,
+                controller: _nameController,
+              ),
+              SizedBox(
+                height: 26.h,
+              ),
+               CustomTextField(
+                labelText: AppStrings.kEmail,
+                controller: _emailController,
+              ),
+              SizedBox(
+                height: 26.h,
+              ),
+              CustomTextField(
+                labelText: AppStrings.kPhone,
+                controller: _phoneController,
+              ),
+              SizedBox(
+                height: 26.h,
+              ),
+              CustomTextField(
+                labelText: AppStrings.kAddress,
+                controller: _addressController,
+              ),
+              SizedBox(
+                height: 26.h,
+              ),
+              CustomTextField(
+                labelText: AppStrings.kPassword,
+                controller: _passwordController,
+                obscureText: true,
+              ),
+              SizedBox(
+                height: 23.h,
+              ),
+              CustomButton(
+                lebale: AppStrings.kCreateAccount,
+                onTap: () {
+                  BlocProvider.of<AuthCubit>(context).signUp(
+                    email: _emailController.text,
+                     password:  _passwordController.text, 
+                     name: _nameController.text,
+                      phone: _phoneController.text, 
+                      address:   _addressController.text
+,
+                    
+                  
+                   
+                     );
+                },
+              )
+
+
+            ]),
+          )),
+    );
   }
 }
