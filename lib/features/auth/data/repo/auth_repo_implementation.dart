@@ -27,7 +27,7 @@ class AuthRepoImplementation implements AuthRepository {
     if (user != null) {
       return getUserInfo(user.uid);
     } else {
-      throw Exception("Failed to sign in");
+      throw Exception("Failed to sign in dfg");
     }
   }
 
