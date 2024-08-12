@@ -32,7 +32,7 @@ class SignUpView extends StatelessWidget {
               //  _showToast("تم إنشاء الحساب بنجاح!");
               // يمكنك التنقل إلى الشاشة الرئيسية أو أي شاشة أخرى بعد النجاح
               GoRouter.of(context).push(
-                RoutesNames.kSigUpView,
+                RoutesNames.kRootView,
               );
             } else if (state is SignUpFailureState) {
               //  _showToast(state.errMessage);
