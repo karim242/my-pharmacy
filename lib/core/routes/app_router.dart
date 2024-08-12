@@ -38,7 +38,7 @@ abstract class AppRouter {
       
        builder: (context, state) => BlocProvider(
         create: (context) => getIt<AuthCubit>(),
-        child:  const SignUpView(),
+        child:   SignUpView(),
     ),
     ),
     GoRoute(
