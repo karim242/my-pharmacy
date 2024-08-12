@@ -12,22 +12,22 @@ class HomeCategoriesLoadedState extends HomeState {
   HomeCategoriesLoadedState({required this.categories});
 }
 
-class HomeNearbyPharmaciesLoadedState extends HomeState {
+class HomeNearbyPharmaciesSuccessState extends HomeState {
   final List<PharmacyModel> pharmacies;
 
-  HomeNearbyPharmaciesLoadedState({required this.pharmacies});
+  HomeNearbyPharmaciesSuccessState({required this.pharmacies});
 }
 
-class HomeDiscountedProductsLoadedState extends HomeState {
+class HomeDiscountedProductsSuccessState extends HomeState {
   final List<ProductModel> products;
 
-  HomeDiscountedProductsLoadedState({required this.products});
+  HomeDiscountedProductsSuccessState({required this.products});
 }
 
-class HomeProductsByCategoryLoadedState extends HomeState {
+class HomeProductsByCategorySuccessState extends HomeState {
   final List<ProductModel> products;
 
-  HomeProductsByCategoryLoadedState({required this.products});
+  HomeProductsByCategorySuccessState({required this.products});
 }
 
 class HomeErrorState extends HomeState {

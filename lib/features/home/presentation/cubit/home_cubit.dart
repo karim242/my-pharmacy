@@ -25,7 +25,7 @@ class HomeCubit extends Cubit<HomeState> {
     emit(HomeLoadingState());
     try {
       final pharmacies = await homeRepository.getNearbyPharmacies();
-      emit(HomeNearbyPharmaciesLoadedState(pharmacies: pharmacies));
+      emit(HomeNearbyPharmaciesSuccessState(pharmacies: pharmacies));
     } catch (e) {
       emit(HomeErrorState(message: e.toString()));
     }
@@ -35,7 +35,7 @@ class HomeCubit extends Cubit<HomeState> {
     emit(HomeLoadingState());
     try {
       final products = await homeRepository.getDiscountedProducts();
-      emit(HomeDiscountedProductsLoadedState(products: products));
+      emit(HomeDiscountedProductsSuccessState(products: products));
     } catch (e) {
       emit(HomeErrorState(message: e.toString()));
     }
@@ -45,7 +45,7 @@ class HomeCubit extends Cubit<HomeState> {
     emit(HomeLoadingState());
     try {
       final products = await homeRepository.getProductsByCategory(categoryId);
-      emit(HomeProductsByCategoryLoadedState(products: products));
+      emit(HomeProductsByCategorySuccessState(products: products));
     } catch (e) {
       emit(HomeErrorState(message: e.toString()));
     }
