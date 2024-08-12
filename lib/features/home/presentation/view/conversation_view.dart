@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_pharmacy/core/utils/app_strings.dart';
 import 'package:my_pharmacy/core/widget/custom_title.dart';
-import 'package:my_pharmacy/features/home/data/models/chat_model.dart';
+import 'package:my_pharmacy/features/home/data/models/chat_static_model.dart';
 import 'package:my_pharmacy/features/home/presentation/widgets/conversation_item.dart';
 
 class ConversationView extends StatelessWidget {
@@ -10,17 +10,21 @@ class ConversationView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       appBar: AppBar(
+      appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
         automaticallyImplyLeading: false, // Removes the back button
 
-        title: const TitleText( title: AppStrings.kConversations,),
+        title: const TitleText(
+          title: AppStrings.kConversations,
+        ),
       ),
       body: const Padding(
-        padding:  EdgeInsets.only(right: 38.0, left: 38.0,),
-        child:  ConversationsList(),
-        
+        padding: EdgeInsets.only(
+          right: 38.0,
+          left: 38.0,
+        ),
+        child: ConversationsList(),
       ),
     );
   }

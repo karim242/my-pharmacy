@@ -1,20 +1,26 @@
-import 'package:my_pharmacy/core/utils/app_images.dart';
+class CategoryModel {
+  final String id;
+  final String name;
+  final String? imageUrl;
+  CategoryModel({
+    required this.id,
+    required this.name,
+    this.imageUrl,
+  });
 
-class CategoryModel{
-  final String image;
-  final String title;
-  final double price;
-  final String pharmacyName;
+  factory CategoryModel.fromJson(Map<String, dynamic> json) {
+    return CategoryModel(
+      id: json['id'],
+      name: json['name'],
+      imageUrl: json['imageUrl'],
+    );
+  }
 
- const CategoryModel({required this.price, required this.image, required this.title, required this.pharmacyName});
-
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'imageUrl': imageUrl,
+    };
+  }
 }
-const List<CategoryModel> categoryList = [
-CategoryModel(image: AppImages.elezabyImage, title:  'كريم أساس سافورا', pharmacyName: 'صيدلية الطرشوبي', price: 200),
-CategoryModel(image: AppImages.tarshobyImage, title:  'كريم أساس سافورا', pharmacyName: 'صيدلية الطرشوبي', price: 200),
-CategoryModel(image: AppImages.elezabyImage, title:  'كريم أساس سافورا', pharmacyName: 'صيدلية الطرشوبي', price: 200),
-CategoryModel(image: AppImages.tarshobyImage, title:  'كريم أساس سافورا', pharmacyName: 'صيدلية الطرشوبي', price: 200),
-
-
-
-];

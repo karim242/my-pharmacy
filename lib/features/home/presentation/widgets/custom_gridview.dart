@@ -1,7 +1,6 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:my_pharmacy/features/home/data/models/nearest_pharmacy_model.dart';
+import 'package:my_pharmacy/features/home/data/models/nearest_pharmacy_static_model.dart';
 import 'package:my_pharmacy/features/home/presentation/widgets/nearest_pharmacy_item.dart';
 
 class CustomGridView extends StatelessWidget {
@@ -18,7 +17,8 @@ class CustomGridView extends StatelessWidget {
       axisDirection: AxisDirection.down,
       children: List.generate(
         nearestPharmacyList.length,
-        (index) =>  NearestPharmacyItem( nearestPharmacy:nearestPharmacyList[index]),
+        (index) =>
+            NearestPharmacyItem(nearestPharmacy: nearestPharmacyList[index]),
       ),
     );
   }

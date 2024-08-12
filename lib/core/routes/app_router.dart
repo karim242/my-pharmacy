@@ -8,6 +8,7 @@ import 'package:my_pharmacy/features/auth/presentation/views/forget_password_sec
 import 'package:my_pharmacy/features/auth/presentation/views/forget_password_three.dart';
 import 'package:my_pharmacy/features/auth/presentation/views/sign_in_view.dart';
 import 'package:my_pharmacy/features/auth/presentation/views/sign_up_view.dart';
+import 'package:my_pharmacy/features/home/presentation/cubit/home_cubit.dart';
 import 'package:my_pharmacy/features/home/presentation/view/address_saved_view.dart';
 import 'package:my_pharmacy/features/home/presentation/view/categories_view.dart';
 import 'package:my_pharmacy/features/home/presentation/view/category_details_view.dart';
@@ -35,11 +36,10 @@ abstract class AppRouter {
     ),
     GoRoute(
       path: RoutesNames.kSigUpView,
-      
-       builder: (context, state) => BlocProvider(
+      builder: (context, state) => BlocProvider(
         create: (context) => getIt<AuthCubit>(),
-        child:   SignUpView(),
-    ),
+        child: SignUpView(),
+      ),
     ),
     GoRoute(
       path: RoutesNames.kForgetPassOne,
@@ -54,7 +54,10 @@ abstract class AppRouter {
         builder: (context, state) => const ForgetPasswordThree()),
     GoRoute(
         path: RoutesNames.kRootView,
-        builder: (context, state) => const RootView()),
+        builder: (context, state) => BlocProvider(
+              create: (context) => getIt<HomeCubit>(),
+              child: const RootView(),
+            )),
     GoRoute(
         path: RoutesNames.kNearestPharmacyView,
         builder: (context, state) => const NearestPharmacyView()),

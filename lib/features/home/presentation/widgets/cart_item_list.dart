@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_pharmacy/core/utils/app_colors.dart';
 import 'package:my_pharmacy/core/utils/text_styles.dart';
-import 'package:my_pharmacy/features/home/data/models/cart_item_model.dart';
+import 'package:my_pharmacy/features/home/data/models/cart_item_static_model.dart';
 
 class CartItemList extends StatefulWidget {
   const CartItemList({
@@ -19,7 +19,7 @@ class _CartItemListState extends State<CartItemList> {
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       itemCount: cartItems.length,
-      itemBuilder: (context, index) {  
+      itemBuilder: (context, index) {
         return ListTile(
           contentPadding: EdgeInsets.zero,
           leading: Image.asset(cartItems[index].imageUrl),
@@ -29,24 +29,22 @@ class _CartItemListState extends State<CartItemList> {
             mainAxisSize: MainAxisSize.min,
             children: [
               IconButton(
-                 icon: const Icon(Icons.add,color:AppColors.primaryColor),
+                icon: const Icon(Icons.add, color: AppColors.primaryColor),
                 onPressed: () {
                   setState(() {
-                     cartItems[index].quantity++;
+                    cartItems[index].quantity++;
                   });
                 },
               ),
-              Text(cartItems[index].quantity.toString(),style: TextStyles.textStyle14
-              ),
+              Text(cartItems[index].quantity.toString(),
+                  style: TextStyles.textStyle14),
               IconButton(
-               icon: const Icon(Icons.remove,color:AppColors.primaryColor),
-        
+                icon: const Icon(Icons.remove, color: AppColors.primaryColor),
                 onPressed: () {
                   setState(() {
-                     if (cartItems[index].quantity > 1) {
+                    if (cartItems[index].quantity > 1) {
                       cartItems[index].quantity--;
                     }
-                  
                   });
                 },
               ),

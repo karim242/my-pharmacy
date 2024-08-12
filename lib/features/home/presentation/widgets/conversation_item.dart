@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:my_pharmacy/core/routes/routes_names.dart';
 import 'package:my_pharmacy/core/utils/app_colors.dart';
 import 'package:my_pharmacy/core/utils/text_styles.dart';
-import 'package:my_pharmacy/features/home/data/models/chat_model.dart';
+import 'package:my_pharmacy/features/home/data/models/chat_static_model.dart';
 import 'package:intl/intl.dart';
 
 class ConversationItem extends StatelessWidget {

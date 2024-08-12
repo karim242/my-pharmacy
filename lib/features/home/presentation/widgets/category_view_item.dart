@@ -5,13 +5,13 @@ import 'package:go_router/go_router.dart';
 import 'package:my_pharmacy/core/routes/routes_names.dart';
 import 'package:my_pharmacy/core/utils/app_colors.dart';
 import 'package:my_pharmacy/core/utils/text_styles.dart';
-import 'package:my_pharmacy/features/home/data/models/category_model.dart';
+import 'package:my_pharmacy/features/home/data/models/category_static_model.dart';
 
 import '../../../../core/widget/add_to_cart_btn.dart';
 
 class CategoryViewItem extends StatelessWidget {
   const CategoryViewItem({super.key, required this.category});
-  final CategoryModel category;
+  final Category category;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
