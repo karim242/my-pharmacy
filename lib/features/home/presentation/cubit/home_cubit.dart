@@ -12,42 +12,50 @@ class HomeCubit extends Cubit<HomeState> {
   HomeCubit(this.homeRepository) : super(HomeInitial());
 
   Future<void> loadCategories() async {
-    emit(HomeLoadingState());
+    emit(HomeCategoriesLoadingState());
     try {
       final categories = await homeRepository.getCategories();
-      emit(HomeCategoriesLoadedState(categories: categories));
+      emit(HomeCategoriesSuccessState(categories: categories));
     } catch (e) {
-      emit(HomeErrorState(message: e.toString()));
+      emit(CategoriesErrorState(message: e.toString()));
     }
   }
 
   Future<void> loadNearbyPharmacies() async {
-    emit(HomeLoadingState());
+    emit(HomeNearbyPharmaciesLoadingState());
     try {
       final pharmacies = await homeRepository.getNearbyPharmacies();
       emit(HomeNearbyPharmaciesSuccessState(pharmacies: pharmacies));
     } catch (e) {
-      emit(HomeErrorState(message: e.toString()));
+      emit(NearbyPharmaciesErrorState(message: e.toString()));
     }
   }
 
   Future<void> loadDiscountedProducts() async {
-    emit(HomeLoadingState());
+    emit(HomeDiscountedProductsLoadingState());
     try {
       final products = await homeRepository.getDiscountedProducts();
       emit(HomeDiscountedProductsSuccessState(products: products));
     } catch (e) {
-      emit(HomeErrorState(message: e.toString()));
+      emit(DiscountedProductsErrorState(message: e.toString()));
     }
   }
 
   Future<void> loadProductsByCategory(String categoryId) async {
-    emit(HomeLoadingState());
+    emit(HomeProductsByCategoryLoadingState());
     try {
       final products = await homeRepository.getProductsByCategory(categoryId);
       emit(HomeProductsByCategorySuccessState(products: products));
     } catch (e) {
-      emit(HomeErrorState(message: e.toString()));
+      emit(ProductsByCategoryErrorState(message: e.toString()));
     }
   }
+
+//   Future<void> callMethodsSequentially(HomeCubit cubit) async {
+//     emit(HomeLoadingState());
+//     await loadCategories();
+//     await loadNearbyPharmacies();
+//     await loadDiscountedProducts();
+    
+// }
 }

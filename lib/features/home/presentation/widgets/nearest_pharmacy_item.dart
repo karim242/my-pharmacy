@@ -3,11 +3,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:my_pharmacy/core/routes/routes_names.dart';
 import 'package:my_pharmacy/core/utils/text_styles.dart';
-import 'package:my_pharmacy/features/home/data/models/nearest_pharmacy_static_model.dart';
+import 'package:my_pharmacy/features/home/data/models/pharmacy_model.dart';
 
 class NearestPharmacyItem extends StatelessWidget {
   const NearestPharmacyItem({super.key, required this.nearestPharmacy});
-  final NearestPharmacyModel nearestPharmacy;
+  final PharmacyModel nearestPharmacy;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -35,8 +35,8 @@ class NearestPharmacyItem extends StatelessWidget {
               ),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(6),
-                child: Image.asset(
-                  nearestPharmacy.imageName, //Replace with your SVG image path
+                child: Image.network(
+                  nearestPharmacy.imageUrl, //Replace with your SVG image path
                   fit: BoxFit.cover,
                 ),
               ),
@@ -45,12 +45,12 @@ class NearestPharmacyItem extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(vertical: 6.0),
                 child: FittedBox(
                   child: Text(
-                    nearestPharmacy.pharmacyName,
+                    nearestPharmacy.name,
                     style: TextStyles.textStyle14,
                   ),
                 )),
-            const Text(
-              ' 25 دقيقة',
+             Text(
+              nearestPharmacy.distance,
               style: TextStyles.textStyle9,
             ),
           ],

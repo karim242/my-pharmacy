@@ -15,20 +15,16 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: BlocBuilder<HomeCubit, HomeState>(
-      builder: (context, state) {
-        // final categoris=state.categories;
-        return Padding(
+    context.read<HomeCubit>().loadCategories();
+        context.read<HomeCubit>().loadNearbyPharmacies();
+
+    return Scaffold(
+      body:  Padding(
           padding: EdgeInsets.only(right: 20.0.w, left: 20.0.w, top: 70.0.h),
           child: SingleChildScrollView(
             child: Column(
               children: [
-                // TextButton(
-                //     onPressed: () {
-                //       BlocProvider.of<HomeCubit>(context).loadCategories();
-                //     },
-                //     child: const Text('تسجيل الخروج')),
-                // SizedBox(height: 50.0.h),
+           
                 const SearchRow(),
                 SizedBox(height: 21.0.h),
                 const TitleText(title: AppStrings.kCategory),
@@ -57,8 +53,8 @@ class HomeView extends StatelessWidget {
               ],
             ),
           ),
-        );
-      },
-    ));
+        )
+      
+    );
   }
 }
