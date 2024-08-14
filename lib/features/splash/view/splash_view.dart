@@ -1,3 +1,6 @@
+// ignore_for_file: use_build_context_synchronously
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:my_pharmacy/core/routes/routes_names.dart';
@@ -15,14 +18,22 @@ class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
     super.initState();
-    _navigateToAuth();
+    _checkLoginStatusAndNavigate();
   }
 
-  _navigateToAuth() async {
-    await Future.delayed(const Duration(milliseconds: 3000), () {
-      GoRouter.of(context).replace(RoutesNames.kSiginView);
-    }); // Delay for 3 seconds
-    // Navigate to the main screen
+  Future<bool> isUserLoggedIn() async {
+    final FirebaseAuth auth = FirebaseAuth.instance;
+    final User? user = auth.currentUser;
+    return user != null;
+  }
+
+  Future<void> _checkLoginStatusAndNavigate() async {
+    bool loggedIn = await isUserLoggedIn();
+    if (loggedIn) {
+      context.go(RoutesNames.kRootView);
+    } else {
+      context.go(RoutesNames.kSiginView);
+    }
   }
 
   @override
