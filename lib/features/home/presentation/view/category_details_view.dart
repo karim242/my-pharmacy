@@ -8,7 +8,7 @@ import 'package:my_pharmacy/core/widget/call_us_btn.dart';
 import 'package:my_pharmacy/core/widget/custom_title.dart';
 import 'package:my_pharmacy/core/widget/price_box.dart';
 import 'package:my_pharmacy/features/home/presentation/widgets/choice_item_row.dart';
-import 'package:my_pharmacy/features/home/presentation/widgets/list_tile_in_view_details.dart';
+import 'package:my_pharmacy/features/pharmacises/presentation/widgets/list_tile_in_view_details.dart';
 
 class CategoryDetailsView extends StatelessWidget {
   const CategoryDetailsView({super.key});
@@ -89,16 +89,18 @@ class CategoryDetailsView extends StatelessWidget {
                   const Text(
                     ' خمسة قرون من الزمن لم تقضي على هذا النص، بل انه حتى صار مستخدماً وبشكله الأصلي في الطباعة والتنضيد الإلكتروني. انتشر بشكل كبير في ستينيّات هذا القرن مع إصدار رقائق "ليتراسيت" ',
                   ),
-                   SizedBox(height: 20.h),
-                   const Row(
+                  SizedBox(height: 20.h),
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      AddToCartBtn(width: 136,height: 34,),
+                      AddToCartBtn(
+                        width: 136,
+                        height: 34,
+                      ),
                       CallUsBtn()
-
                     ],
-                   )
+                  )
                 ],
               ),
             ),

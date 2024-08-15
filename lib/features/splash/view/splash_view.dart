@@ -2,10 +2,12 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:my_pharmacy/core/routes/routes_names.dart';
 import 'package:my_pharmacy/core/utils/app_colors.dart';
 import 'package:my_pharmacy/core/utils/app_images.dart';
+import 'package:my_pharmacy/features/home/presentation/cubit/home_cubit.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});

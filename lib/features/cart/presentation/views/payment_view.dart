@@ -4,7 +4,7 @@ import 'package:my_pharmacy/core/utils/app_colors.dart';
 import 'package:my_pharmacy/core/utils/app_strings.dart';
 import 'package:my_pharmacy/core/widget/custom_title.dart';
 import 'package:my_pharmacy/features/home/presentation/widgets/next_button.dart';
-import 'package:my_pharmacy/features/home/presentation/widgets/payment_textfield.dart';
+import 'package:my_pharmacy/features/cart/presentation/widgets/payment_textfield.dart';
 
 class PaymentView extends StatefulWidget {
   const PaymentView({super.key});

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_pharmacy/core/utils/app_strings.dart';
 import 'package:my_pharmacy/core/widget/custom_title.dart';
-import 'package:my_pharmacy/features/home/presentation/widgets/change_password_sheet.dart';
-import 'package:my_pharmacy/features/home/presentation/widgets/payment_textfield.dart';
+import 'package:my_pharmacy/features/profile/presentation/widget/change_password_sheet.dart';
+import 'package:my_pharmacy/features/cart/presentation/widgets/payment_textfield.dart';
 
 class PersonalInfoView extends StatelessWidget {
   const PersonalInfoView({super.key});

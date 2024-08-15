@@ -1,75 +1,27 @@
-part of 'home_cubit.dart';
+import 'package:my_pharmacy/features/home/data/models/category_model.dart';
+import 'package:my_pharmacy/features/home/data/models/pharmacy_model.dart';
+import 'package:my_pharmacy/features/home/data/models/product_model.dart';
 
 abstract class HomeState {}
 
 class HomeInitial extends HomeState {}
 
-class HomeLoadingState extends HomeState {}
+class HomeLoading extends HomeState {}
 
-class HomeErrorState extends HomeState {
-  final String message;
-
-  HomeErrorState({required this.message});
-}
-
-
-//Categories
-class HomeCategoriesLoadingState extends HomeState {}
-
-class HomeCategoriesSuccessState extends HomeState {
+class HomeSuccess extends HomeState {
   final List<CategoryModel> categories;
+  final List<ProductModel> discountedProducts;
+  final List<PharmacyModel> nearbyPharmacies;
 
-  HomeCategoriesSuccessState({required this.categories});
+  HomeSuccess({
+    required this.categories,
+    required this.discountedProducts,
+    required this.nearbyPharmacies,
+  });
 }
 
-class CategoriesErrorState extends HomeState {
+class HomeError extends HomeState {
   final String message;
 
-  CategoriesErrorState({required this.message});
+  HomeError(this.message);
 }
-
-///NearbyPharmacies
-class HomeNearbyPharmaciesLoadingState extends HomeState {}
-
-class HomeNearbyPharmaciesSuccessState extends HomeState {
-  final List<PharmacyModel> pharmacies;
-
-  HomeNearbyPharmaciesSuccessState({required this.pharmacies});
-}
-class NearbyPharmaciesErrorState extends HomeState {
-  final String message;
-
-  NearbyPharmaciesErrorState({required this.message});
-}
-//HomeDiscountedProducts
-class HomeDiscountedProductsLoadingState extends HomeState {}
-
-class HomeDiscountedProductsSuccessState extends HomeState {
-  final List<ProductModel> products;
-
-  HomeDiscountedProductsSuccessState({required this.products});
-}
-class DiscountedProductsErrorState extends HomeState {
-  final String message;
-
-  DiscountedProductsErrorState({required this.message});
-}
-
-
-//ProductsByCategor
-
-class HomeProductsByCategoryLoadingState extends HomeState {}
-
-class HomeProductsByCategorySuccessState extends HomeState {
-  final List<ProductModel> products;
-
-  HomeProductsByCategorySuccessState({required this.products});
-}
-
-class ProductsByCategoryErrorState extends HomeState {
-  final String message;
-
-  ProductsByCategoryErrorState({required this.message});
-}
-
-

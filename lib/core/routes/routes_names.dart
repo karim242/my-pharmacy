@@ -1,5 +1,7 @@
 abstract class RoutesNames {
   static const String kSplashView = '/';
+
+  static const String kaddData = '/1';
   static const String kSiginView = '/siginView';
   static const String kSigUpView = '/signUpView';
   static const String kForgetPassOne = '/ForgetPasswordFrist';

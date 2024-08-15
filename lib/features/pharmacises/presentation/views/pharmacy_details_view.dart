@@ -5,7 +5,7 @@ import 'package:my_pharmacy/core/widget/add_to_cart_btn.dart';
 import 'package:my_pharmacy/core/widget/call_us_btn.dart';
 import 'package:my_pharmacy/core/widget/custom_title.dart';
 import 'package:my_pharmacy/features/home/presentation/widgets/custom_grid_view.dart';
-import 'package:my_pharmacy/features/home/presentation/widgets/list_tile_in_view_details.dart';
+import 'package:my_pharmacy/features/pharmacises/presentation/widgets/list_tile_in_view_details.dart';
 
 class PharmacyDetailsView extends StatelessWidget {
   const PharmacyDetailsView({super.key});
@@ -65,7 +65,7 @@ class PharmacyDetailsView extends StatelessWidget {
               SizedBox(
                 height: 22.h,
               ),
-            const  CategoriesGridView()
+              const CategoriesGridView()
             ],
           ),
         ),

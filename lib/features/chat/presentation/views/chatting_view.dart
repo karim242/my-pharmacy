@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_pharmacy/core/utils/app_colors.dart';
 import 'package:my_pharmacy/core/utils/text_styles.dart';
-import 'package:my_pharmacy/features/home/presentation/widgets/active_chat_box.dart';
+import 'package:my_pharmacy/features/chat/presentation/widgets/active_chat_box.dart';
 
 class ChattingView extends StatefulWidget {
   const ChattingView({super.key});
@@ -43,26 +43,23 @@ class _ChattingViewState extends State<ChattingView> {
                     // const InActiveChattingBox();
                   }),
             ),
-            
             Padding(
               padding: const EdgeInsets.only(top: 8.0),
               child: Row(
                 children: [
-              
                   SizedBox(
                     height: 34.h,
                     width: 240.w,
                     child: TextField(
-                   
                       decoration: InputDecoration(
                         hintText: ' اكتب رسالتك',
                         filled: true,
                         suffixIcon: const Icon(
-                      Icons.image,
-                      size: 24,
-                      color: AppColors.primaryColor,
-                    ),
-                        contentPadding:const EdgeInsets.all(4),
+                          Icons.image,
+                          size: 24,
+                          color: AppColors.primaryColor,
+                        ),
+                        contentPadding: const EdgeInsets.all(4),
                         fillColor: AppColors.lightGrayColor,
                         border: OutlineInputBorder(
                           borderSide: BorderSide.none,
@@ -79,7 +76,7 @@ class _ChattingViewState extends State<ChattingView> {
                     child: CircleAvatar(
                       radius: 15.r,
                       backgroundColor: AppColors.primaryColor,
-                      child:  Icon(
+                      child: Icon(
                         Icons.send,
                         size: 16.r,
                         color: AppColors.whiteColor,

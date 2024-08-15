@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_pharmacy/core/utils/app_strings.dart';
 import 'package:my_pharmacy/core/widget/custom_title.dart';
 import 'package:my_pharmacy/features/home/data/models/chat_static_model.dart';
-import 'package:my_pharmacy/features/home/presentation/widgets/conversation_item.dart';
+import 'package:my_pharmacy/features/chat/presentation/widgets/conversation_item.dart';
 
 class ConversationView extends StatelessWidget {
   const ConversationView({super.key});

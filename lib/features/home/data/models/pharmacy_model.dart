@@ -2,42 +2,50 @@ class PharmacyModel {
   final String id;
   final String name;
   final String address;
+  final double latitude;
+  final double longitude;
   final String imageUrl;
-  final String distance;
-  final String phoneNumber;
-  final bool isNearby;
 
-  PharmacyModel( {
+  PharmacyModel({
     required this.id,
     required this.name,
     required this.address,
+    required this.latitude,
+    required this.longitude,
     required this.imageUrl,
-    required this.distance,
-    required this.phoneNumber,
-    this.isNearby = false,
   });
 
   factory PharmacyModel.fromJson(Map<String, dynamic> json) {
     return PharmacyModel(
-      id: json['id'],
-      name: json['name'],
-      address: json['address'],
-      imageUrl: json['image'],
-      distance: json['distance'],
-      phoneNumber: json['phone_number'],
-      isNearby: json['is_nearby'] ?? false,
+      id: json['id'] ?? '',
+      name: json['name'] ?? '',
+      address: json['address'] ?? '',
+      latitude: _parseDouble(json['latitude']),
+      longitude: _parseDouble(json['longitude']),
+      imageUrl: json['imageUrl'] ?? '',
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
-      'id': id,
       'name': name,
       'address': address,
-      'image' : imageUrl,
-      'distance': distance,
-      'phone_number': phoneNumber,
-      'is_nearby': isNearby,
+      'latitude': latitude,
+      'longitude': longitude,
+      'imageUrl': imageUrl,
     };
+  }
+
+  static double _parseDouble(dynamic value) {
+    if (value == null) {
+      return 0.0;
+    }
+    if (value is String) {
+      return double.tryParse(value) ?? 0.0;
+    }
+    if (value is num) {
+      return value.toDouble();
+    }
+    return 0.0; // Default value in case of unexpected type
   }
 }

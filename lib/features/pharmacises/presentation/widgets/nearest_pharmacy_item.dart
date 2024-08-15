@@ -35,10 +35,11 @@ class NearestPharmacyItem extends StatelessWidget {
               ),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(6),
-                child: Image.network(
-                  nearestPharmacy.imageUrl, //Replace with your SVG image path
-                  fit: BoxFit.cover,
-                ),
+                // child: Image.network(
+                //   ""
+                //   // nearestPharmacy.imageUrl, // with your SVG image path
+                //   fit: BoxFit.cover,
+                // ),
               ),
             ),
             Padding(
@@ -49,10 +50,10 @@ class NearestPharmacyItem extends StatelessWidget {
                     style: TextStyles.textStyle14,
                   ),
                 )),
-             Text(
-              nearestPharmacy.distance,
-              style: TextStyles.textStyle9,
-            ),
+            //  Text(
+            //   nearestPharmacy.distance,
+            //   style: TextStyles.textStyle9,
+            // ),
           ],
         ),
       ),

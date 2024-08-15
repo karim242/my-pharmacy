@@ -7,7 +7,7 @@ import 'package:my_pharmacy/core/utils/app_strings.dart';
 import 'package:my_pharmacy/core/utils/text_styles.dart';
 import 'package:my_pharmacy/core/widget/custom_title.dart';
 import 'package:my_pharmacy/core/widget/text_price_row.dart';
-import 'package:my_pharmacy/features/home/presentation/widgets/cart_item_list.dart';
+import 'package:my_pharmacy/features/cart/presentation/widgets/cart_item_list.dart';
 import 'package:my_pharmacy/features/home/presentation/widgets/next_button.dart';
 
 class CartView extends StatelessWidget {

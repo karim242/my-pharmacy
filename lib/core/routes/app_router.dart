@@ -8,16 +8,18 @@ import 'package:my_pharmacy/features/auth/presentation/views/forget_password_sec
 import 'package:my_pharmacy/features/auth/presentation/views/forget_password_three.dart';
 import 'package:my_pharmacy/features/auth/presentation/views/sign_in_view.dart';
 import 'package:my_pharmacy/features/auth/presentation/views/sign_up_view.dart';
+import 'package:my_pharmacy/features/dashboard/presentation/cubit/firestore_cubit.dart';
+import 'package:my_pharmacy/features/dashboard/presentation/views/add_data_view.dart';
 import 'package:my_pharmacy/features/home/presentation/cubit/home_cubit.dart';
-import 'package:my_pharmacy/features/home/presentation/view/address_saved_view.dart';
+import 'package:my_pharmacy/features/cart/presentation/views/address_saved_view.dart';
 import 'package:my_pharmacy/features/home/presentation/view/categories_view.dart';
 import 'package:my_pharmacy/features/home/presentation/view/category_details_view.dart';
-import 'package:my_pharmacy/features/home/presentation/view/chatting_view.dart';
-import 'package:my_pharmacy/features/home/presentation/view/nearest_pharmacy_view.dart';
+import 'package:my_pharmacy/features/chat/presentation/views/chatting_view.dart';
+import 'package:my_pharmacy/features/pharmacises/presentation/views/nearest_pharmacy_view.dart';
 import 'package:my_pharmacy/features/home/presentation/view/offer_view.dart';
-import 'package:my_pharmacy/features/home/presentation/view/payment_view.dart';
-import 'package:my_pharmacy/features/home/presentation/view/personal_info_view.dart';
-import 'package:my_pharmacy/features/home/presentation/view/pharmacy_details_view.dart';
+import 'package:my_pharmacy/features/cart/presentation/views/payment_view.dart';
+import 'package:my_pharmacy/features/profile/presentation/views/personal_info_view.dart';
+import 'package:my_pharmacy/features/pharmacises/presentation/views/pharmacy_details_view.dart';
 import 'package:my_pharmacy/features/home/presentation/view/root_view.dart';
 import 'package:my_pharmacy/features/splash/view/splash_view.dart';
 
@@ -25,7 +27,10 @@ abstract class AppRouter {
   static final router = GoRouter(routes: [
     GoRoute(
       path: RoutesNames.kSplashView,
-      builder: (context, state) => const SplashView(),
+      builder: (context, state) => BlocProvider(
+        create: (context) => getIt<HomeCubit>(),
+        child: const SplashView(),
+      ),
     ),
     GoRoute(
       path: RoutesNames.kSiginView,
@@ -92,5 +97,11 @@ abstract class AppRouter {
     GoRoute(
         path: RoutesNames.kAddressSavedView,
         builder: (context, state) => const AddressSavedView()),
+    GoRoute(
+        path: RoutesNames.kaddData,
+        builder: (context, state) => BlocProvider(
+              create: (context) => getIt<FirestoreCubit>(),
+              child: AddDataScreen(),
+            )),
   ]);
 }
