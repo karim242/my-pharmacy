@@ -5,9 +5,12 @@ import 'package:go_router/go_router.dart';
 import 'package:my_pharmacy/core/routes/routes_names.dart';
 import 'package:my_pharmacy/core/utils/app_strings.dart';
 import 'package:my_pharmacy/core/widget/custom_title.dart';
+import 'package:my_pharmacy/core/widget/custom_toast.dart';
 import 'package:my_pharmacy/features/home/presentation/cubit/home_cubit.dart';
+import 'package:my_pharmacy/features/home/presentation/cubit/home_state.dart';
 import 'package:my_pharmacy/features/home/presentation/widgets/categories_row.dart';
-import 'package:my_pharmacy/features/home/presentation/widgets/nearest_pharmacy_list.dart';
+import 'package:my_pharmacy/features/pharmacises/presentation/widgets/nearest_pharmacy_list.dart';
+import 'package:my_pharmacy/features/home/presentation/widgets/offers_row_list.dart';
 import 'package:my_pharmacy/features/home/presentation/widgets/search_row.dart';
 
 class HomeView extends StatelessWidget {
@@ -15,21 +18,22 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    context.read<HomeCubit>().loadCategories();
-        context.read<HomeCubit>().loadNearbyPharmacies();
-
-    return Scaffold(
-      body:  Padding(
-          padding: EdgeInsets.only(right: 20.0.w, left: 20.0.w, top: 70.0.h),
+    return BlocBuilder<HomeCubit, HomeState>(
+      builder: (context, state) {
+        return Scaffold(
+            body: Padding(
+          padding: EdgeInsets.only(
+            right: 20.0.w,
+            left: 20.0.w,
+            top: 70.0.h,
+          ),
           child: SingleChildScrollView(
             child: Column(
               children: [
-           
                 const SearchRow(),
                 SizedBox(height: 21.0.h),
                 const TitleText(title: AppStrings.kCategory),
-                SizedBox(height: 10.0.h), // Add space between SearchRow and CategoriesRow
-                // Add space between SearchRow and CategoriesRow
+                SizedBox(height: 10.0.h),
                 const CategoryList(),
                 SizedBox(height: 25.0.h),
                 TitleText(
@@ -38,7 +42,6 @@ class HomeView extends StatelessWidget {
                     GoRouter.of(context).push(RoutesNames.kNearestPharmacyView);
                   },
                 ),
-
                 SizedBox(height: 15.0.h),
                 const NearestPharmacyList(),
                 SizedBox(height: 15.0.h),
@@ -49,12 +52,12 @@ class HomeView extends StatelessWidget {
                   },
                 ),
                 SizedBox(height: 15.0.h),
-                const NearestPharmacyList(),
+                const OfferRowList(),
               ],
             ),
           ),
-        )
-      
+        ));
+      },
     );
   }
 }
