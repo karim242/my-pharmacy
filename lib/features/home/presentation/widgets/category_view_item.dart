@@ -5,16 +5,17 @@ import 'package:go_router/go_router.dart';
 import 'package:my_pharmacy/core/routes/routes_names.dart';
 import 'package:my_pharmacy/core/utils/app_colors.dart';
 import 'package:my_pharmacy/core/utils/text_styles.dart';
-import 'package:my_pharmacy/features/home/data/models/category_static_model.dart';
+import 'package:my_pharmacy/features/home/data/models/category_model.dart';
 
 import '../../../../core/widget/add_to_cart_btn.dart';
 
 class CategoryViewItem extends StatelessWidget {
   const CategoryViewItem({super.key, required this.category});
-  final Category category;
+  final CategoryModel category;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
+
       width: 100.w,
       height: 180.h,
       child: Column(
@@ -23,7 +24,7 @@ class CategoryViewItem extends StatelessWidget {
           GestureDetector(
             onTap: () {
               //Navgat to category detials
-              GoRouter.of(context).push(RoutesNames.kCategoryDetailsView);
+              GoRouter.of(context).push(RoutesNames.kCategoryDetailsView,extra: category);
             },
             child: Stack(
               children: [
@@ -32,7 +33,9 @@ class CategoryViewItem extends StatelessWidget {
                     topLeft: Radius.circular(6),
                     topRight: Radius.circular(6),
                   ),
-                  child: Image.asset(category.image),
+                  child: Image.network(category.imageUrl
+                  , fit: BoxFit.cover, width: 100.w, height: 90.h),
+                  
                 ),
                 Positioned(
                   bottom: 0,
@@ -68,7 +71,7 @@ class CategoryViewItem extends StatelessWidget {
             ),
           ),
           Text(
-            category.title,
+            category.name,
             style: TextStyles.textStyle12.copyWith(
                 color: AppColors.secondColor, fontWeight: FontWeight.bold),
           ),

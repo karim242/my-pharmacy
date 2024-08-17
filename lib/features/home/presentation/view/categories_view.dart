@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_pharmacy/core/widget/custom_title.dart';
-import 'package:my_pharmacy/features/home/presentation/widgets/custom_grid_view.dart';
+import 'package:my_pharmacy/features/home/presentation/widgets/custom_category_grid_view.dart';
 import 'package:my_pharmacy/features/home/presentation/widgets/inner_search_row.dart';
 
 class CategoriesView extends StatelessWidget {

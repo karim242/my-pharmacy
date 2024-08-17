@@ -5,9 +5,9 @@ import 'package:my_pharmacy/core/utils/text_styles.dart';
 
 class PriceBox extends StatelessWidget {
   const PriceBox({
-    super.key,
+    super.key, required this.price,
   });
-
+  final String price;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -27,7 +27,7 @@ class PriceBox extends StatelessWidget {
                   TextStyles.textStyle11.copyWith(color: AppColors.primaryColor),
             ),
             Text(
-              '200',
+             price,
               style:
                   TextStyles.textStyle16.copyWith(color: AppColors.primaryColor),
             ),

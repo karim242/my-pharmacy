@@ -5,6 +5,8 @@ class PharmacyModel {
   final double latitude;
   final double longitude;
   final String imageUrl;
+  final String phone;
+
 
   PharmacyModel({
     required this.id,
@@ -13,6 +15,7 @@ class PharmacyModel {
     required this.latitude,
     required this.longitude,
     required this.imageUrl,
+    required this.phone
   });
 
   factory PharmacyModel.fromJson(Map<String, dynamic> json) {
@@ -23,6 +26,7 @@ class PharmacyModel {
       latitude: _parseDouble(json['latitude']),
       longitude: _parseDouble(json['longitude']),
       imageUrl: json['imageUrl'] ?? '',
+      phone: json['phone'] ?? '',
     );
   }
 
@@ -33,6 +37,7 @@ class PharmacyModel {
       'latitude': latitude,
       'longitude': longitude,
       'imageUrl': imageUrl,
+      'phone': phone,
     };
   }
 

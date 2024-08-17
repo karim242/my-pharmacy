@@ -15,7 +15,7 @@ abstract class RoutesNames {
   static const String kPharmacyDetailsView = '/pharmacyDetailsView';
   static const String kChattingView = '/ChattingView';
   static const String kPaymentView = '/PaymentView';
-
+  static const String kOfferDetailsView = '/OfferDetailsView';
   static const String kPersonalInfoView = '/PersonalInfoView';
 
   static const String kAddressSavedView = '/AddressSavedView';

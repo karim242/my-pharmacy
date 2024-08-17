@@ -7,11 +7,14 @@ import 'package:my_pharmacy/core/widget/add_to_cart_btn.dart';
 import 'package:my_pharmacy/core/widget/call_us_btn.dart';
 import 'package:my_pharmacy/core/widget/custom_title.dart';
 import 'package:my_pharmacy/core/widget/price_box.dart';
+import 'package:my_pharmacy/features/home/data/models/category_model.dart';
 import 'package:my_pharmacy/features/home/presentation/widgets/choice_item_row.dart';
 import 'package:my_pharmacy/features/pharmacises/presentation/widgets/list_tile_in_view_details.dart';
 
 class CategoryDetailsView extends StatelessWidget {
-  const CategoryDetailsView({super.key});
+  const CategoryDetailsView({super.key, required this.category});
+  final CategoryModel category;
+
 
   @override
   Widget build(BuildContext context) {
@@ -30,9 +33,9 @@ class CategoryDetailsView extends StatelessWidget {
                   //topRight: Radius.circular(30),
                   bottomRight: Radius.circular(230),
                 ),
-                child: Image.asset(
-                  AppImages.elezabyImage,
-                  fit: BoxFit.cover,
+                child: Image.network(
+                  category.imageUrl,
+                 fit: BoxFit.cover,
                 ),
               ),
             ),
@@ -51,27 +54,27 @@ class CategoryDetailsView extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'كريم أساس سافورا',
+                              category.name,
                               style: TextStyles.textStyle16
                                   .copyWith(color: AppColors.blackColor),
                             ),
                             Text(
-                              'صيدلية الطرشوبي',
+                              category.pharmacyName,
                               style: TextStyles.textStyle12
                                   .copyWith(color: const Color(0xff4A4A4A)),
                             ),
                           ],
                         ),
-                        const PriceBox(),
+                         PriceBox(price: category.price,),
                       ],
                     ),
                   ),
-                  const ListTileInDetailView(
-                    title: 'شارع الترعة اعلي اهل الشام المنصورة الدقهلية',
+                   ListTileInDetailView(
+                    title: category.address,
                     icon: AppImages.locationIcon,
                   ),
-                  const ListTileInDetailView(
-                    title: 'دقيقة 25',
+                   ListTileInDetailView(
+                    title: category.name,
                     icon: AppImages.deliveryIcon,
                   ),
                   const ListTileInDetailView(

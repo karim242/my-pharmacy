@@ -25,15 +25,7 @@ class CategoryList extends StatelessWidget {
                 final category = state.categories[index];
                 return Padding(
                   padding: const EdgeInsets.only(left: 10.0),
-                  child: GestureDetector(
-                    onTap: () {
-                      GoRouter.of(context).push(
-                        RoutesNames.kCategoryView,
-                        extra: category,
-                      );
-                    },
-                    child: CategoryItem(category: category),
-                  ),
+                  child: CategoryItem(category: category),
                 );
               },
             ),
@@ -56,39 +48,47 @@ class CategoryItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(12),
-      child: Stack(
-        children: [
-          Image.network(
-            category.imageUrl ?? "",
-            fit: BoxFit.fill,
-            width: 100, // Adjust width as needed
-            height: 100, // Adjust height as needed
-          ),
-          Positioned(
-            bottom: 0,
-            right: 0,
-            left: 0,
-            child: Container(
-              decoration: BoxDecoration(
-                color: AppColors.primaryColor.withOpacity(0.6),
-                borderRadius: const BorderRadius.only(
-                  bottomLeft: Radius.circular(12),
-                  bottomRight: Radius.circular(12),
+    return GestureDetector(
+      onTap: () {
+        GoRouter.of(context).push(
+          RoutesNames.kCategoryView,
+          extra: category,
+        );
+      },
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(12),
+        child: Stack(
+          children: [
+            Image.network(
+              category.imageUrl ?? "",
+              fit: BoxFit.fill,
+              width: 100, // Adjust width as needed
+              height: 100, // Adjust height as needed
+            ),
+            Positioned(
+              bottom: 0,
+              right: 0,
+              left: 0,
+              child: Container(
+                decoration: BoxDecoration(
+                  color: AppColors.primaryColor.withOpacity(0.6),
+                  borderRadius: const BorderRadius.only(
+                    bottomLeft: Radius.circular(12),
+                    bottomRight: Radius.circular(12),
+                  ),
                 ),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  category.name,
-                  textAlign: TextAlign.center,
-                  style: TextStyles.textStyle11,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    category.name,
+                    textAlign: TextAlign.center,
+                    style: TextStyles.textStyle11,
+                  ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

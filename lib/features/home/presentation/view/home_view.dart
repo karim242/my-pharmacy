@@ -10,7 +10,7 @@ import 'package:my_pharmacy/features/home/presentation/cubit/home_cubit.dart';
 import 'package:my_pharmacy/features/home/presentation/cubit/home_state.dart';
 import 'package:my_pharmacy/features/home/presentation/widgets/categories_row.dart';
 import 'package:my_pharmacy/features/pharmacises/presentation/widgets/nearest_pharmacy_list.dart';
-import 'package:my_pharmacy/features/home/presentation/widgets/offers_row_list.dart';
+import 'package:my_pharmacy/features/offer/widgets/offers_row_list.dart';
 import 'package:my_pharmacy/features/home/presentation/widgets/search_row.dart';
 
 class HomeView extends StatelessWidget {

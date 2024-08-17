@@ -10,6 +10,11 @@ import 'package:my_pharmacy/features/home/data/models/product_model.dart';
 
 class AddDataScreen extends StatelessWidget {
   final TextEditingController _categoryNameController = TextEditingController();
+  final TextEditingController _categoryPharmacyNameController = TextEditingController();
+  final TextEditingController _categoryPriceController = TextEditingController();
+  final TextEditingController _categoryAddressController = TextEditingController();
+
+
   final TextEditingController _productNameController = TextEditingController();
   final TextEditingController _productOriginalPriceController =
       TextEditingController();
@@ -18,6 +23,8 @@ class AddDataScreen extends StatelessWidget {
   final TextEditingController _productImageUrlController =
       TextEditingController();
   final TextEditingController _pharmacyNameController = TextEditingController();
+    final TextEditingController _pharmacyPhoneController = TextEditingController();
+
   final TextEditingController _pharmacyAddressController =
       TextEditingController();
   final TextEditingController _pharmacyLatitudeController =
@@ -51,7 +58,11 @@ class AddDataScreen extends StatelessWidget {
                   final category = CategoryModel(
                     id: DateTime.now().toString(), // Generate a unique ID
                     name: _categoryNameController.text,
-                    imageUrl: '', // Add logic to upload image if needed
+                    imageUrl: '',// Add logic to upload image if needed
+                     pharmacyName: _categoryPharmacyNameController.text,
+                      price:_categoryPriceController.text,
+                       address:_categoryAddressController.text  , 
+                     
                   );
                   context.read<FirestoreCubit>().addCategory(category);
                 },
@@ -136,6 +147,7 @@ class AddDataScreen extends StatelessWidget {
                     id: DateTime.now().toString(), // Generate a unique ID
                     name: _pharmacyNameController.text,
                     address: _pharmacyAddressController.text,
+                    phone: _pharmacyPhoneController.text,
                     latitude:
                         double.tryParse(_pharmacyLatitudeController.text) ??
                             0.0,

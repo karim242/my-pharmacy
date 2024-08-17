@@ -1,7 +1,4 @@
 import 'package:bloc/bloc.dart';
-import 'package:my_pharmacy/features/home/data/models/category_model.dart';
-import 'package:my_pharmacy/features/home/data/models/pharmacy_model.dart';
-import 'package:my_pharmacy/features/home/data/models/product_model.dart';
 import 'package:my_pharmacy/features/home/data/repo/home_repo.dart';
 import 'package:my_pharmacy/features/home/presentation/cubit/home_state.dart';
 
