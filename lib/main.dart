@@ -6,6 +6,7 @@ import 'package:my_pharmacy/core/routes/app_router.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:my_pharmacy/core/services/service_locator.dart';
 import 'package:my_pharmacy/features/auth/presentation/cubit/auth_cubit.dart';
+import 'package:my_pharmacy/features/chat/presentation/cubit/chat_cubit.dart';
 import 'package:my_pharmacy/features/home/presentation/cubit/home_cubit.dart';
 import 'package:my_pharmacy/firebase_options.dart';
 
@@ -31,15 +32,23 @@ class Mypharmacy extends StatelessWidget {
         splitScreenMode: true,
         builder: (_, child) {
           return MultiBlocProvider(
-              providers: [
-                BlocProvider(
-                  create: (context) => getIt<HomeCubit>(),
-                ),
-                BlocProvider(
-                  create: (context) => getIt<AuthCubit>(),
-                ),
-              ],
-              child: MaterialApp.router(
+            providers: [
+              BlocProvider(
+                create: (context) {
+                  final chatCubit = getIt<ChatCubit>();
+                  chatCubit
+                      .loadChats('user_id'); // استبدل بـ ID المستخدم الفعلي
+                  return chatCubit;
+                },
+              ),
+              BlocProvider(
+                create: (context) => getIt<HomeCubit>(),
+              ),
+              BlocProvider(
+                create: (context) => getIt<AuthCubit>(),
+              ),
+            ],
+            child: MaterialApp.router(
               routerConfig: AppRouter.router,
               debugShowCheckedModeBanner: false,
               locale: const Locale('ar'),

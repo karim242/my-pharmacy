@@ -1,10 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:my_pharmacy/core/routes/routes_names.dart';
 import 'package:my_pharmacy/core/utils/app_colors.dart';
 import 'package:my_pharmacy/core/utils/text_styles.dart';
-import 'package:my_pharmacy/features/home/data/models/chat_static_model.dart';
-import 'package:intl/intl.dart';
+import 'package:my_pharmacy/features/chat/data/models/chat_model.dart';
 
 class ConversationItem extends StatelessWidget {
   const ConversationItem({
@@ -12,7 +12,7 @@ class ConversationItem extends StatelessWidget {
     required this.chat,
   });
 
-  final Chat chat;
+  final ChatModel chat;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class ConversationItem extends StatelessWidget {
         minVerticalPadding: 0,
         leading: CircleAvatar(
           radius: 22.0,
-          backgroundImage: AssetImage(chat.avatarUrl),
+          backgroundImage: AssetImage(chat.avatarUrl??''),
         ),
         title: Text(
           chat.name,
@@ -31,9 +31,9 @@ class ConversationItem extends StatelessWidget {
           chat.lastMessage,
           style: TextStyles.textStyle10.copyWith(color: AppColors.grayColor),
         ),
-        trailing: Text(DateFormat('hh:mm a').format(chat.time)),
+        trailing: Text(chat.timestamp.toDate().toString()),
         onTap: () {
-          GoRouter.of(context).push(RoutesNames.kChattingView);
+          GoRouter.of(context).push(RoutesNames.kChattingView,extra: chat);
         });
   }
 }

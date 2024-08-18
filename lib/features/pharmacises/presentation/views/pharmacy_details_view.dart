@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
+import 'package:my_pharmacy/core/routes/routes_names.dart';
 import 'package:my_pharmacy/core/utils/app_images.dart';
 import 'package:my_pharmacy/core/widget/add_to_cart_btn.dart';
 import 'package:my_pharmacy/core/widget/call_us_btn.dart';
@@ -61,15 +63,19 @@ final PharmacyModel nearestPharmacy;
                     SizedBox(
                       height: 22.h,
                     ),
-                    const Row(
+                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        AddToCartBtn(
+                      const  AddToCartBtn(
                           width: 136,
                           height: 34,
                         ),
-                        CallUsBtn()
+                        CallUsBtn(
+                          onTap: (){
+                            GoRouter.of(context).push(RoutesNames.kConversationView,);
+                          },
+                        )
                       ],
                     ),
                     SizedBox(

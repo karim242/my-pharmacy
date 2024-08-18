@@ -5,9 +5,9 @@ import 'package:my_pharmacy/core/utils/text_styles.dart';
 
 class ActiveChattingBox extends StatelessWidget {
   const ActiveChattingBox({
-    super.key,
+    super.key, required this.message,
   });
-
+final String message;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -17,10 +17,13 @@ class ActiveChattingBox extends StatelessWidget {
         color: AppColors.primaryColor,
         borderRadius: BorderRadius.circular(6),
       ),
-      child: const Padding(
-        padding:  EdgeInsets.all(8.0),
-        child: Text(
-      "مرحبا بك  ماذل تريد ان تعرف",
+      child:  Padding(
+        padding:const  EdgeInsets.all(8.0),
+        child: Text( message,
+          overflow: TextOverflow.ellipsis,
+          maxLines: 2,
+          softWrap: true,
+          textAlign: TextAlign.start,
           style: TextStyles.textStyle11,
         ),
       ),

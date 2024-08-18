@@ -10,7 +10,7 @@ class HomeRepoImplementation implements HomeRepo {
   @override
   Future<List<CategoryModel>> getCategories() async {
     final QuerySnapshot<Map<String, dynamic>> snapshot =
-        await _firestore.collection('categories').get();
+        await _firestore.collection('categories').doc("categoryId").collection('products').get();
     return snapshot.docs
         .map((doc) =>
             CategoryModel.fromJson(doc.data()..putIfAbsent('id', () => doc.id)))

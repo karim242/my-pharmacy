@@ -1,29 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_pharmacy/core/utils/app_colors.dart';
 import 'package:my_pharmacy/core/utils/text_styles.dart';
-import 'package:my_pharmacy/features/chat/presentation/widgets/active_chat_box.dart';
+import 'package:my_pharmacy/features/chat/data/models/chat_model.dart';
+import 'package:my_pharmacy/features/chat/presentation/cubit/chat_cubit.dart';
 
-class ChattingView extends StatefulWidget {
-  const ChattingView({super.key});
+class ChattingView extends StatelessWidget {
+  final ChatModel chat;
 
-  @override
-  State<ChattingView> createState() => _ChattingViewState();
-}
-
-class _ChattingViewState extends State<ChattingView> {
-  final _controller = ScrollController();
-
-  TextEditingController controller = TextEditingController();
+  const ChattingView({super.key, required this.chat});
 
   @override
   Widget build(BuildContext context) {
+    final TextEditingController _controller = TextEditingController();
+
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: AppColors.primaryColor,
-        title: const Text(
-          'صيدلية الطرشوبي',
+        title: Text(
+          chat.name, // اسم المستخدم الآخر في المحادثة
           style: TextStyles.textStyle20,
         ),
         centerTitle: true,
@@ -35,24 +31,26 @@ class _ChattingViewState extends State<ChattingView> {
           children: [
             Expanded(
               child: ListView.builder(
-                  reverse: true,
-                  itemCount: 10,
-                  shrinkWrap: true,
-                  itemBuilder: (context, index) {
-                    return const ActiveChattingBox();
-                    // const InActiveChattingBox();
-                  }),
+                reverse: true,
+                itemCount: chat.messages.length,
+                itemBuilder: (context, index) {
+                  final message = chat.messages[index];
+                  return ListTile(
+                    title: Text(message.content),
+                    subtitle: Text(message.timestamp.toDate().toString()),
+                  );
+                },
+              ),
             ),
             Padding(
               padding: const EdgeInsets.only(top: 8.0),
               child: Row(
                 children: [
-                  SizedBox(
-                    height: 34.h,
-                    width: 240.w,
+                  Expanded(
                     child: TextField(
+                      controller: _controller,
                       decoration: InputDecoration(
-                        hintText: ' اكتب رسالتك',
+                        hintText: 'اكتب رسالتك',
                         filled: true,
                         suffixIcon: const Icon(
                           Icons.image,
@@ -65,21 +63,26 @@ class _ChattingViewState extends State<ChattingView> {
                           borderSide: BorderSide.none,
                           borderRadius: BorderRadius.circular(6),
                         ),
-                        enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(6),
-                            borderSide: BorderSide.none),
                       ),
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 4),
                     child: CircleAvatar(
-                      radius: 15.r,
                       backgroundColor: AppColors.primaryColor,
-                      child: Icon(
-                        Icons.send,
-                        size: 16.r,
-                        color: AppColors.whiteColor,
+                      child: IconButton(
+                        icon: const Icon(
+                          Icons.send,
+                          size: 16,
+                          color: AppColors.whiteColor,
+                        ),
+                        onPressed: () {
+                          final message = _controller.text;
+                          if (message.isNotEmpty) {
+                            context.read<ChatCubit>().sendMessage(chat.id, message, 'sender_id');
+                            _controller.clear();
+                          }
+                        },
                       ),
                     ),
                   ),

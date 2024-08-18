@@ -8,6 +8,8 @@ import 'package:my_pharmacy/features/auth/presentation/views/forget_password_sec
 import 'package:my_pharmacy/features/auth/presentation/views/forget_password_three.dart';
 import 'package:my_pharmacy/features/auth/presentation/views/sign_in_view.dart';
 import 'package:my_pharmacy/features/auth/presentation/views/sign_up_view.dart';
+import 'package:my_pharmacy/features/chat/data/models/chat_model.dart';
+import 'package:my_pharmacy/features/chat/presentation/views/conversation_view.dart';
 import 'package:my_pharmacy/features/dashboard/presentation/cubit/firestore_cubit.dart';
 import 'package:my_pharmacy/features/dashboard/presentation/views/add_data_view.dart';
 import 'package:my_pharmacy/features/home/data/models/category_model.dart';
@@ -68,8 +70,9 @@ abstract class AppRouter {
     GoRoute(
         path: RoutesNames.kCategoryDetailsView,
         builder: (context, state) {
-          final category = state.extra as CategoryModel; // Retrieve the object here
-         return  CategoryDetailsView(
+          final category =
+              state.extra as CategoryModel; // Retrieve the object here
+          return CategoryDetailsView(
             category: category,
           );
         }),
@@ -89,7 +92,15 @@ abstract class AppRouter {
 
     GoRoute(
         path: RoutesNames.kChattingView,
-        builder: (context, state) => const ChattingView()),
+        builder: (context, state) {
+          final chat = state.extra as ChatModel; // Retrieve the object here
+          return ChattingView(
+            chat: chat,
+          );
+        }),
+         GoRoute(
+        path: RoutesNames.kConversationView,
+        builder: (context, state) => const ConversationView()),
     GoRoute(
         path: RoutesNames.kPaymentView,
         builder: (context, state) => const PaymentView()),
