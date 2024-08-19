@@ -23,7 +23,6 @@ class AuthRepoImplementation implements AuthRepository {
       password: password,
     );
     final user = userCredential.user;
-
     if (user != null) {
       return getUserInfo(user.uid);
     } else {

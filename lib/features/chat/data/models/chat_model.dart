@@ -7,7 +7,7 @@ class ChatModel {
   final String lastMessage;
   final Timestamp timestamp;
   final String? avatarUrl;
-  final List<MessageModel> messages; // إضافة قائمة الرسائل
+  final List<MessageModel> messages;
 
   ChatModel({
     required this.id,
@@ -27,8 +27,10 @@ class ChatModel {
       timestamp: data['timestamp'] as Timestamp,
       avatarUrl: data['avatarUrl'] as String?,
       messages: (data['messages'] as List<dynamic>)
-          .map((messageData) =>
-              MessageModel.fromDocument(messageData as Map<String, dynamic>))
+          .map(
+            (messageData) =>
+                MessageModel.fromDocument(messageData as Map<String, dynamic>),
+          )
           .toList(),
     );
   }

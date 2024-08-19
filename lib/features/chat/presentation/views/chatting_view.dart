@@ -1,9 +1,13 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_pharmacy/core/utils/app_colors.dart';
 import 'package:my_pharmacy/core/utils/text_styles.dart';
 import 'package:my_pharmacy/features/chat/data/models/chat_model.dart';
 import 'package:my_pharmacy/features/chat/presentation/cubit/chat_cubit.dart';
+import 'package:my_pharmacy/features/chat/presentation/cubit/chat_state.dart';
+import 'package:my_pharmacy/features/chat/presentation/widgets/active_chat_box.dart';
+import 'package:my_pharmacy/features/chat/presentation/widgets/inactive_chat_box.dart';
 
 class ChattingView extends StatelessWidget {
   final ChatModel chat;
@@ -19,7 +23,7 @@ class ChattingView extends StatelessWidget {
         automaticallyImplyLeading: false,
         backgroundColor: AppColors.primaryColor,
         title: Text(
-          chat.name, // اسم المستخدم الآخر في المحادثة
+          chat.name,
           style: TextStyles.textStyle20,
         ),
         centerTitle: true,
@@ -30,15 +34,27 @@ class ChattingView extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Expanded(
-              child: ListView.builder(
-                reverse: true,
-                itemCount: chat.messages.length,
-                itemBuilder: (context, index) {
-                  final message = chat.messages[index];
-                  return ListTile(
-                    title: Text(message.content),
-                    subtitle: Text(message.timestamp.toDate().toString()),
-                  );
+              child: BlocBuilder<ChatCubit, ChatState>(
+                builder: (context, state) {
+                  if (state is ChatLoading) {
+                    return const Center(child: CircularProgressIndicator());
+                  } else if (state is ChatLoaded) {
+                    return ListView.builder(
+                      reverse: false,
+                      itemCount: chat.messages.length,
+                      itemBuilder: (context, index) {
+                        final message = chat.messages[index];
+
+                        return message.isSent
+                            ? ActiveChattingBox(message: message.content)
+                            : InActiveChattingBox(message: message.content);
+                      },
+                    );
+                  } else if (state is ChatError) {
+                    return Center(child: Text(state.message));
+                  } else {
+                    return Container();
+                  }
                 },
               ),
             ),
@@ -71,21 +87,31 @@ class ChattingView extends StatelessWidget {
                     child: CircleAvatar(
                       backgroundColor: AppColors.primaryColor,
                       child: IconButton(
-                        icon: const Icon(
-                          Icons.send,
-                          size: 16,
-                          color: AppColors.whiteColor,
-                        ),
-                        onPressed: () {
-                          final message = controller.text;
-                          if (message.isNotEmpty) {
-                            context
-                                .read<ChatCubit>()
-                                .sendMessage(chat.id, message, 'sender_id');
-                            controller.clear();
-                          }
-                        },
-                      ),
+                          icon: const Icon(
+                            Icons.send,
+                            size: 16,
+                            color: AppColors.whiteColor,
+                          ),
+                          onPressed: () {
+                            final message = controller.text;
+                            if (message.isNotEmpty) {
+                              final currentUser =
+                                  FirebaseAuth.instance.currentUser;
+                              final currentUserId = currentUser?.uid;
+                              if (currentUserId != null) {
+                                final isSent = currentUserId ==
+                                    chat.id; // Assuming chat.senderId is the ID of the message sender
+
+                                context.read<ChatCubit>().sendMessage(
+                                    chat.id,
+                                    message,
+                                    currentUserId, // Pass the current user's ID as the sender_id
+                                    isSent);
+
+                                controller.clear();
+                              }
+                            }
+                          }),
                     ),
                   ),
                 ],

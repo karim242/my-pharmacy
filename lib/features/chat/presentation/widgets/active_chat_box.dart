@@ -11,22 +11,25 @@ class ActiveChattingBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      alignment: Alignment.centerRight,
       padding: const EdgeInsets.all(6),
       margin: const EdgeInsets.symmetric(vertical: 8),
       decoration: BoxDecoration(
         color: AppColors.primaryColor,
         borderRadius: BorderRadius.circular(6),
       ),
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Text(
-          message,
-          overflow: TextOverflow.ellipsis,
-          maxLines: 2,
-          softWrap: true,
-          textAlign: TextAlign.start,
-          style: TextStyles.textStyle11,
-        ),
+      child: Wrap(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              message,
+              softWrap: true,
+              textAlign: TextAlign.start,
+              style: TextStyles.textStyle11,
+            ),
+          ),
+        ],
       ),
     );
   }

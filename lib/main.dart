@@ -35,10 +35,7 @@ class Mypharmacy extends StatelessWidget {
             providers: [
               BlocProvider(
                 create: (context) {
-                  final chatCubit = getIt<ChatCubit>();
-                  chatCubit
-                      .loadChats('user_id'); // استبدل بـ ID المستخدم الفعلي
-                  return chatCubit;
+                  return getIt<ChatCubit>()..loadChats();
                 },
               ),
               BlocProvider(

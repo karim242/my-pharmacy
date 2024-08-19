@@ -15,8 +15,8 @@ class ChatRepositoryImpl implements ChatRepository {
     try {
       final querySnapshot = await firestore
           .collection('chats')
-          .where('participants', arrayContains: userId)
-          .orderBy('timestamp', descending: true)
+          //.where('participants', arrayContains: userId)
+          //.orderBy('timestamp', descending: true)
           .get();
 
       return querySnapshot.docs
@@ -28,7 +28,8 @@ class ChatRepositoryImpl implements ChatRepository {
   }
 
   @override
-  Future<void> updateLastMessage(String chatId, MessageModel message) async {
+  Future<void> updateLastMessage(
+      String chatId, MessageModel message, bool isSent) async {
     try {
       final chatRef = firestore.collection('chats').doc(chatId);
 
@@ -36,6 +37,7 @@ class ChatRepositoryImpl implements ChatRepository {
         'lastMessage': message.content,
         'timestamp': message.timestamp,
         'messages': FieldValue.arrayUnion([message.toJson()]),
+        'isSent': isSent
       });
     } catch (e) {
       throw Exception('Failed to update chat: $e');
@@ -48,6 +50,26 @@ class ChatRepositoryImpl implements ChatRepository {
       await firestore.collection('chats').doc(chat.id).set(chat.toJson());
     } catch (e) {
       throw Exception('Failed to create chat: $e');
+    }
+  }
+
+  @override
+  Stream<List<MessageModel>> loadMessage(String chatId) {
+    try {
+      final chatRef = firestore.collection('chats').doc(chatId);
+
+      return chatRef.snapshots().map((snapshot) {
+        final data = snapshot.data();
+        if (data != null && data['messages'] != null) {
+          return (data['messages'] as List)
+              .map((message) => MessageModel.fromDocument(message))
+              .toList();
+        } else {
+          return [];
+        }
+      });
+    } catch (e) {
+      throw Exception('Failed to load messages: $e');
     }
   }
 }

@@ -11,6 +11,7 @@ class ConversationView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.read<ChatCubit>().loadChats();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,

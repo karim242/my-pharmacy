@@ -35,8 +35,7 @@ class AddDataScreen extends StatelessWidget {
   final TextEditingController _pharmacyLongitudeController =
       TextEditingController();
 
-  final FirestoreRepository _repository =
-      FirestoreRepositoryImpl();
+  final FirestoreRepository _repository = FirestoreRepositoryImpl();
 
   AddDataScreen({super.key}); // Use your repository implementation
 
@@ -75,7 +74,8 @@ class AddDataScreen extends StatelessWidget {
               const SizedBox(height: 20),
 
               // Add Product
-              Text('Add Product', style: Theme.of(context).textTheme.titleLarge),
+              Text('Add Product',
+                  style: Theme.of(context).textTheme.titleLarge),
               TextField(
                 controller: _productNameController,
                 decoration: const InputDecoration(labelText: 'Product Name'),
