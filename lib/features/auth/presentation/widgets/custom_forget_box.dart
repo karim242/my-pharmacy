@@ -10,26 +10,26 @@ class CustomForgetBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 40.h,
-      width: 45.w ,
+      width: 45.w,
       child: TextField(
-                  keyboardType: TextInputType.number,
-                  inputFormatters: <TextInputFormatter>[
-                    FilteringTextInputFormatter.digitsOnly,
-                    LengthLimitingTextInputFormatter(1), // Limit input to one digit
-                  ],
-                  textAlign: TextAlign.center, // Center align the text
-                  style: const TextStyle(color: AppColors.whiteColor), // Set text color to white
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: AppColors.whiteColor, // Background color of the text field
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(6.0), // Border radius
-                      borderSide: BorderSide.none,
-                    ),
-                    //contentPadding: const EdgeInsets.all(2.0), // Padding inside the TextField
-                  ),
-                ),
+        keyboardType: TextInputType.number,
+        inputFormatters: <TextInputFormatter>[
+          FilteringTextInputFormatter.digitsOnly,
+          LengthLimitingTextInputFormatter(1), // Limit input to one digit
+        ],
+        textAlign: TextAlign.center, // Center align the text
+        style: const TextStyle(
+            color: AppColors.whiteColor), // Set text color to white
+        decoration: InputDecoration(
+          filled: true,
+          fillColor: AppColors.whiteColor, // Background color of the text field
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(6.0), // Border radius
+            borderSide: BorderSide.none,
+          ),
+          //contentPadding: const EdgeInsets.all(2.0), // Padding inside the TextField
+        ),
+      ),
     );
-            
   }
 }

@@ -10,10 +10,12 @@ import 'package:my_pharmacy/features/home/data/models/product_model.dart';
 
 class AddDataScreen extends StatelessWidget {
   final TextEditingController _categoryNameController = TextEditingController();
-  final TextEditingController _categoryPharmacyNameController = TextEditingController();
-  final TextEditingController _categoryPriceController = TextEditingController();
-  final TextEditingController _categoryAddressController = TextEditingController();
-
+  final TextEditingController _categoryPharmacyNameController =
+      TextEditingController();
+  final TextEditingController _categoryPriceController =
+      TextEditingController();
+  final TextEditingController _categoryAddressController =
+      TextEditingController();
 
   final TextEditingController _productNameController = TextEditingController();
   final TextEditingController _productOriginalPriceController =
@@ -23,7 +25,8 @@ class AddDataScreen extends StatelessWidget {
   final TextEditingController _productImageUrlController =
       TextEditingController();
   final TextEditingController _pharmacyNameController = TextEditingController();
-    final TextEditingController _pharmacyPhoneController = TextEditingController();
+  final TextEditingController _pharmacyPhoneController =
+      TextEditingController();
 
   final TextEditingController _pharmacyAddressController =
       TextEditingController();
@@ -33,7 +36,9 @@ class AddDataScreen extends StatelessWidget {
       TextEditingController();
 
   final FirestoreRepository _repository =
-      FirestoreRepositoryImpl(); // Use your repository implementation
+      FirestoreRepositoryImpl();
+
+  AddDataScreen({super.key}); // Use your repository implementation
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +52,7 @@ class AddDataScreen extends StatelessWidget {
             children: [
               // Add Category
               Text('Add Category',
-                  style: Theme.of(context).textTheme.headline6),
+                  style: Theme.of(context).textTheme.titleLarge),
               TextField(
                 controller: _categoryNameController,
                 decoration: const InputDecoration(labelText: 'Category Name'),
@@ -58,11 +63,10 @@ class AddDataScreen extends StatelessWidget {
                   final category = CategoryModel(
                     id: DateTime.now().toString(), // Generate a unique ID
                     name: _categoryNameController.text,
-                    imageUrl: '',// Add logic to upload image if needed
-                     pharmacyName: _categoryPharmacyNameController.text,
-                      price:_categoryPriceController.text,
-                       address:_categoryAddressController.text  , 
-                     
+                    imageUrl: '', // Add logic to upload image if needed
+                    pharmacyName: _categoryPharmacyNameController.text,
+                    price: _categoryPriceController.text,
+                    address: _categoryAddressController.text,
                   );
                   context.read<FirestoreCubit>().addCategory(category);
                 },
@@ -71,7 +75,7 @@ class AddDataScreen extends StatelessWidget {
               const SizedBox(height: 20),
 
               // Add Product
-              Text('Add Product', style: Theme.of(context).textTheme.headline6),
+              Text('Add Product', style: Theme.of(context).textTheme.titleLarge),
               TextField(
                 controller: _productNameController,
                 decoration: const InputDecoration(labelText: 'Product Name'),
@@ -107,7 +111,7 @@ class AddDataScreen extends StatelessWidget {
                     isDiscounted:
                         false, // Adjust this based on your requirement
                   );
-                  final categoryId =
+                  const categoryId =
                       'your-category-id'; // Replace with actual category ID
                   context
                       .read<FirestoreCubit>()
@@ -119,7 +123,7 @@ class AddDataScreen extends StatelessWidget {
 
               // Add Pharmacy
               Text('Add Pharmacy',
-                  style: Theme.of(context).textTheme.headline6),
+                  style: Theme.of(context).textTheme.titleLarge),
               TextField(
                 controller: _pharmacyNameController,
                 decoration: const InputDecoration(labelText: 'Pharmacy Name'),

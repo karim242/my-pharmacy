@@ -1,4 +1,3 @@
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:my_pharmacy/features/chat/data/models/message_model.dart';
 
@@ -28,7 +27,8 @@ class ChatModel {
       timestamp: data['timestamp'] as Timestamp,
       avatarUrl: data['avatarUrl'] as String?,
       messages: (data['messages'] as List<dynamic>)
-          .map((messageData) => MessageModel.fromDocument(messageData as Map<String, dynamic>))
+          .map((messageData) =>
+              MessageModel.fromDocument(messageData as Map<String, dynamic>))
           .toList(),
     );
   }
@@ -42,6 +42,7 @@ class ChatModel {
       'messages': messages.map((message) => message.toJson()).toList(),
     };
   }
+
   ChatModel copyWith({
     String? id,
     String? name,

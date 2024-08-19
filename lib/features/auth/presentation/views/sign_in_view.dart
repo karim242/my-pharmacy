@@ -14,15 +14,14 @@ import 'package:my_pharmacy/features/auth/presentation/widgets/custom_button.dar
 import 'package:my_pharmacy/features/auth/presentation/widgets/custom_row_login.dart';
 import 'package:my_pharmacy/features/auth/presentation/widgets/custom_text_field.dart';
 
+// ignore: must_be_immutable
 class SignInView extends StatelessWidget {
-   SignInView({super.key});
+  SignInView({super.key});
 
- 
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey();
 
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,7 +47,7 @@ class SignInView extends StatelessWidget {
                   const Align(
                     alignment: Alignment.centerRight,
                     child: Text(
-                   AppStrings.kSignIn ,
+                      AppStrings.kSignIn,
                       style: TextStyles.textStyle20,
                     ),
                   ),

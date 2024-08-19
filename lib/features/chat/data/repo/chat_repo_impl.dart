@@ -1,4 +1,3 @@
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:my_pharmacy/features/chat/data/models/chat_model.dart';
 import 'package:my_pharmacy/features/chat/data/models/message_model.dart';
@@ -7,7 +6,9 @@ import 'package:my_pharmacy/features/chat/data/repo/chat_repo.dart';
 class ChatRepositoryImpl implements ChatRepository {
   final FirebaseFirestore firestore;
 
-  ChatRepositoryImpl( this.firestore, );
+  ChatRepositoryImpl(
+    this.firestore,
+  );
 
   @override
   Future<List<ChatModel>> fetchChats(String userId) async {

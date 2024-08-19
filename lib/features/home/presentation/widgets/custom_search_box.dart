@@ -9,19 +9,20 @@ class CustomSearchBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-            height: 32.h,
-            width: 258.w,
+      height: 32.h,
+      width: 258.w,
       child: TextField(
         decoration: InputDecoration(
-          contentPadding:const EdgeInsets.all(2),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(7.0),
-            borderSide: const BorderSide(color:AppColors.primaryColor),
-          ),
-          hintText:AppStrings.kSearchString,
-          prefixIcon:const Icon(Icons.search,color: AppColors.secondColor,)
-         
-        ),
+            contentPadding: const EdgeInsets.all(2),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(7.0),
+              borderSide: const BorderSide(color: AppColors.primaryColor),
+            ),
+            hintText: AppStrings.kSearchString,
+            prefixIcon: const Icon(
+              Icons.search,
+              color: AppColors.secondColor,
+            )),
       ),
     );
   }

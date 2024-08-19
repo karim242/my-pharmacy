@@ -11,7 +11,7 @@ class CustomTextField extends StatelessWidget {
       this.onSaved,
       this.onChanged,
       this.controller,
-       this.obscureText=false});
+      this.obscureText = false});
 
   final String labelText;
   final int maxLines;

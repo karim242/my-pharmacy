@@ -7,16 +7,14 @@ class PharmacyModel {
   final String imageUrl;
   final String phone;
 
-
-  PharmacyModel({
-    required this.id,
-    required this.name,
-    required this.address,
-    required this.latitude,
-    required this.longitude,
-    required this.imageUrl,
-    required this.phone
-  });
+  PharmacyModel(
+      {required this.id,
+      required this.name,
+      required this.address,
+      required this.latitude,
+      required this.longitude,
+      required this.imageUrl,
+      required this.phone});
 
   factory PharmacyModel.fromJson(Map<String, dynamic> json) {
     return PharmacyModel(

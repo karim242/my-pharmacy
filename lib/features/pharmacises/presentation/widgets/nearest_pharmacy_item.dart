@@ -12,7 +12,10 @@ class NearestPharmacyItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(RoutesNames.kPharmacyDetailsView,extra: nearestPharmacy,);
+        GoRouter.of(context).push(
+          RoutesNames.kPharmacyDetailsView,
+          extra: nearestPharmacy,
+        );
       },
       child: SizedBox(
         width: 80.w,
@@ -35,9 +38,8 @@ class NearestPharmacyItem extends StatelessWidget {
               ),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(6),
-                 child: Image.network(
-                
-                 nearestPharmacy.imageUrl, // with your SVG image path
+                child: Image.network(
+                  nearestPharmacy.imageUrl, // with your SVG image path
                   fit: BoxFit.cover,
                 ),
               ),

@@ -24,7 +24,7 @@ class Offer50View extends StatelessWidget {
                 title: AppStrings.kOffer50,
               ),
               SizedBox(height: 15.0.h),
-             const CustomGridView(),
+              const CustomGridView(),
             ],
           ),
         ),

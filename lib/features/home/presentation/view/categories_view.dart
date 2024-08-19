@@ -9,25 +9,23 @@ class CategoriesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-       body: Padding(
+    return Scaffold(
+      body: Padding(
         padding: EdgeInsets.only(right: 38.0.w, left: 38.0.w, top: 50.0.h),
         child: SingleChildScrollView(
-          child: Column(
-            children: [
-                const InnerSearchRow(),
-              SizedBox(
-                height: 15.h,
-              ),
-              const TitleText(
-                title: 'مستحضرات التجميل',
-              ),
-              SizedBox(height: 15.0.h),
-              const CategoriesGridView()
-            ]
-          ),
+          child: Column(children: [
+            const InnerSearchRow(),
+            SizedBox(
+              height: 15.h,
+            ),
+            const TitleText(
+              title: 'مستحضرات التجميل',
+            ),
+            SizedBox(height: 15.0.h),
+            const CategoriesGridView()
+          ]),
         ),
-       ),
+      ),
     );
   }
 }

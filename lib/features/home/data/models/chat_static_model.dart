@@ -14,18 +14,18 @@ class Chat {
   });
 }
 
-  final List<Chat> chats = [
-    Chat(
-      name: 'صيدلية الطرشوبي',
-      lastMessage: 'ممكن حضرتك تبعت العنوان و رقم الهاتف؟',
-      avatarUrl: AppImages.elezabyImage,
-      time: DateTime.now().subtract(const Duration(minutes: 5)),
-    ),
-    Chat(
-      name: 'صيدلية العزبي',
-      lastMessage: 'ممكن حضرتك تبعت العنوان و رقم الهاتف؟',
-      avatarUrl:AppImages.tarshobyImage,
-      time: DateTime.now().subtract( const Duration(hours: 1)),
-    ),
-    // Add more Chat objects
-  ];
+final List<Chat> chats = [
+  Chat(
+    name: 'صيدلية الطرشوبي',
+    lastMessage: 'ممكن حضرتك تبعت العنوان و رقم الهاتف؟',
+    avatarUrl: AppImages.elezabyImage,
+    time: DateTime.now().subtract(const Duration(minutes: 5)),
+  ),
+  Chat(
+    name: 'صيدلية العزبي',
+    lastMessage: 'ممكن حضرتك تبعت العنوان و رقم الهاتف؟',
+    avatarUrl: AppImages.tarshobyImage,
+    time: DateTime.now().subtract(const Duration(hours: 1)),
+  ),
+  // Add more Chat objects
+];

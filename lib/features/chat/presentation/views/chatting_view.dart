@@ -12,7 +12,7 @@ class ChattingView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController _controller = TextEditingController();
+    final TextEditingController controller = TextEditingController();
 
     return Scaffold(
       appBar: AppBar(
@@ -48,7 +48,7 @@ class ChattingView extends StatelessWidget {
                 children: [
                   Expanded(
                     child: TextField(
-                      controller: _controller,
+                      controller: controller,
                       decoration: InputDecoration(
                         hintText: 'اكتب رسالتك',
                         filled: true,
@@ -77,10 +77,12 @@ class ChattingView extends StatelessWidget {
                           color: AppColors.whiteColor,
                         ),
                         onPressed: () {
-                          final message = _controller.text;
+                          final message = controller.text;
                           if (message.isNotEmpty) {
-                            context.read<ChatCubit>().sendMessage(chat.id, message, 'sender_id');
-                            _controller.clear();
+                            context
+                                .read<ChatCubit>()
+                                .sendMessage(chat.id, message, 'sender_id');
+                            controller.clear();
                           }
                         },
                       ),

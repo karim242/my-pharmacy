@@ -3,12 +3,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_pharmacy/core/utils/app_colors.dart';
 import 'package:my_pharmacy/core/utils/text_styles.dart';
 
-
 class NextButton extends StatelessWidget {
-  const NextButton({super.key, this.onTap, this.isLoading = false, required this.lebale});
+  const NextButton(
+      {super.key, this.onTap, this.isLoading = false, required this.lebale});
 
   final void Function()? onTap;
-final String lebale;
+  final String lebale;
   final bool isLoading;
   @override
   Widget build(BuildContext context) {
@@ -31,12 +31,9 @@ final String lebale;
                     color: Colors.black,
                   ),
                 )
-              :  Text(
-                  lebale,
-                  style: TextStyles.textStyle14.copyWith(
-                    color: AppColors.whiteColor
-                  )
-                ),
+              : Text(lebale,
+                  style: TextStyles.textStyle14
+                      .copyWith(color: AppColors.whiteColor)),
         ),
       ),
     );

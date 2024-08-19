@@ -10,17 +10,19 @@ class SearchRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Row(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Padding(
-          padding:  EdgeInsets.only(left: 2.0.w),
-          child:  const CustomSearchBox(),
+          padding: EdgeInsets.only(left: 2.0.w),
+          child: const CustomSearchBox(),
         ),
-       
-           SvgPicture.asset(AppImages.handBagIcon,),
-       // const SizedBox(width: 8),
+
+        SvgPicture.asset(
+          AppImages.handBagIcon,
+        ),
+        // const SizedBox(width: 8),
         //
       ],
     );

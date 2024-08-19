@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
@@ -13,7 +12,8 @@ class OffersItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(RoutesNames.kPharmacyDetailsView, extra: pharmacyOffer);
+        GoRouter.of(context)
+            .push(RoutesNames.kPharmacyDetailsView, extra: pharmacyOffer);
       },
       child: SizedBox(
         width: 80.w,
@@ -37,10 +37,9 @@ class OffersItem extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(6),
                 child: Image.network(
-        
-                   pharmacyOffer.imageUrl, // with your SVG image path
+                  pharmacyOffer.imageUrl, // with your SVG image path
                   fit: BoxFit.cover,
-                 ),
+                ),
               ),
             ),
             Padding(

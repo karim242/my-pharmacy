@@ -5,7 +5,8 @@ import 'package:my_pharmacy/core/utils/text_styles.dart';
 
 class PriceBox extends StatelessWidget {
   const PriceBox({
-    super.key, required this.price,
+    super.key,
+    required this.price,
   });
   final String price;
   @override
@@ -23,13 +24,13 @@ class PriceBox extends StatelessWidget {
           children: [
             Text(
               'EGP   ',
-              style:
-                  TextStyles.textStyle11.copyWith(color: AppColors.primaryColor),
+              style: TextStyles.textStyle11
+                  .copyWith(color: AppColors.primaryColor),
             ),
             Text(
-             price,
-              style:
-                  TextStyles.textStyle16.copyWith(color: AppColors.primaryColor),
+              price,
+              style: TextStyles.textStyle16
+                  .copyWith(color: AppColors.primaryColor),
             ),
           ],
         ));

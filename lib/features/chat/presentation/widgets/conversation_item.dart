@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:my_pharmacy/core/routes/routes_names.dart';
@@ -21,7 +20,7 @@ class ConversationItem extends StatelessWidget {
         minVerticalPadding: 0,
         leading: CircleAvatar(
           radius: 22.0,
-          backgroundImage: AssetImage(chat.avatarUrl??''),
+          backgroundImage: AssetImage(chat.avatarUrl ?? ''),
         ),
         title: Text(
           chat.name,
@@ -33,7 +32,7 @@ class ConversationItem extends StatelessWidget {
         ),
         trailing: Text(chat.timestamp.toDate().toString()),
         onTap: () {
-          GoRouter.of(context).push(RoutesNames.kChattingView,extra: chat);
+          GoRouter.of(context).push(RoutesNames.kChattingView, extra: chat);
         });
   }
 }

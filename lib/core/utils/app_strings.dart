@@ -12,7 +12,7 @@ class AppStrings {
   static const String kName = 'الاسم';
   static const String kAddress = "العنوان";
   static const String kPhone = 'رقم الهاتف';
-  static const String kCreateAccount ="انشاء حساب";
+  static const String kCreateAccount = "انشاء حساب";
   static const String kEmail = "البريد الالكتروني";
 
   static const String kGovernorate = ' المحافظة';
@@ -22,8 +22,8 @@ class AppStrings {
   static const String kSetting = 'الإعدادات';
   static const String kSaveTitle = 'العنوان المحفوظ';
   static const String kSignIn = 'تسجيل الدخول';
-  
-  static const String  kForgetPassword = ' هل نسيت كلمة المرور؟';
+
+  static const String kForgetPassword = ' هل نسيت كلمة المرور؟';
 
   static const String kPersonalInfoString = 'المعلومات الشخصية';
   static const String kPassword = 'كلمة المرور ';

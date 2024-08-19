@@ -15,7 +15,6 @@ class CategoryDetailsView extends StatelessWidget {
   const CategoryDetailsView({super.key, required this.category});
   final CategoryModel category;
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +34,7 @@ class CategoryDetailsView extends StatelessWidget {
                 ),
                 child: Image.network(
                   category.imageUrl,
-                 fit: BoxFit.cover,
+                  fit: BoxFit.cover,
                 ),
               ),
             ),
@@ -65,15 +64,17 @@ class CategoryDetailsView extends StatelessWidget {
                             ),
                           ],
                         ),
-                         PriceBox(price: category.price,),
+                        PriceBox(
+                          price: category.price,
+                        ),
                       ],
                     ),
                   ),
-                   ListTileInDetailView(
+                  ListTileInDetailView(
                     title: category.address,
                     icon: AppImages.locationIcon,
                   ),
-                   ListTileInDetailView(
+                  ListTileInDetailView(
                     title: category.name,
                     icon: AppImages.deliveryIcon,
                   ),

@@ -15,7 +15,6 @@ class CategoryViewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-
       width: 100.w,
       height: 180.h,
       child: Column(
@@ -24,7 +23,8 @@ class CategoryViewItem extends StatelessWidget {
           GestureDetector(
             onTap: () {
               //Navgat to category detials
-              GoRouter.of(context).push(RoutesNames.kCategoryDetailsView,extra: category);
+              GoRouter.of(context)
+                  .push(RoutesNames.kCategoryDetailsView, extra: category);
             },
             child: Stack(
               children: [
@@ -33,9 +33,8 @@ class CategoryViewItem extends StatelessWidget {
                     topLeft: Radius.circular(6),
                     topRight: Radius.circular(6),
                   ),
-                  child: Image.network(category.imageUrl
-                  , fit: BoxFit.cover, width: 100.w, height: 90.h),
-                  
+                  child: Image.network(category.imageUrl,
+                      fit: BoxFit.cover, width: 100.w, height: 90.h),
                 ),
                 Positioned(
                   bottom: 0,

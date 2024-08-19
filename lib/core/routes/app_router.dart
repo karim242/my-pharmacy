@@ -2,7 +2,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:my_pharmacy/core/routes/routes_names.dart';
 import 'package:my_pharmacy/core/services/service_locator.dart';
-import 'package:my_pharmacy/features/auth/presentation/cubit/auth_cubit.dart';
 import 'package:my_pharmacy/features/auth/presentation/views/forget_password_frist.dart';
 import 'package:my_pharmacy/features/auth/presentation/views/forget_password_second.dart';
 import 'package:my_pharmacy/features/auth/presentation/views/forget_password_three.dart';
@@ -98,7 +97,7 @@ abstract class AppRouter {
             chat: chat,
           );
         }),
-         GoRoute(
+    GoRoute(
         path: RoutesNames.kConversationView,
         builder: (context, state) => const ConversationView()),
     GoRoute(

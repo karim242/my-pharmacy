@@ -1,4 +1,3 @@
-
 import 'package:equatable/equatable.dart';
 import 'package:my_pharmacy/features/chat/data/models/chat_model.dart';
 

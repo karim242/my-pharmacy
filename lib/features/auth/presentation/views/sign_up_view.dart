@@ -30,12 +30,12 @@ class SignUpView extends StatelessWidget {
         body: BlocConsumer<AuthCubit, AuthState>(
           listener: (context, state) {
             if (state is SignUpSuccessState) {
-                showToast("تم إنشاء الحساب بنجاح!");
+              showToast("تم إنشاء الحساب بنجاح!");
               GoRouter.of(context).push(
                 RoutesNames.kRootView,
               );
             } else if (state is SignUpFailureState) {
-               showToast(state.errMessage);
+              showToast(state.errMessage);
             }
           },
           builder: (context, state) {

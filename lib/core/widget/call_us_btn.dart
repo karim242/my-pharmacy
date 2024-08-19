@@ -5,32 +5,31 @@ import 'package:my_pharmacy/core/utils/text_styles.dart';
 
 class CallUsBtn extends StatelessWidget {
   const CallUsBtn({
-    super.key, this.onTap, this.width = 143, this.height= 34,
+    super.key,
+    this.onTap,
+    this.width = 143,
+    this.height = 34,
   });
-final void Function()? onTap;
-final double? width;
-final double? height;
-
+  final void Function()? onTap;
+  final double? width;
+  final double? height;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap:onTap ,
+      onTap: onTap,
       child: Container(
         width: width?.w,
         height: height?.h,
         decoration: BoxDecoration(
             color: AppColors.whiteColor,
-            border: Border.all(
-              color: AppColors.primaryColor
-            ),
+            border: Border.all(color: AppColors.primaryColor),
             borderRadius: BorderRadius.circular(6)),
         child: Center(
           child: Text(
             'اتصل الان',
             style: TextStyles.textStyle11.copyWith(
-              color: AppColors.primaryColor,
-                fontWeight: FontWeight.bold),
+                color: AppColors.primaryColor, fontWeight: FontWeight.bold),
           ),
         ),
       ),

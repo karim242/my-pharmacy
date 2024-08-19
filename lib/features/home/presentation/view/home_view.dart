@@ -5,7 +5,6 @@ import 'package:go_router/go_router.dart';
 import 'package:my_pharmacy/core/routes/routes_names.dart';
 import 'package:my_pharmacy/core/utils/app_strings.dart';
 import 'package:my_pharmacy/core/widget/custom_title.dart';
-import 'package:my_pharmacy/core/widget/custom_toast.dart';
 import 'package:my_pharmacy/features/home/presentation/cubit/home_cubit.dart';
 import 'package:my_pharmacy/features/home/presentation/cubit/home_state.dart';
 import 'package:my_pharmacy/features/home/presentation/widgets/categories_row.dart';

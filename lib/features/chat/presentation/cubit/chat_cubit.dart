@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_pharmacy/features/chat/data/models/message_model.dart';
 import 'package:my_pharmacy/features/chat/data/repo/chat_repo.dart';
 import 'package:my_pharmacy/features/chat/presentation/cubit/chat_state.dart';
+
 class ChatCubit extends Cubit<ChatState> {
   final ChatRepository repository;
 
@@ -22,7 +23,8 @@ class ChatCubit extends Cubit<ChatState> {
     }
   }
 
-  Future<void> sendMessage(String chatId, String message, String senderId) async {
+  Future<void> sendMessage(
+      String chatId, String message, String senderId) async {
     try {
       final timestamp = Timestamp.now();
       final newMessage = MessageModel(
@@ -36,8 +38,12 @@ class ChatCubit extends Cubit<ChatState> {
       if (state is ChatLoaded) {
         final updatedChats = (state as ChatLoaded).chats.map((chat) {
           if (chat.id == chatId) {
-            final updatedMessages = List<MessageModel>.from(chat.messages)..add(newMessage);
-            return chat.copyWith(lastMessage: message, timestamp: timestamp, messages: updatedMessages);
+            final updatedMessages = List<MessageModel>.from(chat.messages)
+              ..add(newMessage);
+            return chat.copyWith(
+                lastMessage: message,
+                timestamp: timestamp,
+                messages: updatedMessages);
           }
           return chat;
         }).toList();

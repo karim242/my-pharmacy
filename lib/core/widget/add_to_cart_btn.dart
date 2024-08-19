@@ -5,17 +5,19 @@ import 'package:my_pharmacy/core/utils/text_styles.dart';
 
 class AddToCartBtn extends StatelessWidget {
   const AddToCartBtn({
-    super.key, this.onTap, this.width = 95, this.height= 24,
+    super.key,
+    this.onTap,
+    this.width = 95,
+    this.height = 24,
   });
-final void Function()? onTap;
-final double? width;
-final double? height;
-
+  final void Function()? onTap;
+  final double? width;
+  final double? height;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap:onTap ,
+      onTap: onTap,
       child: Container(
         width: width?.w,
         height: height?.h,
@@ -25,9 +27,8 @@ final double? height;
         child: Center(
           child: Text(
             'إضافة الي السلة',
-            style: TextStyles.textStyle11.copyWith(
-                fontSize: 9,
-                fontWeight: FontWeight.bold),
+            style: TextStyles.textStyle11
+                .copyWith(fontSize: 9, fontWeight: FontWeight.bold),
           ),
         ),
       ),

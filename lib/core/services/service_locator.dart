@@ -30,17 +30,15 @@ void setupLocator() {
   getIt.registerFactory<FirestoreCubit>(
       () => FirestoreCubit(getIt<FirestoreRepository>()));
 
-
-
-
-
-
-      // تسجيل FirebaseFirestore
-  getIt.registerLazySingleton<FirebaseFirestore>(() => FirebaseFirestore.instance);
+  // تسجيل FirebaseFirestore
+  getIt.registerLazySingleton<FirebaseFirestore>(
+      () => FirebaseFirestore.instance);
 
   // تسجيل ChatRepositoryImpl
-  getIt.registerLazySingleton<ChatRepositoryImpl>(() => ChatRepositoryImpl(getIt<FirebaseFirestore>()));
+  getIt.registerLazySingleton<ChatRepositoryImpl>(
+      () => ChatRepositoryImpl(getIt<FirebaseFirestore>()));
 
   // تسجيل ChatCubit
-  getIt.registerFactory<ChatCubit>(() => ChatCubit(getIt<ChatRepositoryImpl>()));
+  getIt
+      .registerFactory<ChatCubit>(() => ChatCubit(getIt<ChatRepositoryImpl>()));
 }
