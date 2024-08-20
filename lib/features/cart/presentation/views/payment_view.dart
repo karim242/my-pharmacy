@@ -26,7 +26,7 @@ class _PaymentViewState extends State<PaymentView> {
               Navigator.pop(context);
             },
             child: const Icon(Icons.arrow_back_ios)),
-        title: const TitleText(title: AppStrings.kPaymentString),
+        title:  TitleText(title: AppStrings.kPaymentString(context)),
       ),
       body: Padding(
         padding: const EdgeInsets.only(
@@ -37,18 +37,18 @@ class _PaymentViewState extends State<PaymentView> {
           child: Column(
             children: [
               SizedBox(height: 30.h),
-              const PaymentTextField(hintText: AppStrings.kName),
+               PaymentTextField(hintText: AppStrings.kName(context)),
               SizedBox(height: 16.h),
-              const PaymentTextField(hintText: AppStrings.kPhone),
+               PaymentTextField(hintText: AppStrings.kPhone(context)),
               SizedBox(height: 16.h),
-              const PaymentTextField(hintText: AppStrings.kAddress),
+               PaymentTextField(hintText: AppStrings.kAddress(context)),
               SizedBox(height: 16.h),
-              const Row(
+               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  PaymentSmallTextField(hintText: AppStrings.kGovernorate),
-                  PaymentSmallTextField(hintText: AppStrings.kCity),
+                  PaymentSmallTextField(hintText: AppStrings.kGovernorate(context)),
+                  PaymentSmallTextField(hintText: AppStrings.kCity(context)),
                 ],
               ),
               SizedBox(height: 16.h),
@@ -63,8 +63,8 @@ class _PaymentViewState extends State<PaymentView> {
                     child: CircleBtn(
                       isSelected: selectedIndex == 0,
                     )),
-                title: const Text(
-                  AppStrings.kPaymentInRecive,
+                title:  Text(
+                  AppStrings.kPaymentInRecive(context),
                 ),
               ),
               ListTile(
@@ -78,13 +78,13 @@ class _PaymentViewState extends State<PaymentView> {
                     child: CircleBtn(
                       isSelected: selectedIndex == 1,
                     )),
-                title: const Text(
-                  AppStrings.kPaymentByVisa,
+                title:  Text(
+                  AppStrings.kPaymentByVisa(context),
                 ),
               ),
               SizedBox(height: 20.h),
               NextButton(
-                lebale: AppStrings.kNextString,
+                lebale: AppStrings.kNextString(context),
                 onTap: () {},
               ),
             ],

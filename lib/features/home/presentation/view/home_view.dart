@@ -31,12 +31,12 @@ class HomeView extends StatelessWidget {
               children: [
                 const SearchRow(),
                 SizedBox(height: 21.0.h),
-                const TitleText(title: AppStrings.kCategory),
+                 TitleText(title: AppStrings.kCategory(context)),
                 SizedBox(height: 10.0.h),
                 const CategoryList(),
                 SizedBox(height: 25.0.h),
                 TitleText(
-                  title: AppStrings.kNearestString,
+                  title: AppStrings.kNearestString(context),
                   onTap: () {
                     GoRouter.of(context).push(RoutesNames.kNearestPharmacyView);
                   },
@@ -45,7 +45,7 @@ class HomeView extends StatelessWidget {
                 const NearestPharmacyList(),
                 SizedBox(height: 15.0.h),
                 TitleText(
-                  title: AppStrings.kOffer50,
+                  title: AppStrings.kOffer50(context),
                   onTap: () {
                     GoRouter.of(context).push(RoutesNames.kOffer50View);
                   },

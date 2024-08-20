@@ -1,3 +1,5 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_pharmacy/core/utils/app_strings.dart';
@@ -9,19 +11,19 @@ class ChangePasswordSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return  Padding(
       padding: const EdgeInsets.symmetric(horizontal: 38.0, vertical: 20),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const TitleText(title: AppStrings.kChangePassword),
+          TitleText(title: AppStrings.kChangePassword(context)),
           SizedBox(height: 30.h),
-          const PaymentTextField(hintText: AppStrings.kCurrentPassword),
+           PaymentTextField(hintText: AppStrings.kCurrentPassword(context)),
           SizedBox(height: 10.h),
-          const PaymentTextField(hintText: AppStrings.kNewPassword),
+           PaymentTextField(hintText: AppStrings.kNewPassword(context)),
           SizedBox(height: 10.h),
-          const PaymentTextField(hintText: AppStrings.kConfirmPassword),
+           PaymentTextField(hintText: AppStrings.kConfirmPassword(context)),
           SizedBox(height: 20.h),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,

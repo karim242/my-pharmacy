@@ -17,8 +17,8 @@ class ConversationView extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 0,
         automaticallyImplyLeading: false, // Removes the back button
-        title: const TitleText(
-          title: AppStrings.kConversations,
+        title:  TitleText(
+          title: AppStrings.kConversations(context),
         ),
       ),
       body: const Padding(

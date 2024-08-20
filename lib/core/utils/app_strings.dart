@@ -1,34 +1,41 @@
+import 'package:flutter/material.dart';
+import 'package:my_pharmacy/generated/l10n.dart';
+
 class AppStrings {
-  static const String appName = 'MyPharmacy';
-  static const String kSearchString = 'بحث';
-  static const String kNearestString = ' الصيدليات القريبة اليك';
-  static const String kCategory = 'الفئات';
-  static const String kOffer50 = 'عروض  %50';
-  static const String kConversations = 'المحادثات';
-  static const String kBuyCart = 'سلة المشتريات';
-  static const String kPaymentString = ' الدفع';
-  static const String kNextString = 'التالي';
-  static const String kBackString = 'السابق';
-  static const String kName = 'الاسم';
-  static const String kAddress = "العنوان";
-  static const String kPhone = 'رقم الهاتف';
-  static const String kCreateAccount = "انشاء حساب";
-  static const String kEmail = "البريد الالكتروني";
+  
 
-  static const String kGovernorate = ' المحافظة';
-  static const String kCity = ' المدينة';
-  static const String kPaymentInRecive = 'الدفع عند الاستلام';
-  static const String kPaymentByVisa = 'الدفع بالفيزا';
-  static const String kSetting = 'الإعدادات';
-  static const String kSaveTitle = 'العنوان المحفوظ';
-  static const String kSignIn = 'تسجيل الدخول';
 
-  static const String kForgetPassword = ' هل نسيت كلمة المرور؟';
+  static String kSearchString(BuildContext context) => S.of(context).kSearchString;
+  static String kNearestString(BuildContext context) => S.of(context).kNearestString;
+  static String kCategory(BuildContext context) => S.of(context).kCategory;
+  static String kOffer50(BuildContext context) => S.of(context).kOffer50;
+  static String kConversations(BuildContext context) => S.of(context).kConversations;
+  static String kBuyCart(BuildContext context) => S.of(context).kBuyCart;
+  static String kPaymentString(BuildContext context) => S.of(context).kPaymentString;
+  static String kNextString(BuildContext context) => S.of(context).kNextString;
+  static String kBackString(BuildContext context) => S.of(context).kBackString;
+  static String kName(BuildContext context) => S.of(context).kName;
+  static String kAddress(BuildContext context) => S.of(context).kAddress;
+  static String kPhone(BuildContext context) => S.of(context).kPhone;
+  static String kCreateAccount(BuildContext context) => S.of(context).kCreateAccount;
+  static String kEmail(BuildContext context) => S.of(context).kEmail;
+  static String kGovernorate(BuildContext context) => S.of(context).kGovernorate;
+  static String kCity(BuildContext context) => S.of(context).kCity;
+  static String kPaymentInRecive(BuildContext context) => S.of(context).kPaymentInRecive;
+  static String kPaymentByVisa(BuildContext context) => S.of(context).kPaymentByVisa;
+  static String kSetting(BuildContext context) => S.of(context).kSetting;
+  static String kSaveTitle(BuildContext context) => S.of(context).kSaveTitle;
+  static String kSignIn(BuildContext context) => S.of(context).kSignIn;
+    static String kSignOut(BuildContext context) => S.of(context).kSignOut;
 
-  static const String kPersonalInfoString = 'المعلومات الشخصية';
-  static const String kPassword = 'كلمة المرور ';
-  static const String kChangePassword = 'تغيير كلمة المرور';
-  static const String kCurrentPassword = 'كلمة المرور الحالية';
-  static const String kNewPassword = 'كلمة المرور الجديدة';
-  static const String kConfirmPassword = 'تأكيد كلمة المرور الجديدة';
+  static String kForgetPassword(BuildContext context) => S.of(context).kForgetPassword;
+  static String kPersonalInfoString(BuildContext context) => S.of(context).kPersonalInfoString;
+  static String kPassword(BuildContext context) => S.of(context).kPassword;
+  static String kChangePassword(BuildContext context) => S.of(context).kChangePassword;
+  static String kCurrentPassword(BuildContext context) => S.of(context).kCurrentPassword;
+  static String kNewPassword(BuildContext context) => S.of(context).kNewPassword;
+  static String kConfirmPassword(BuildContext context) => S.of(context).kConfirmPassword;
+
+
+
 }

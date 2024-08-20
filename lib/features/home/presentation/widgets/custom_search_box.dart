@@ -18,7 +18,7 @@ class CustomSearchBox extends StatelessWidget {
               borderRadius: BorderRadius.circular(7.0),
               borderSide: const BorderSide(color: AppColors.primaryColor),
             ),
-            hintText: AppStrings.kSearchString,
+            hintText: AppStrings.kSearchString(context),
             prefixIcon: const Icon(
               Icons.search,
               color: AppColors.secondColor,

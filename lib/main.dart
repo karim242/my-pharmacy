@@ -9,6 +9,7 @@ import 'package:my_pharmacy/features/auth/presentation/cubit/auth_cubit.dart';
 import 'package:my_pharmacy/features/chat/presentation/cubit/chat_cubit.dart';
 import 'package:my_pharmacy/features/home/presentation/cubit/home_cubit.dart';
 import 'package:my_pharmacy/firebase_options.dart';
+import 'package:my_pharmacy/generated/l10n.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -50,7 +51,7 @@ class Mypharmacy extends StatelessWidget {
               debugShowCheckedModeBanner: false,
               locale: const Locale('ar'),
               localizationsDelegates: const [
-                // AppLocalizations.delegate,
+                S.delegate,
                 GlobalMaterialLocalizations.delegate,
                 GlobalWidgetsLocalizations.delegate,
                 GlobalCupertinoLocalizations.delegate,

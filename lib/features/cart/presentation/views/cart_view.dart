@@ -21,8 +21,8 @@ class CartView extends StatelessWidget {
         elevation: 0,
         automaticallyImplyLeading: false, // Removes the back button
 
-        title: const TitleText(
-          title: AppStrings.kBuyCart,
+        title:  TitleText(
+          title: AppStrings.kBuyCart(context),
         ),
       ),
       body: Padding(
@@ -81,7 +81,7 @@ class CartView extends StatelessWidget {
               SizedBox(height: 20.h),
 
               NextButton(
-                lebale: AppStrings.kNextString,
+                lebale: AppStrings.kNextString(context),
                 onTap: () {
                   GoRouter.of(context).push(RoutesNames.kPaymentView);
                 },

@@ -45,10 +45,10 @@ class SignUpView extends StatelessWidget {
                 SizedBox(
                   height: 74.h,
                 ),
-                const Align(
+                 Align(
                   alignment: Alignment.centerRight,
                   child: Text(
-                    AppStrings.kCreateAccount,
+                    AppStrings.kCreateAccount(context),
                     style: TextStyles.textStyle20,
                   ),
                 ),
@@ -56,35 +56,35 @@ class SignUpView extends StatelessWidget {
                   height: 24.h,
                 ),
                 CustomTextField(
-                  labelText: AppStrings.kName,
+                  labelText: AppStrings.kName(context),
                   controller: _nameController,
                 ),
                 SizedBox(
                   height: 26.h,
                 ),
                 CustomTextField(
-                  labelText: AppStrings.kEmail,
+                  labelText: AppStrings.kEmail(context),
                   controller: _emailController,
                 ),
                 SizedBox(
                   height: 26.h,
                 ),
                 CustomTextField(
-                  labelText: AppStrings.kPhone,
+                  labelText: AppStrings.kPhone(context),
                   controller: _phoneController,
                 ),
                 SizedBox(
                   height: 26.h,
                 ),
                 CustomTextField(
-                  labelText: AppStrings.kAddress,
+                  labelText: AppStrings.kAddress(context),
                   controller: _addressController,
                 ),
                 SizedBox(
                   height: 26.h,
                 ),
                 CustomTextField(
-                  labelText: AppStrings.kPassword,
+                  labelText: AppStrings.kPassword(context),
                   controller: _passwordController,
                   obscureText: true,
                 ),
@@ -94,7 +94,7 @@ class SignUpView extends StatelessWidget {
                 state is SignUpLoadingState
                     ? const CircularProgressIndicator()
                     : CustomButton(
-                        lebale: AppStrings.kCreateAccount,
+                        lebale: AppStrings.kCreateAccount(context),
                         onTap: () {
                           BlocProvider.of<AuthCubit>(context).signUp(
                             email: _emailController.text,

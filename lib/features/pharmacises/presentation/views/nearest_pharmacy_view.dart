@@ -20,8 +20,8 @@ class NearestPharmacyView extends StatelessWidget {
               SizedBox(
                 height: 15.h,
               ),
-              const TitleText(
-                title: AppStrings.kNearestString,
+               TitleText(
+                title: AppStrings.kNearestString(context),
               ),
               SizedBox(height: 15.0.h),
               const CustomGridView(),

@@ -37,7 +37,7 @@ class _SettingViewState extends State<SettingView> {
         elevation: 0,
         automaticallyImplyLeading: false, // Removes the back button
 
-        title: const TitleText(title: AppStrings.kSetting),
+        title:  TitleText(title: AppStrings.kSetting(context)),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -46,7 +46,7 @@ class _SettingViewState extends State<SettingView> {
           children: [
             ListTile(
               leading: const Icon(Icons.arrow_back_ios),
-              title: const Text(AppStrings.kPersonalInfoString),
+              title:  Text(AppStrings.kPersonalInfoString(context)),
               onTap: () {
                 GoRouter.of(context).push(RoutesNames.kPersonalInfoView);
                 // Handle navigation to personal information screen
@@ -55,7 +55,7 @@ class _SettingViewState extends State<SettingView> {
             const Divider(),
             ListTile(
               leading: const Icon(Icons.arrow_back_ios),
-              title: const Text(AppStrings.kSaveTitle),
+              title: Text(AppStrings.kSaveTitle(context)),
               onTap: () {
                 // Handle navigation to saved addresses screen
                 GoRouter.of(context).push(RoutesNames.kAddressSavedView);
@@ -78,8 +78,8 @@ class _SettingViewState extends State<SettingView> {
                   BlocProvider.of<AuthCubit>(context).signOut();
                   GoRouter.of(context).replace(RoutesNames.kSplashView);
                 },
-                child: const Text(
-                  'تسجيل الخروج',
+                child: Text(
+                  AppStrings.kSignOut(context),
                   style: TextStyle(color: Colors.red, fontSize: 16),
                 ),
               ),

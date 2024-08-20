@@ -11,8 +11,8 @@ class PersonalInfoView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const TitleText(
-          title: AppStrings.kPersonalInfoString,
+        title:  TitleText(
+          title: AppStrings.kPersonalInfoString(context),
         ),
         backgroundColor: Colors.white,
         elevation: 0,
@@ -32,9 +32,9 @@ class PersonalInfoView extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 20),
-            const PaymentTextField(hintText: AppStrings.kName),
+             PaymentTextField(hintText: AppStrings.kName(context)),
             const SizedBox(height: 10),
-            const PaymentTextField(hintText: AppStrings.kPhone),
+             PaymentTextField(hintText: AppStrings.kPhone(context)),
             const SizedBox(height: 10),
             GestureDetector(
               onTap: () {

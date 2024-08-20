@@ -1,0 +1,33 @@
+{
+    "kSearchString": "بحث",
+    "kNearestString": "الصيدليات القريبة اليك",
+    "kCategory": "الفئات",
+    "kOffer50": "عروض %50",
+    "kConversations": "المحادثات",
+    "kBuyCart": "سلة المشتريات",
+    "kPaymentString": "الدفع",
+    "kNextString": "التالي",
+    "kBackString": "السابق",
+    "kName": "الاسم",
+    "kAddress": "العنوان",
+    "kPhone": "رقم الهاتف",
+    "kCreateAccount": "انشاء حساب",
+    "kEmail": "البريد الالكتروني",
+    "kGovernorate": "المحافظة",
+    "kCity": "المدينة",
+    "kPaymentInRecive": "الدفع عند الاستلام",
+    "kPaymentByVisa": "الدفع بالفيزا",
+    "kSetting": "الإعدادات",
+    "kSaveTitle": "العنوان المحفوظ",
+    "kSignIn": " الدخول تسجيل",
+    "kSignOut":   " الخروج تسجيل ",
+
+    "kForgetPassword": "هل نسيت كلمة المرور؟",
+    "kPersonalInfoString": "المعلومات الشخصية",
+    "kPassword": "كلمة المرور",
+    "kChangePassword": "تغيير كلمة المرور",
+    "kCurrentPassword": "كلمة المرور الحالية",
+    "kNewPassword": "كلمة المرور الجديدة",
+    "kConfirmPassword": "تأكيد كلمة المرور الجديدة"
+  }
+  

@@ -21,7 +21,7 @@ class AddressSavedView extends StatelessWidget {
               color: AppColors.blackColor,
             ),
           ),
-          title: const TitleText(title: AppStrings.kSaveTitle),
+          title:  TitleText(title: AppStrings.kSaveTitle(context)),
         ),
         body: Padding(
             padding: const EdgeInsets.all(16.0),

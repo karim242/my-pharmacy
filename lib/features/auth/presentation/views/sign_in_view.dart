@@ -44,10 +44,10 @@ class SignInView extends StatelessWidget {
                   SizedBox(
                     height: 74.h,
                   ),
-                  const Align(
+                   Align(
                     alignment: Alignment.centerRight,
                     child: Text(
-                      AppStrings.kSignIn,
+                      AppStrings.kSignIn(context),
                       style: TextStyles.textStyle20,
                     ),
                   ),
@@ -55,7 +55,7 @@ class SignInView extends StatelessWidget {
                     height: 24.h,
                   ),
                   CustomTextField(
-                    labelText: AppStrings.kEmail,
+                    labelText: AppStrings.kEmail(context),
                     controller: _emailController,
                   ),
                   SizedBox(
@@ -63,7 +63,7 @@ class SignInView extends StatelessWidget {
                   ),
                   CustomTextField(
                     controller: _passwordController,
-                    labelText: AppStrings.kPassword,
+                    labelText: AppStrings.kPassword(context),
                     obscureText: true,
                   ),
                   SizedBox(
@@ -76,7 +76,7 @@ class SignInView extends StatelessWidget {
                           GoRouter.of(context).push(RoutesNames.kForgetPassOne);
                         },
                         child: Text(
-                          AppStrings.kForgetPassword,
+                          AppStrings.kForgetPassword(context),
                           style: TextStyles.textStyle10.copyWith(
                               decoration: TextDecoration.underline,
                               decorationColor: AppColors.whiteColor),
@@ -88,7 +88,7 @@ class SignInView extends StatelessWidget {
                   state is SignInLoadingState
                       ? const CircularProgressIndicator()
                       : CustomButton(
-                          lebale: AppStrings.kSignIn,
+                          lebale: AppStrings.kSignIn(context),
                           onTap: () {
                             if (formKey.currentState!.validate()) {
                               formKey.currentState!.save();
