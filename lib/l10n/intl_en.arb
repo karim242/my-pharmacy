@@ -9,6 +9,7 @@
     "kNextString": "Next",
     "kBackString": "Back",
     "kName": "Name",
+    "kNotifications": "Notifications",
     "kAddress": "Address",
     "kPhone": "Phone Number",
     "kCreateAccount": "Create Account",
@@ -20,8 +21,15 @@
     "kSetting": "Settings",
     "kSaveTitle": "Saved Address",
     "kSignIn": "Sign In",
-    "kSignOut":   " Sign Out  ",
-
+    "kSignOut": " Sign Out  ",
+    "kNotHaveAccount": "Do not have an account?",
+    "kResendCode": " Resend Code",
+    "done": "Done",
+    "kAddToCart": "add to cart",
+    "kRemoveFromCart": "remove from cart",
+    "kCallUs": "call us",
+    "kSave": "Save",
+    "kCancel": "Cancel",
     "kForgetPassword": "Forgot Password?",
     "kPersonalInfoString": "Personal Information",
     "kPassword": "Password",
@@ -29,4 +37,4 @@
     "kCurrentPassword": "Current Password",
     "kNewPassword": "New Password",
     "kConfirmPassword": "Confirm New Password"
-  }
+}

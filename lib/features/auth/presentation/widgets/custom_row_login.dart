@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:my_pharmacy/core/routes/routes_names.dart';
 import 'package:my_pharmacy/core/utils/app_colors.dart';
 import 'package:my_pharmacy/core/utils/text_styles.dart';
+import 'package:my_pharmacy/core/utils/app_strings.dart';
 
 class CustomLoginRow extends StatelessWidget {
   const CustomLoginRow({super.key});
@@ -14,8 +15,8 @@ class CustomLoginRow extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
-          'ليس لديك حساب؟',
+        Text(
+          AppStrings.kNotHaveAccount(context),
           style: TextStyles.textStyle10,
         ),
         GestureDetector(
@@ -23,7 +24,7 @@ class CustomLoginRow extends StatelessWidget {
               GoRouter.of(context).push(RoutesNames.kSigUpView);
             },
             child: Text(
-              'انشاء حساب',
+              AppStrings.kCreateAccount(context),
               style: TextStyles.textStyle10.copyWith(
                   fontWeight: FontWeight.bold,
                   decoration: TextDecoration.underline,

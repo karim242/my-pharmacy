@@ -14,7 +14,7 @@ import 'package:my_pharmacy/features/dashboard/presentation/views/add_data_view.
 import 'package:my_pharmacy/features/home/data/models/category_model.dart';
 import 'package:my_pharmacy/features/home/data/models/pharmacy_model.dart';
 import 'package:my_pharmacy/features/home/presentation/cubit/home_cubit.dart';
-import 'package:my_pharmacy/features/cart/presentation/views/address_saved_view.dart';
+import 'package:my_pharmacy/features/profile/presentation/views/address_saved_view.dart';
 import 'package:my_pharmacy/features/home/presentation/view/categories_view.dart';
 import 'package:my_pharmacy/features/home/presentation/view/category_details_view.dart';
 import 'package:my_pharmacy/features/chat/presentation/views/chatting_view.dart';

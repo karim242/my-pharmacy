@@ -40,7 +40,7 @@ class AddressSavedView extends StatelessWidget {
                       minimumSize: const Size(100, 40),
                       backgroundColor: AppColors.primaryColor,
                     ),
-                    child: const Text('حفظ', style: TextStyles.textStyle12),
+                    child:  Text(AppStrings.kSave(context), style: TextStyles.textStyle12),
                   ),
                   OutlinedButton(
                     onPressed: () {
@@ -49,7 +49,7 @@ class AddressSavedView extends StatelessWidget {
                     style: OutlinedButton.styleFrom(
                       minimumSize: const Size(100, 40),
                     ),
-                    child: const Text('إلغاء'),
+                    child:  Text(AppStrings.kCancel(context)),
                   ),
                 ],
               ),

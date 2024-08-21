@@ -35,14 +35,14 @@ class ChangePasswordSheet extends StatelessWidget {
                 style: OutlinedButton.styleFrom(
                   minimumSize: const Size(100, 40),
                 ),
-                child: const Text('إلغاء'),
+                child:  Text(AppStrings.kCancel(context)),
               ),
               ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
                   minimumSize: const Size(100, 40),
                 ),
-                child: const Text('حفظ'),
+                child:  Text(AppStrings.kSave(context)),
               ),
             ],
           ),

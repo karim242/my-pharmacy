@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:my_pharmacy/core/routes/routes_names.dart';
 import 'package:my_pharmacy/core/utils/app_colors.dart';
 import 'package:my_pharmacy/core/utils/app_images.dart';
+import 'package:my_pharmacy/core/utils/app_strings.dart';
 import 'package:my_pharmacy/core/utils/text_styles.dart';
 import 'package:my_pharmacy/features/auth/presentation/widgets/custom_background.dart';
 import 'package:my_pharmacy/features/auth/presentation/widgets/custom_button.dart';
@@ -22,10 +23,10 @@ class ForgetPasswordSecond extends StatelessWidget {
             SizedBox(
               height: 74.h,
             ),
-            const Align(
+            Align(
               alignment: Alignment.centerRight,
               child: Text(
-                "نسيت كلمة المرور ",
+                AppStrings.kForgetPassword(context),
                 style: TextStyles.textStyle20,
               ),
             ),
@@ -63,7 +64,7 @@ class ForgetPasswordSecond extends StatelessWidget {
                       //Todo: resend password
                     },
                     child: Text(
-                      ' إعادة ارسال الرمز',
+                    AppStrings.kResendCode(context) ,
                       style: TextStyles.textStyle12.copyWith(
                           fontWeight: FontWeight.bold,
                           decoration: TextDecoration.underline,
@@ -73,7 +74,7 @@ class ForgetPasswordSecond extends StatelessWidget {
               height: 40.h,
             ),
             CustomButton(
-              lebale: 'التالي',
+              lebale:  AppStrings.kNextString(context),
               onTap: () {
                 GoRouter.of(context).push(RoutesNames.kForgetPassThree);
               },

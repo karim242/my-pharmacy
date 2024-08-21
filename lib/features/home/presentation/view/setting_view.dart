@@ -66,7 +66,7 @@ class _SettingViewState extends State<SettingView> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text('الإشعارات'),
+                Text(AppStrings.kNotifications(context)),
                 Switch(value: _isSwitchedOn, onChanged: _toggleSwitch),
               ],
             ),

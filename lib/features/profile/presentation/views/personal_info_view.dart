@@ -47,9 +47,9 @@ class PersonalInfoView extends StatelessWidget {
                   builder: (context) => const ChangePasswordSheet(),
                 );
               },
-              child: const Text(
-                'تغيير كلمة المرور',
-                style: TextStyle(color: Colors.blue, fontSize: 16),
+              child:  Text(
+                AppStrings.kChangePassword(context),
+                style: const TextStyle(color: Colors.blue, fontSize: 16),
                 textAlign: TextAlign.right,
               ),
             ),

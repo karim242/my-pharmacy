@@ -22,9 +22,13 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "done": MessageLookupByLibrary.simpleMessage("انتهيت"),
+        "kAddToCart": MessageLookupByLibrary.simpleMessage(" إضافة الي السلة"),
         "kAddress": MessageLookupByLibrary.simpleMessage("العنوان"),
         "kBackString": MessageLookupByLibrary.simpleMessage("السابق"),
         "kBuyCart": MessageLookupByLibrary.simpleMessage("سلة المشتريات"),
+        "kCallUs": MessageLookupByLibrary.simpleMessage("اتصل الان"),
+        "kCancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
         "kCategory": MessageLookupByLibrary.simpleMessage("الفئات"),
         "kChangePassword":
             MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
@@ -45,6 +49,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "kNewPassword":
             MessageLookupByLibrary.simpleMessage("كلمة المرور الجديدة"),
         "kNextString": MessageLookupByLibrary.simpleMessage("التالي"),
+        "kNotHaveAccount":
+            MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
+        "kNotifications": MessageLookupByLibrary.simpleMessage("الإشعارات"),
         "kOffer50": MessageLookupByLibrary.simpleMessage("عروض %50"),
         "kPassword": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
         "kPaymentByVisa": MessageLookupByLibrary.simpleMessage("الدفع بالفيزا"),
@@ -54,10 +61,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "kPersonalInfoString":
             MessageLookupByLibrary.simpleMessage("المعلومات الشخصية"),
         "kPhone": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
+        "kRemoveFromCart":
+            MessageLookupByLibrary.simpleMessage("إزالة من السلة"),
+        "kResendCode":
+            MessageLookupByLibrary.simpleMessage(" إعادة ارسال الرمز"),
+        "kSave": MessageLookupByLibrary.simpleMessage("حفظ"),
         "kSaveTitle": MessageLookupByLibrary.simpleMessage("العنوان المحفوظ"),
         "kSearchString": MessageLookupByLibrary.simpleMessage("بحث"),
         "kSetting": MessageLookupByLibrary.simpleMessage("الإعدادات"),
-        "kSignIn": MessageLookupByLibrary.simpleMessage(" الدخول تسجيل"),
-        "kSignOut": MessageLookupByLibrary.simpleMessage(" الخروج تسجيل ")
+        "kSignIn": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
+        "kSignOut": MessageLookupByLibrary.simpleMessage("تسجيل الخروج")
       };
 }

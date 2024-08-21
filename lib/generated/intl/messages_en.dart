@@ -22,9 +22,13 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "done": MessageLookupByLibrary.simpleMessage("Done"),
+        "kAddToCart": MessageLookupByLibrary.simpleMessage("add to cart"),
         "kAddress": MessageLookupByLibrary.simpleMessage("Address"),
         "kBackString": MessageLookupByLibrary.simpleMessage("Back"),
         "kBuyCart": MessageLookupByLibrary.simpleMessage("Shopping Cart"),
+        "kCallUs": MessageLookupByLibrary.simpleMessage("call us"),
+        "kCancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "kCategory": MessageLookupByLibrary.simpleMessage("Categories"),
         "kChangePassword":
             MessageLookupByLibrary.simpleMessage("Change Password"),
@@ -45,6 +49,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Nearby Pharmacies"),
         "kNewPassword": MessageLookupByLibrary.simpleMessage("New Password"),
         "kNextString": MessageLookupByLibrary.simpleMessage("Next"),
+        "kNotHaveAccount":
+            MessageLookupByLibrary.simpleMessage("Do not have an account?"),
+        "kNotifications": MessageLookupByLibrary.simpleMessage("Notifications"),
         "kOffer50": MessageLookupByLibrary.simpleMessage("50% Offers"),
         "kPassword": MessageLookupByLibrary.simpleMessage("Password"),
         "kPaymentByVisa": MessageLookupByLibrary.simpleMessage("Pay by Visa"),
@@ -54,6 +61,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "kPersonalInfoString":
             MessageLookupByLibrary.simpleMessage("Personal Information"),
         "kPhone": MessageLookupByLibrary.simpleMessage("Phone Number"),
+        "kRemoveFromCart":
+            MessageLookupByLibrary.simpleMessage("remove from cart"),
+        "kResendCode": MessageLookupByLibrary.simpleMessage(" Resend Code"),
+        "kSave": MessageLookupByLibrary.simpleMessage("Save"),
         "kSaveTitle": MessageLookupByLibrary.simpleMessage("Saved Address"),
         "kSearchString": MessageLookupByLibrary.simpleMessage("Search"),
         "kSetting": MessageLookupByLibrary.simpleMessage("Settings"),

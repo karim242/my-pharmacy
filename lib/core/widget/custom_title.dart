@@ -12,15 +12,13 @@ class TitleText extends StatelessWidget {
   final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.topRight,
-      child: GestureDetector(
+    return  GestureDetector(
         onTap: onTap,
         child: Text(
           title,
           style: TextStyles.textStyle16.copyWith(color: AppColors.blackColor),
         ),
-      ),
+      
     );
   }
 }

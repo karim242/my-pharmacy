@@ -28,6 +28,7 @@ class HomeView extends StatelessWidget {
           ),
           child: SingleChildScrollView(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SearchRow(),
                 SizedBox(height: 21.0.h),

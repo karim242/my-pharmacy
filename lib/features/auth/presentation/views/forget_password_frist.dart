@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:my_pharmacy/core/routes/routes_names.dart';
 import 'package:my_pharmacy/core/utils/app_colors.dart';
 import 'package:my_pharmacy/core/utils/app_images.dart';
+import 'package:my_pharmacy/core/utils/app_strings.dart';
 import 'package:my_pharmacy/core/utils/text_styles.dart';
 import 'package:my_pharmacy/features/auth/presentation/widgets/custom_background.dart';
 import 'package:my_pharmacy/features/auth/presentation/widgets/custom_button.dart';
@@ -22,24 +23,24 @@ class ForgetPasswordFrist extends StatelessWidget {
             SizedBox(
               height: 74.h,
             ),
-            const Align(
+             Align(
               alignment: Alignment.centerRight,
               child: Text(
-                "نسيت كلمة المرور ",
+               AppStrings.kForgetPassword(context),
                 style: TextStyles.textStyle20,
               ),
             ),
             SizedBox(
               height: 40.h,
             ),
-            const CustomTextField(
-              labelText: 'رقم الهاتف',
+             CustomTextField(
+              labelText:  AppStrings.kPhone(context),
             ),
             SizedBox(
               height: 48.h,
             ),
             CustomButton(
-              lebale: 'التالي',
+              lebale:  AppStrings.kNextString(context),
               onTap: () {
                 GoRouter.of(context).push(RoutesNames.kForgetPassTwo);
               },

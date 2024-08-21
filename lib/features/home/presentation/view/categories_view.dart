@@ -18,9 +18,9 @@ class CategoriesView extends StatelessWidget {
             SizedBox(
               height: 15.h,
             ),
-            const TitleText(
-              title: 'مستحضرات التجميل',
-            ),
+            // const TitleText(
+            //   title: 'مستحضرات التجميل',
+            // ),
             SizedBox(height: 15.0.h),
             const CategoriesGridView()
           ]),

@@ -150,6 +150,16 @@ class S {
     );
   }
 
+  /// `Notifications`
+  String get kNotifications {
+    return Intl.message(
+      'Notifications',
+      name: 'kNotifications',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Address`
   String get kAddress {
     return Intl.message(
@@ -265,6 +275,86 @@ class S {
     return Intl.message(
       ' Sign Out  ',
       name: 'kSignOut',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Do not have an account?`
+  String get kNotHaveAccount {
+    return Intl.message(
+      'Do not have an account?',
+      name: 'kNotHaveAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ` Resend Code`
+  String get kResendCode {
+    return Intl.message(
+      ' Resend Code',
+      name: 'kResendCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Done`
+  String get done {
+    return Intl.message(
+      'Done',
+      name: 'done',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `add to cart`
+  String get kAddToCart {
+    return Intl.message(
+      'add to cart',
+      name: 'kAddToCart',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `remove from cart`
+  String get kRemoveFromCart {
+    return Intl.message(
+      'remove from cart',
+      name: 'kRemoveFromCart',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `call us`
+  String get kCallUs {
+    return Intl.message(
+      'call us',
+      name: 'kCallUs',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Save`
+  String get kSave {
+    return Intl.message(
+      'Save',
+      name: 'kSave',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel`
+  String get kCancel {
+    return Intl.message(
+      'Cancel',
+      name: 'kCancel',
       desc: '',
       args: [],
     );

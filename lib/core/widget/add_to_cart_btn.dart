@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_pharmacy/core/utils/app_colors.dart';
+import 'package:my_pharmacy/core/utils/app_strings.dart';
 import 'package:my_pharmacy/core/utils/text_styles.dart';
 
 class AddToCartBtn extends StatelessWidget {
@@ -26,7 +27,7 @@ class AddToCartBtn extends StatelessWidget {
             borderRadius: BorderRadius.circular(6)),
         child: Center(
           child: Text(
-            'إضافة الي السلة',
+          AppStrings.kAddTCart(context) ,
             style: TextStyles.textStyle11
                 .copyWith(fontSize: 9, fontWeight: FontWeight.bold),
           ),

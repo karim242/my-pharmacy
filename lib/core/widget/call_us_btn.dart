@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_pharmacy/core/utils/app_colors.dart';
+import 'package:my_pharmacy/core/utils/app_strings.dart';
 import 'package:my_pharmacy/core/utils/text_styles.dart';
 
 class CallUsBtn extends StatelessWidget {
@@ -27,7 +28,7 @@ class CallUsBtn extends StatelessWidget {
             borderRadius: BorderRadius.circular(6)),
         child: Center(
           child: Text(
-            'اتصل الان',
+            AppStrings.kCallUs(context),
             style: TextStyles.textStyle11.copyWith(
                 color: AppColors.primaryColor, fontWeight: FontWeight.bold),
           ),
