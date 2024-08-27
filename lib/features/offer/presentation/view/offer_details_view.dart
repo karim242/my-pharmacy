@@ -6,12 +6,12 @@ import 'package:my_pharmacy/core/utils/app_images.dart';
 import 'package:my_pharmacy/core/widget/add_to_cart_btn.dart';
 import 'package:my_pharmacy/core/widget/call_us_btn.dart';
 import 'package:my_pharmacy/core/widget/custom_title.dart';
+import 'package:my_pharmacy/features/offer/presentation/widgets/offer_grid_view.dart';
 import 'package:my_pharmacy/features/pharmacises/data/model/pharmacy_model.dart';
 import 'package:my_pharmacy/features/pharmacises/presentation/widgets/list_tile_in_view_details.dart';
-import 'package:my_pharmacy/features/pharmacises/presentation/widgets/pharmacy_grid_view.dart';
 
-class PharmacyDetailsView extends StatelessWidget {
-  const PharmacyDetailsView({super.key, required this.pharmacy, });
+class OfferDetailsView extends StatelessWidget {
+  const OfferDetailsView({super.key, required this.pharmacy, });
   // final PharmacyModel nearestPharmacy;
   final PharmacyModel pharmacy;
 
@@ -78,7 +78,7 @@ class PharmacyDetailsView extends StatelessWidget {
               SizedBox(
                 height: 22.h,
               ),
-               PharmacyGridView(pharmacyName: pharmacy.name,)
+               OfferGridView(pharmacyName: pharmacy.name,)
             ],
           ),
         ),

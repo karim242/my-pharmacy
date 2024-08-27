@@ -32,6 +32,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "kCategory": MessageLookupByLibrary.simpleMessage("Categories"),
         "kChangePassword":
             MessageLookupByLibrary.simpleMessage("Change Password"),
+        "kChoices": MessageLookupByLibrary.simpleMessage("Choices"),
         "kCity": MessageLookupByLibrary.simpleMessage("City"),
         "kConfirmPassword":
             MessageLookupByLibrary.simpleMessage("Confirm New Password"),
@@ -40,6 +41,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Create Account"),
         "kCurrentPassword":
             MessageLookupByLibrary.simpleMessage("Current Password"),
+        "kDescription": MessageLookupByLibrary.simpleMessage("description"),
         "kEmail": MessageLookupByLibrary.simpleMessage("Email"),
         "kForgetPassword":
             MessageLookupByLibrary.simpleMessage("Forgot Password?"),

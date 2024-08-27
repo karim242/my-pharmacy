@@ -360,6 +360,26 @@ class S {
     );
   }
 
+  /// `Choices`
+  String get kChoices {
+    return Intl.message(
+      'Choices',
+      name: 'kChoices',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `description`
+  String get kDescription {
+    return Intl.message(
+      'description',
+      name: 'kDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Forgot Password?`
   String get kForgetPassword {
     return Intl.message(

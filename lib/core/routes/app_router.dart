@@ -1,30 +1,28 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:my_pharmacy/core/routes/routes_names.dart';
-import 'package:my_pharmacy/core/services/service_locator.dart';
 import 'package:my_pharmacy/features/auth/presentation/views/forget_password_frist.dart';
 import 'package:my_pharmacy/features/auth/presentation/views/forget_password_second.dart';
 import 'package:my_pharmacy/features/auth/presentation/views/forget_password_three.dart';
 import 'package:my_pharmacy/features/auth/presentation/views/sign_in_view.dart';
 import 'package:my_pharmacy/features/auth/presentation/views/sign_up_view.dart';
+import 'package:my_pharmacy/features/category/data/model/categories_model.dart';
 import 'package:my_pharmacy/features/chat/data/models/chat_model.dart';
 import 'package:my_pharmacy/features/chat/presentation/views/conversation_view.dart';
-import 'package:my_pharmacy/features/dashboard/presentation/cubit/firestore_cubit.dart';
-import 'package:my_pharmacy/features/dashboard/presentation/views/add_data_view.dart';
-import 'package:my_pharmacy/features/home/data/models/category_model.dart';
-import 'package:my_pharmacy/features/home/data/models/pharmacy_model.dart';
-import 'package:my_pharmacy/features/home/presentation/cubit/home_cubit.dart';
+import 'package:my_pharmacy/features/home/data/models/product.dart';
+import 'package:my_pharmacy/features/offer/presentation/view/offer_view.dart';
+import 'package:my_pharmacy/features/pharmacises/data/model/pharmacy_model.dart';
 import 'package:my_pharmacy/features/profile/presentation/views/address_saved_view.dart';
-import 'package:my_pharmacy/features/home/presentation/view/categories_view.dart';
-import 'package:my_pharmacy/features/home/presentation/view/category_details_view.dart';
+import 'package:my_pharmacy/features/category/presentation/views/categories_view.dart';
+import 'package:my_pharmacy/features/category/presentation/views/category_details_view.dart';
 import 'package:my_pharmacy/features/chat/presentation/views/chatting_view.dart';
 import 'package:my_pharmacy/features/pharmacises/presentation/views/nearest_pharmacy_view.dart';
-import 'package:my_pharmacy/features/offer/view/offer_view.dart';
 import 'package:my_pharmacy/features/cart/presentation/views/payment_view.dart';
 import 'package:my_pharmacy/features/profile/presentation/views/personal_info_view.dart';
 import 'package:my_pharmacy/features/pharmacises/presentation/views/pharmacy_details_view.dart';
 import 'package:my_pharmacy/features/home/presentation/view/root_view.dart';
 import 'package:my_pharmacy/features/splash/view/splash_view.dart';
+
+import '../../features/offer/presentation/view/offer_details_view.dart';
 
 abstract class AppRouter {
   static final router = GoRouter(routes: [
@@ -65,30 +63,32 @@ abstract class AppRouter {
         builder: (context, state) => const Offer50View()),
     GoRoute(
         path: RoutesNames.kCategoryView,
-        builder: (context, state) => const CategoriesView()),
+        builder: (context, state) {
+         final category = state.extra as CategoriesModel;
+          return CategoriesView(category: category,);
+        }),
     GoRoute(
         path: RoutesNames.kCategoryDetailsView,
         builder: (context, state) {
-          final category =
-              state.extra as CategoryModel; // Retrieve the object here
-          return CategoryDetailsView(
-            category: category,
-          );
+          final product = state.extra as Product;
+          return CategoryDetailsView(product: product,);
         }),
     GoRoute(
         path: RoutesNames.kPharmacyDetailsView,
         builder: (context, state) {
-          final nearestPharmacy =
-              state.extra as PharmacyModel; // Retrieve the object here
-          return BlocProvider(
-            create: (context) => getIt<HomeCubit>(),
-            child: PharmacyDetailsView(
-                nearestPharmacy:
-                    nearestPharmacy), // Pass the object to the page
-          );
-        }),
+          final pharmacy = state.extra as PharmacyModel;
+          return PharmacyDetailsView(pharmacy: pharmacy, ); // Pass the object to the page
+}), 
+        
     // Pass the object to the page
 
+
+  GoRoute(
+        path: RoutesNames.kOfferDetailsView,
+        builder: (context, state) {
+          final pharmacy = state.extra as PharmacyModel ;
+          return OfferDetailsView(pharmacy: pharmacy, ); // Pass the object to the page
+}),
     GoRoute(
         path: RoutesNames.kChattingView,
         builder: (context, state) {
@@ -109,11 +109,11 @@ abstract class AppRouter {
     GoRoute(
         path: RoutesNames.kAddressSavedView,
         builder: (context, state) => const AddressSavedView()),
-    GoRoute(
-        path: RoutesNames.kaddData,
-        builder: (context, state) => BlocProvider(
-              create: (context) => getIt<FirestoreCubit>(),
-              child: AddDataScreen(),
-            )),
+    // GoRoute(
+    //     path: RoutesNames.kaddData,
+    //     builder: (context, state) => BlocProvider(
+    //           create: (context) => getIt<FirestoreCubit>(),
+    //           child: AddDataScreen(),
+    //         )),
   ]);
 }

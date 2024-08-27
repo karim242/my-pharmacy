@@ -30,6 +30,8 @@
     "kCallUs": "call us",
     "kSave": "Save",
     "kCancel": "Cancel",
+"kChoices":"Choices",
+"kDescription" :"description",
     "kForgetPassword": "Forgot Password?",
     "kPersonalInfoString": "Personal Information",
     "kPassword": "Password",

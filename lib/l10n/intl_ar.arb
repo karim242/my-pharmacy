@@ -29,6 +29,8 @@
 "kCallUs":"اتصل الان",
 "kSave":"حفظ",
 "kCancel":"إلغاء",
+"kChoices":"الاختيارات",
+"kDescription" :"الوصف",
 "kNotHaveAccount" :  "ليس لديك حساب؟",
     "kForgetPassword": "هل نسيت كلمة المرور؟",
     "kPersonalInfoString": "المعلومات الشخصية",

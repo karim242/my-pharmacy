@@ -16,6 +16,7 @@ class TitleText extends StatelessWidget {
         onTap: onTap,
         child: Text(
           title,
+          textAlign: TextAlign.start,
           style: TextStyles.textStyle16.copyWith(color: AppColors.blackColor),
         ),
       

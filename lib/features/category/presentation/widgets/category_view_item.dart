@@ -5,13 +5,14 @@ import 'package:go_router/go_router.dart';
 import 'package:my_pharmacy/core/routes/routes_names.dart';
 import 'package:my_pharmacy/core/utils/app_colors.dart';
 import 'package:my_pharmacy/core/utils/text_styles.dart';
-import 'package:my_pharmacy/features/home/data/models/category_model.dart';
+import 'package:my_pharmacy/features/home/data/models/product.dart';
 
 import '../../../../core/widget/add_to_cart_btn.dart';
 
 class CategoryViewItem extends StatelessWidget {
-  const CategoryViewItem({super.key, required this.category});
-  final CategoryModel category;
+  const CategoryViewItem({super.key, required this.product, });
+  // final CategoryModel category;
+final Product product;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -22,9 +23,10 @@ class CategoryViewItem extends StatelessWidget {
         children: [
           GestureDetector(
             onTap: () {
-              //Navgat to category detials
+              
               GoRouter.of(context)
-                  .push(RoutesNames.kCategoryDetailsView, extra: category);
+                  .push(RoutesNames.kCategoryDetailsView,
+                      extra: product);
             },
             child: Stack(
               children: [
@@ -33,7 +35,8 @@ class CategoryViewItem extends StatelessWidget {
                     topLeft: Radius.circular(6),
                     topRight: Radius.circular(6),
                   ),
-                  child: Image.network(category.imageUrl,
+                  child: Image.network(product.imageUrl,
+                    //category.imageUrl,
                       fit: BoxFit.cover, width: 100.w, height: 90.h),
                 ),
                 Positioned(
@@ -58,8 +61,8 @@ class CategoryViewItem extends StatelessWidget {
                             style: TextStyles.textStyle9.copyWith(
                                 fontSize: 6, color: AppColors.secondColor),
                           ),
-                          Text(
-                            category.price.toString(),
+                          Text( product.price,
+                            // category.price,
                             style: TextStyles.textStyle9
                                 .copyWith(color: AppColors.secondColor),
                           ),
@@ -70,14 +73,15 @@ class CategoryViewItem extends StatelessWidget {
             ),
           ),
           Text(
-            category.name,
+           product.name,
             style: TextStyles.textStyle12.copyWith(
                 color: AppColors.secondColor, fontWeight: FontWeight.bold),
           ),
           Padding(
             padding: EdgeInsets.symmetric(vertical: 8.0.h),
             child: Text(
-              category.pharmacyName,
+             product.pharmacyName,
+            //  category.pharmacyName,
               style: TextStyles.textStyle9,
             ),
           ),

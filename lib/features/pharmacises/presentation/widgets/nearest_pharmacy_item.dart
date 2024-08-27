@@ -3,18 +3,19 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:my_pharmacy/core/routes/routes_names.dart';
 import 'package:my_pharmacy/core/utils/text_styles.dart';
-import 'package:my_pharmacy/features/home/data/models/pharmacy_model.dart';
+import 'package:my_pharmacy/features/pharmacises/data/model/pharmacy_model.dart';
 
 class NearestPharmacyItem extends StatelessWidget {
-  const NearestPharmacyItem({super.key, required this.nearestPharmacy});
-  final PharmacyModel nearestPharmacy;
+  const NearestPharmacyItem({super.key, required this.pharmacy,  });
+ // final PharmacyModel nearestPharmacy;
+ final PharmacyModel pharmacy;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
         GoRouter.of(context).push(
           RoutesNames.kPharmacyDetailsView,
-          extra: nearestPharmacy,
+         extra: pharmacy
         );
       },
       child: SizedBox(
@@ -38,8 +39,8 @@ class NearestPharmacyItem extends StatelessWidget {
               ),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(6),
-                child: Image.network(
-                  nearestPharmacy.imageUrl, // with your SVG image path
+                child: Image.network(pharmacy.imageUrl
+               , // with your SVG image path
                   fit: BoxFit.cover,
                 ),
               ),
@@ -48,12 +49,12 @@ class NearestPharmacyItem extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(vertical: 6.0),
                 child: FittedBox(
                   child: Text(
-                    nearestPharmacy.name,
+                   pharmacy.name,
                     style: TextStyles.textStyle14,
                   ),
                 )),
             //  Text(
-            //   nearestPharmacy.distance,
+            //   pharmacy.address,
             //   style: TextStyles.textStyle9,
             // ),
           ],

@@ -14,12 +14,12 @@ class RootView extends StatefulWidget {
 }
 
 class _RootViewState extends State<RootView> {
-  int _selectedIndex = 3;
+  int _selectedIndex = 0;
   static const List<Widget> _widgetOptions = <Widget>[
-    SettingView(),
-    ConversationView(),
-    CartView(),
     HomeView(),
+    CartView(),
+    ConversationView(),
+    SettingView(),
   ];
 
   void _onItemTapped(int index) {
@@ -50,13 +50,13 @@ class _RootViewState extends State<RootView> {
           unselectedItemColor: AppColors.secondColor,
           onTap: _onItemTapped,
           items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: "home"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.settings), label: "setting"),
+                icon: Icon(Icons.shopping_cart), label: "chat"),
             BottomNavigationBarItem(
                 icon: FaIcon(FontAwesomeIcons.solidComments), label: "cart"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.shopping_cart), label: "chat"),
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: "home"),
+                icon: Icon(Icons.settings), label: "setting"),
           ],
         ),
       ),

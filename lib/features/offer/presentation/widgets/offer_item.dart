@@ -3,20 +3,21 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:my_pharmacy/core/routes/routes_names.dart';
 import 'package:my_pharmacy/core/utils/text_styles.dart';
-import 'package:my_pharmacy/features/home/data/models/pharmacy_model.dart';
+import 'package:my_pharmacy/features/pharmacises/data/model/pharmacy_model.dart';
 
 class OffersItem extends StatelessWidget {
-  const OffersItem({super.key, required this.pharmacyOffer});
-  final PharmacyModel pharmacyOffer;
+  const OffersItem({super.key, required this.pharmacy ,  });
+
+  final PharmacyModel pharmacy;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
         GoRouter.of(context)
-            .push(RoutesNames.kPharmacyDetailsView, extra: pharmacyOffer);
+            .push(RoutesNames.kOfferDetailsView, extra: pharmacy);
       },
       child: SizedBox(
-        width: 80.w,
+        width: 90.w,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -37,7 +38,7 @@ class OffersItem extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(6),
                 child: Image.network(
-                  pharmacyOffer.imageUrl, // with your SVG image path
+                  pharmacy.imageUrl, // with your SVG image path
                   fit: BoxFit.cover,
                 ),
               ),
@@ -46,14 +47,11 @@ class OffersItem extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(vertical: 6.0),
                 child: FittedBox(
                   child: Text(
-                    pharmacyOffer.name,
+                    pharmacy.name,
                     style: TextStyles.textStyle14,
                   ),
                 )),
-            //  Text(
-            //   nearestPharmacy.distance,
-            //   style: TextStyles.textStyle9,
-            // ),
+           
           ],
         ),
       ),

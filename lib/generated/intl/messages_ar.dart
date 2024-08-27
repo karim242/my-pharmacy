@@ -32,6 +32,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "kCategory": MessageLookupByLibrary.simpleMessage("الفئات"),
         "kChangePassword":
             MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
+        "kChoices": MessageLookupByLibrary.simpleMessage("الاختيارات"),
         "kCity": MessageLookupByLibrary.simpleMessage("المدينة"),
         "kConfirmPassword":
             MessageLookupByLibrary.simpleMessage("تأكيد كلمة المرور الجديدة"),
@@ -39,6 +40,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "kCreateAccount": MessageLookupByLibrary.simpleMessage("انشاء حساب"),
         "kCurrentPassword":
             MessageLookupByLibrary.simpleMessage("كلمة المرور الحالية"),
+        "kDescription": MessageLookupByLibrary.simpleMessage("الوصف"),
         "kEmail": MessageLookupByLibrary.simpleMessage("البريد الالكتروني"),
         "kForgetPassword":
             MessageLookupByLibrary.simpleMessage("هل نسيت كلمة المرور؟"),

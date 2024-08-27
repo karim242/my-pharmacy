@@ -68,4 +68,8 @@ class AppStrings {
       S.of(context).kSave;
          static String kCancel(BuildContext context) =>
       S.of(context).kCancel;
+        static String kChoices(BuildContext context) =>
+      S.of(context).kChoices;
+        static String kDescription(BuildContext context) =>
+      S.of(context).kDescription;
 }
