@@ -61,7 +61,7 @@ final Product product;
                             style: TextStyles.textStyle9.copyWith(
                                 fontSize: 6, color: AppColors.secondColor),
                           ),
-                          Text( product.price,
+                          Text( product.price.toString(),
                             // category.price,
                             style: TextStyles.textStyle9
                                 .copyWith(color: AppColors.secondColor),

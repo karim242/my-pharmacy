@@ -1,6 +1,8 @@
 class Product {
   final String address;
-  final String categoryName; 
+  final String productId;
+
+  final String categoryName;
   final String description;
   final String imageUrl;
   final String name;
@@ -9,15 +11,16 @@ class Product {
   final String pharmacyId;
   final String pharmacyName;
   final String pharmacyImage;
-  final String price;
+  final double price;
 
   Product({
     required this.address,
-    required this.categoryName, 
+    required this.categoryName,
     required this.description,
     required this.imageUrl,
     required this.name,
     required this.phone,
+    required this.productId,
     required this.offer,
     required this.pharmacyId,
     required this.pharmacyName,
@@ -33,12 +36,12 @@ class Product {
       imageUrl: data['imageUrl'] as String,
       name: data['name'] as String,
       phone: data['phone'] as String,
-
+      productId: data['productId'],
       offer: data['offer'] as bool,
       pharmacyId: data['pharmacyId'] as String,
       pharmacyName: data['pharmacyName'] as String,
       pharmacyImage: data['pharmacyimage'] as String,
-      price: data['price'] as String,
+      price: data['price']as double,
     );
   }
 
@@ -50,6 +53,7 @@ class Product {
       'imageUrl': imageUrl,
       'name': name,
       'phone': phone,
+      'productId': productId,
       'offer': offer,
       'pharmacyId': pharmacyId,
       'pharmacyName': pharmacyName,

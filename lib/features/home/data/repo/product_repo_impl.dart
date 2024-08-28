@@ -1,9 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:my_pharmacy/features/home/data/models/product.dart';
 import 'package:my_pharmacy/features/home/data/repo/product_repo.dart';
 
 class ProductRepositoryImpl implements ProductsRepository {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
 
   @override
   Future<List<Product>> getProductsByCategory(String categoryName) async {
@@ -52,4 +54,7 @@ class ProductRepositoryImpl implements ProductsRepository {
       return Product.fromMap(data);
     }).toList();
 }
+
+
+ 
 }

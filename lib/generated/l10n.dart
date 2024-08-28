@@ -270,6 +270,56 @@ class S {
     );
   }
 
+  /// `Total `
+  String get kTotal {
+    return Intl.message(
+      'Total ',
+      name: 'kTotal',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Total price`
+  String get kTotalPrice {
+    return Intl.message(
+      'Total price',
+      name: 'kTotalPrice',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Write you Message `
+  String get kWriteUMessage {
+    return Intl.message(
+      'Write you Message ',
+      name: 'kWriteUMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Total Purchases`
+  String get kTotalPurchases {
+    return Intl.message(
+      'Total Purchases',
+      name: 'kTotalPurchases',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delivery Service`
+  String get kDeliveryService {
+    return Intl.message(
+      'Delivery Service',
+      name: 'kDeliveryService',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// ` Sign Out  `
   String get kSignOut {
     return Intl.message(

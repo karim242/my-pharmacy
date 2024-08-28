@@ -12,7 +12,7 @@ class PriceBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        width: 68.w,
+        width: 75.w,
         height: 30.h,
         decoration: const BoxDecoration(
           color: Color(0xffE1D8C3),
@@ -23,7 +23,7 @@ class PriceBox extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
-              'EGP   ',
+              'EGP ',
               style: TextStyles.textStyle11
                   .copyWith(color: AppColors.primaryColor),
             ),

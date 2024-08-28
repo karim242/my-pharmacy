@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_pharmacy/core/utils/app_colors.dart';
 import 'package:my_pharmacy/core/utils/app_images.dart';
@@ -12,11 +13,14 @@ import 'package:my_pharmacy/features/home/data/models/product.dart';
 import 'package:my_pharmacy/features/home/presentation/widgets/choice_item_row.dart';
 import 'package:my_pharmacy/features/pharmacises/presentation/widgets/list_tile_in_view_details.dart';
 
+import '../../../../core/widget/custom_toast.dart';
+import '../../../home/presentation/cubit/all_product_cubit.dart';
+
 class CategoryDetailsView extends StatelessWidget {
-  const CategoryDetailsView({super.key,required this.product });
- // final CategoryModel category;
+  const CategoryDetailsView({super.key, required this.product});
+  // final CategoryModel category;
   //final ProductCategory category;
-final Product product;
+  final Product product;
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +41,7 @@ final Product product;
                 ),
                 child: Image.network(
                   product.imageUrl,
-                 fit: BoxFit.cover,
+                  fit: BoxFit.cover,
                 ),
               ),
             ),
@@ -60,51 +64,55 @@ final Product product;
                               style: TextStyles.textStyle16
                                   .copyWith(color: AppColors.blackColor),
                             ),
-                            Text(product.pharmacyName,
-                              
-                           //   category.pharmacyName,
+                            Text(
+                              product.pharmacyName,
+
+                              //   category.pharmacyName,
                               style: TextStyles.textStyle12
                                   .copyWith(color: const Color(0xff4A4A4A)),
                             ),
                           ],
                         ),
                         PriceBox(
-                          price:product.price, //category.price.toString(),
+                          price: product.price
+                              .toString(), //category.price.toString(),
                         ),
                       ],
                     ),
                   ),
                   ListTileInDetailView(
-                    title:product.address,
+                    title: product.address,
                     icon: AppImages.locationIcon,
                   ),
                   ListTileInDetailView(
                     title: product.address,
                     icon: AppImages.deliveryIcon,
                   ),
-                   ListTileInDetailView(
+                  ListTileInDetailView(
                     title: product.phone,
                     icon: AppImages.phoneIcon,
                   ),
-                //  const OthersCatedgoryItem(),
+                  //  const OthersCatedgoryItem(),
                   SizedBox(height: 15.h),
-                    TitleText(title:AppStrings.kChoices(context) ),
+                  TitleText(title: AppStrings.kChoices(context)),
                   SizedBox(height: 10.h),
                   const ChoiceItemListRow(),
                   SizedBox(height: 15.h),
-                   TitleText(title:AppStrings.kDescription(context) ),
+                  TitleText(title: AppStrings.kDescription(context)),
                   SizedBox(height: 7.h),
-                   Text(
-                    product.description
-                  ),
+                  Text(product.description),
                   SizedBox(height: 20.h),
-                  const Row(
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       AddToCartBtn(
                         width: 136,
                         height: 34,
+                        onTap: () {
+                          context.read<ProductCubit>().addToCart(product);
+                          showToast("Add to cart",);
+                        },
                       ),
                       CallUsBtn()
                     ],

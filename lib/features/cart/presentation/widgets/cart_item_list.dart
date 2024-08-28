@@ -1,61 +1,76 @@
 import 'package:flutter/material.dart';
-import 'package:my_pharmacy/core/utils/app_colors.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../../core/utils/app_colors.dart';
 import 'package:my_pharmacy/core/utils/text_styles.dart';
-import 'package:my_pharmacy/features/home/data/models/cart_item_static_model.dart';
+import 'package:my_pharmacy/features/cart/presentation/cubit/cart_cubit.dart';
 
-class CartItemList extends StatefulWidget {
+import '../cubit/cart_state.dart';
+
+class CartItemList extends StatelessWidget {
   const CartItemList({
     super.key,
   });
 
   @override
-  State<CartItemList> createState() => _CartItemListState();
-}
-
-class _CartItemListState extends State<CartItemList> {
-  @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
-      itemCount: cartItems.length,
-      itemBuilder: (context, index) {
-        return ListTile(
-          contentPadding: EdgeInsets.zero,
-          leading: Image.asset(cartItems[index].imageUrl),
-          title: Text(cartItems[index].name),
-          subtitle: Text('${cartItems[index].price} EGP'),
-          trailing: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              IconButton(
-                icon: const Icon(Icons.add, color: AppColors.primaryColor),
-                onPressed: () {
-                  setState(() {
-                    cartItems[index].quantity++;
-                  });
-                },
+    //المفروض هنا بعد منضيف data ف cart نستقبلها هنا للعرض
+
+    return BlocBuilder<CartCubit, CartState>(
+      builder: (context, state) {
+        if (state is CartLoaded) {
+          return ListView.builder(
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          itemCount:  state.items.length,
+          itemBuilder: (context, index) {
+            return ListTile(
+              contentPadding: EdgeInsets.zero,
+              leading: Image.network(state.items[index].productImage),
+              title: Text(state.items[index].productName),
+              subtitle: Text('${state.items[index].price} EGP'),
+              trailing: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  IconButton(
+                    icon:const  Icon(Icons.add, color: AppColors.primaryColor),
+                    onPressed: () {
+                    // // add 1
+                    //     state.items[index].quantity;
+                     
+                    },
+                  ),
+                  Text(state.items[index].quantity.toString(),
+                      style: TextStyles.textStyle14),
+                  IconButton(
+                    icon:
+                        const Icon(Icons.remove, color: AppColors.primaryColor),
+                    onPressed: () {
+                        //                  // remove 1
+                        // if (state.items[index].quantity! > 1) {
+                        //  state.items[index].quantity;
+                        //}
+                     
+                    },
+                  ),
+                ],
               ),
-              Text(cartItems[index].quantity.toString(),
-                  style: TextStyles.textStyle14),
-              IconButton(
-                icon: const Icon(Icons.remove, color: AppColors.primaryColor),
-                onPressed: () {
-                  setState(() {
-                    if (cartItems[index].quantity > 1) {
-                      cartItems[index].quantity--;
-                    }
-                  });
-                },
-              ),
-            ],
-          ),
-          onLongPress: () {
-            setState(() {
-              cartItems.removeAt(index);
-            });
-          },
+              
+            );
+             },
         );
+          
+        } else if (state is CartLoading) {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+          
+        }else if (state is CartError) {
+          return Center(child: Text('Error: ${state.message}'));
+        } else {
+          return const Center(child: Text('No data found'));
+        }
+       
+         
       },
     );
   }

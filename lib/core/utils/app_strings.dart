@@ -72,4 +72,17 @@ class AppStrings {
       S.of(context).kChoices;
         static String kDescription(BuildContext context) =>
       S.of(context).kDescription;
+ static String kWriteUMessage(BuildContext context) =>
+      S.of(context).kWriteUMessage;
+
+       static String kTotalPurchases(BuildContext context) =>
+      S.of(context).kTotalPurchases;
+
+         static String kTotal(BuildContext context) =>
+      S.of(context).kTotal;
+          static String kTotalPrice(BuildContext context) =>
+      S.of(context).kTotalPrice;
+           static String kDeliveryService(BuildContext context) =>
+      S.of(context).kDeliveryService;
+      
 }

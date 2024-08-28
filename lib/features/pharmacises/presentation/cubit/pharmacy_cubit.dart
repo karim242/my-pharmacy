@@ -17,13 +17,5 @@ class PharmacyCubit extends Cubit<PharmacyState> {
     }
   }
 
-   Future<void> loadOfferPharmacy() async {
-   emit( PharmacyLoading());
-    try {
-      final pharmacy = await _repository.fetchOfferPharmacy();
-      emit(PharmacyLoaded(pharmacy));
-    } catch (e) {
-      emit(PharmacyError('Failed to load products: ${e.toString()}'));
-    }
-  }
+
 }

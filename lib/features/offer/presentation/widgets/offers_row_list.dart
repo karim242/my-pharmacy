@@ -5,16 +5,18 @@ import 'package:my_pharmacy/features/offer/presentation/widgets/offer_item.dart'
 import 'package:my_pharmacy/features/pharmacises/presentation/cubit/pharmacy_cubit.dart';
 import 'package:my_pharmacy/features/pharmacises/presentation/cubit/pharmacy_state.dart';
 
+import '../cubit/offer_cubit.dart';
+import '../cubit/offer_state.dart';
+
 class OfferRowList extends StatelessWidget {
   const OfferRowList({
     super.key,
   });
   @override
   Widget build(BuildContext context) {
-
-    return BlocBuilder<PharmacyCubit, PharmacyState>(
+    return BlocBuilder<OfferCubit, OfferState>(
       builder: (context, state) {
-        if (state is PharmacyLoaded) {
+        if (state is OfferLoaded) {
           return SizedBox(
             height: MediaQuery.of(context).size.height * 0.15,
             child: ListView.builder(
@@ -23,18 +25,16 @@ class OfferRowList extends StatelessWidget {
               itemBuilder: (context, index) {
                 return Padding(
                   padding: EdgeInsets.only(left: 10.w),
-                  child: state.pharmacy[index].offer == true
-                      ? OffersItem(
-                          pharmacy: state.pharmacy[index],
-                        )
-                      : const SizedBox(),
+                  child: OffersItem(
+                    pharmacy: state.pharmacy[index],
+                  ),
                 );
               },
             ),
           );
-        } else if (state is PharmacyLoading) {
+        } else if (state is OfferLoading) {
           return const Center(child: CircularProgressIndicator());
-        } else if (state is PharmacyError) {
+        } else if (state is OfferError) {
           return Center(child: Text('Error: ${state.message}'));
         } else {
           return const Center(child: Text('No Offer found'));

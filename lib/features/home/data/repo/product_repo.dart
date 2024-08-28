@@ -7,4 +7,6 @@ abstract class ProductsRepository {
   Future<List<Product>> getProductsByPharmacy(String pharmacyName);
 
   Future<List<Product>> getProductsOnOffer(String pharmacyName);
+
+
 }

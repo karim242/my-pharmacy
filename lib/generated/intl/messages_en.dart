@@ -41,6 +41,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Create Account"),
         "kCurrentPassword":
             MessageLookupByLibrary.simpleMessage("Current Password"),
+        "kDeliveryService":
+            MessageLookupByLibrary.simpleMessage("Delivery Service"),
         "kDescription": MessageLookupByLibrary.simpleMessage("description"),
         "kEmail": MessageLookupByLibrary.simpleMessage("Email"),
         "kForgetPassword":
@@ -71,6 +73,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "kSearchString": MessageLookupByLibrary.simpleMessage("Search"),
         "kSetting": MessageLookupByLibrary.simpleMessage("Settings"),
         "kSignIn": MessageLookupByLibrary.simpleMessage("Sign In"),
-        "kSignOut": MessageLookupByLibrary.simpleMessage(" Sign Out  ")
+        "kSignOut": MessageLookupByLibrary.simpleMessage(" Sign Out  "),
+        "kTotal": MessageLookupByLibrary.simpleMessage("Total "),
+        "kTotalPrice": MessageLookupByLibrary.simpleMessage("Total price"),
+        "kTotalPurchases":
+            MessageLookupByLibrary.simpleMessage("Total Purchases"),
+        "kWriteUMessage":
+            MessageLookupByLibrary.simpleMessage("Write you Message ")
       };
 }

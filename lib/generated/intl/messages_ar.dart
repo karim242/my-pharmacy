@@ -40,6 +40,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "kCreateAccount": MessageLookupByLibrary.simpleMessage("انشاء حساب"),
         "kCurrentPassword":
             MessageLookupByLibrary.simpleMessage("كلمة المرور الحالية"),
+        "kDeliveryService":
+            MessageLookupByLibrary.simpleMessage("خدمة التوصيل"),
         "kDescription": MessageLookupByLibrary.simpleMessage("الوصف"),
         "kEmail": MessageLookupByLibrary.simpleMessage("البريد الالكتروني"),
         "kForgetPassword":
@@ -72,6 +74,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "kSearchString": MessageLookupByLibrary.simpleMessage("بحث"),
         "kSetting": MessageLookupByLibrary.simpleMessage("الإعدادات"),
         "kSignIn": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
-        "kSignOut": MessageLookupByLibrary.simpleMessage("تسجيل الخروج")
+        "kSignOut": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
+        "kTotal": MessageLookupByLibrary.simpleMessage("المجموع"),
+        "kTotalPrice": MessageLookupByLibrary.simpleMessage("اجمالي الحساب"),
+        "kTotalPurchases":
+            MessageLookupByLibrary.simpleMessage("اجمالي المشتريات"),
+        "kWriteUMessage": MessageLookupByLibrary.simpleMessage(" اكتب رسالتك")
       };
 }

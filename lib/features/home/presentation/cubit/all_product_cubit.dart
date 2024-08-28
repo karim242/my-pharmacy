@@ -2,10 +2,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_pharmacy/features/home/data/repo/product_repo.dart';
 import 'package:my_pharmacy/features/home/presentation/cubit/all_product_state.dart';
 
+import '../../../cart/presentation/cubit/cart_cubit.dart';
+import '../../../cart/presentation/cubit/cart_state.dart';
+import '../../data/models/product.dart';
+
 class ProductCubit extends Cubit<ProductState> {
   final ProductsRepository _repository;
+ 
+  final CartCubit cartCubit;
 
-  ProductCubit(this._repository) : super(ProductInitial());
+  ProductCubit(this._repository, this.cartCubit) : super(ProductInitial());
 
   Future<void> loadProducts(String categoryName) async {
    emit( ProductLoading());
@@ -48,6 +54,18 @@ class ProductCubit extends Cubit<ProductState> {
       emit(ProductLoaded(products));
     } catch (e) {
       emit(ProductError('Failed to load pharmacies: ${e.toString()}'));
+    }
+  }
+
+
+   
+
+   Future<void> addToCart(Product item) async {
+    try {
+     
+      await cartCubit.addItemToCart(item);
+    } catch (e) {
+      emit(ProductError("Failed to add product to cart"));
     }
   }
 }

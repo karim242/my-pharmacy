@@ -5,14 +5,17 @@ import 'package:my_pharmacy/features/pharmacises/presentation/cubit/pharmacy_cub
 import 'package:my_pharmacy/features/pharmacises/presentation/cubit/pharmacy_state.dart';
 import 'package:my_pharmacy/features/pharmacises/presentation/widgets/nearest_pharmacy_item.dart';
 
+import '../cubit/offer_cubit.dart';
+import '../cubit/offer_state.dart';
+
 class OfferSeeMoreGridView extends StatelessWidget {
   const OfferSeeMoreGridView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<PharmacyCubit, PharmacyState>(
+    return BlocBuilder<OfferCubit, OfferState>(
       builder: (context, state) {
-        if (state is PharmacyLoaded) {
+        if (state is OfferLoaded) {
           return StaggeredGrid.count(
               crossAxisCount: 3,
               mainAxisSpacing: 22,
@@ -20,13 +23,13 @@ class OfferSeeMoreGridView extends StatelessWidget {
               axisDirection: AxisDirection.down,
               children: List.generate(
                 state.pharmacy.length,
-                (index) =>state.pharmacy[index].offer==true? NearestPharmacyItem(
+                (index) => NearestPharmacyItem(
                   pharmacy: state.pharmacy[index],
-                ):const SizedBox(width: 1,)
+                )
               ));
-        } else if (state is PharmacyLoading) {
+        } else if (state is OfferLoading) {
           return const Center(child: CircularProgressIndicator());
-        } else if (state is PharmacyError) {
+        } else if (state is OfferError) {
           return Center(child: Text('Error: ${state.message}'));
         } else {
           return const Center(child: Text('No data found'));

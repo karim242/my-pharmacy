@@ -13,6 +13,9 @@ import 'package:my_pharmacy/features/pharmacises/presentation/cubit/pharmacy_cub
 import 'package:my_pharmacy/firebase_options.dart';
 import 'package:my_pharmacy/generated/l10n.dart';
 
+import 'features/cart/presentation/cubit/cart_cubit.dart';
+import 'features/offer/presentation/cubit/offer_cubit.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -36,12 +39,20 @@ class Mypharmacy extends StatelessWidget {
         builder: (_, child) {
           return MultiBlocProvider(
             providers: [
-              BlocProvider(create: (context) => getIt<CategoriesCubit>()..loadCategories()),
-              BlocProvider(create: (context) => getIt<PharmacyCubit>()..loadPharmacy()),
+              BlocProvider(
+                  create: (context) =>
+                      getIt<CategoriesCubit>()..loadCategories()),
+              BlocProvider(
+                  create: (context) => getIt<PharmacyCubit>()..loadPharmacy()),
+              BlocProvider(
+                  create: (context) =>
+                      getIt<OfferCubit>()..loadOfferPharmacy()),
+              BlocProvider(
+                  create: (context) => getIt<CartCubit>()..loadCartItems()),
               BlocProvider(create: (context) => getIt<ProductCubit>()),
-              BlocProvider(create: (context) => getIt<ChatCubit>()..loadChats()),
-              BlocProvider(create: (context) => getIt<AuthCubit>()
-              ),
+              BlocProvider(
+                  create: (context) => getIt<ChatCubit>()..loadChats()),
+              BlocProvider(create: (context) => getIt<AuthCubit>()),
             ],
             child: MaterialApp.router(
               routerConfig: AppRouter.router,
