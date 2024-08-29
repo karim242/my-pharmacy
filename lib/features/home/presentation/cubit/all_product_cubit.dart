@@ -60,10 +60,10 @@ class ProductCubit extends Cubit<ProductState> {
 
    
 
-   Future<void> addToCart(Product item) async {
+   Future<void> addToCart(Product item,) async {
     try {
      
-      await cartCubit.addItemToCart(item);
+      await cartCubit.addItemToCart(item,);
     } catch (e) {
       emit(ProductError("Failed to add product to cart"));
     }

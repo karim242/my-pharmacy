@@ -15,9 +15,11 @@ import '/features/home/presentation/widgets/next_button.dart';
 
 class CartView extends StatelessWidget {
   const CartView({super.key});
-
+final double deliveryService= 15;
   @override
   Widget build(BuildContext context) {
+    
+    context.read<CartCubit>().loadCartItems();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -37,6 +39,8 @@ class CartView extends StatelessWidget {
           child: BlocBuilder<CartCubit, CartState>(
             builder: (context, state) {
               if (state is CartLoaded) {
+                if(state.items.isNotEmpty)
+                {
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -77,12 +81,12 @@ class CartView extends StatelessWidget {
                     SizedBox(height: 20.h),
                     TextAndPriceRow(
                       title: AppStrings.kDeliveryService(context),
-                      price: state.items[0].price,
+                      price: deliveryService,
                     ),
                     SizedBox(height: 20.h),
                     TextAndPriceRow(
                       title: AppStrings.kTotal(context),
-                      price:state.items[0].price,
+                      price:state.items[0].price+deliveryService,
                     ),
                     SizedBox(height: 20.h),
 
@@ -95,6 +99,11 @@ class CartView extends StatelessWidget {
                     SizedBox(height: 20.h),
                   ],
                 );
+                }else{
+                                  return const Center(child: Text('No item data found'));
+
+                }
+              
               } else if (state is CartLoading) {
                 return const Center(
                   child: CircularProgressIndicator(),

@@ -110,8 +110,8 @@ class CategoryDetailsView extends StatelessWidget {
                         width: 136,
                         height: 34,
                         onTap: () {
-                          context.read<ProductCubit>().addToCart(product);
-                          showToast("Add to cart",);
+                          context.read<ProductCubit>().addToCart(product,);
+                          //showToast("Add to cart",);
                         },
                       ),
                       CallUsBtn()

@@ -43,5 +43,6 @@
     "kChangePassword": "Change Password",
     "kCurrentPassword": "Current Password",
     "kNewPassword": "New Password",
-    "kConfirmPassword": "Confirm New Password"
+    "kConfirmPassword": "Confirm New Password",
+    "kMessageCart":"You have a product from another pharmacy, pay so you can carry out the addition process from another pharmacy"
 }

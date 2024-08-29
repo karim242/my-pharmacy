@@ -499,6 +499,16 @@ class S {
       args: [],
     );
   }
+
+  /// `You have a product from another pharmacy, pay so you can carry out the addition process from another pharmacy`
+  String get kMessageCart {
+    return Intl.message(
+      'You have a product from another pharmacy, pay so you can carry out the addition process from another pharmacy',
+      name: 'kMessageCart',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

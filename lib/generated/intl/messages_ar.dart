@@ -47,6 +47,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "kForgetPassword":
             MessageLookupByLibrary.simpleMessage("هل نسيت كلمة المرور؟"),
         "kGovernorate": MessageLookupByLibrary.simpleMessage("المحافظة"),
+        "kMessageCart": MessageLookupByLibrary.simpleMessage(
+            "انت لديك منتج من صيدليه اخري ، قم بالدفع حتي تتمكن من تنفيذ عمليه الاضافه من صيدليه اخري "),
         "kName": MessageLookupByLibrary.simpleMessage("الاسم"),
         "kNearestString":
             MessageLookupByLibrary.simpleMessage("الصيدليات القريبة اليك"),

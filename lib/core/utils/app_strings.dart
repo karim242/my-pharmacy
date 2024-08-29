@@ -47,42 +47,34 @@ class AppStrings {
       S.of(context).kNewPassword;
   static String kConfirmPassword(BuildContext context) =>
       S.of(context).kConfirmPassword;
-      static String kResendCode(BuildContext context) =>
-      S.of(context).kResendCode;
+  static String kResendCode(BuildContext context) => S.of(context).kResendCode;
 
- static String kDone(BuildContext context) =>
-      S.of(context).done;
+  static String kDone(BuildContext context) => S.of(context).done;
 
-       static String kNotifications(BuildContext context) =>
+  static String kNotifications(BuildContext context) =>
       S.of(context).kNotifications;
-      
-       static String kAddTCart(BuildContext context) =>
-      S.of(context).kAddToCart;
 
-       static String kRemoveFromCart(BuildContext context) =>
-      S.of(context).kRemoveFromCart; 
-      static String kCallUs(BuildContext context) =>
-      S.of(context).kCallUs;
+  static String kAddTCart(BuildContext context) => S.of(context).kAddToCart;
 
-         static String kSave(BuildContext context) =>
-      S.of(context).kSave;
-         static String kCancel(BuildContext context) =>
-      S.of(context).kCancel;
-        static String kChoices(BuildContext context) =>
-      S.of(context).kChoices;
-        static String kDescription(BuildContext context) =>
+  static String kRemoveFromCart(BuildContext context) =>
+      S.of(context).kRemoveFromCart;
+  static String kCallUs(BuildContext context) => S.of(context).kCallUs;
+
+  static String kSave(BuildContext context) => S.of(context).kSave;
+  static String kCancel(BuildContext context) => S.of(context).kCancel;
+  static String kChoices(BuildContext context) => S.of(context).kChoices;
+  static String kDescription(BuildContext context) =>
       S.of(context).kDescription;
- static String kWriteUMessage(BuildContext context) =>
+  static String kWriteUMessage(BuildContext context) =>
       S.of(context).kWriteUMessage;
 
-       static String kTotalPurchases(BuildContext context) =>
+  static String kTotalPurchases(BuildContext context) =>
       S.of(context).kTotalPurchases;
 
-         static String kTotal(BuildContext context) =>
-      S.of(context).kTotal;
-          static String kTotalPrice(BuildContext context) =>
-      S.of(context).kTotalPrice;
-           static String kDeliveryService(BuildContext context) =>
+  static String kTotal(BuildContext context) => S.of(context).kTotal;
+  static String kTotalPrice(BuildContext context) => S.of(context).kTotalPrice;
+  static String kDeliveryService(BuildContext context) =>
       S.of(context).kDeliveryService;
-      
+  static String kMessageCart(BuildContext context) =>
+      S.of(context).kMessageCart;
 }

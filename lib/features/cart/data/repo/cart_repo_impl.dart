@@ -43,6 +43,22 @@ class CartRepositoryImpl implements CartRepository {
   }
 
 @override
+   Future<bool> cartExists() async {
+    User? user = _auth.currentUser;
+    if (user != null) {
+      DocumentReference cartRef = _firestore
+          .collection('cart')
+          .doc(user.uid)
+              .collection('products')
+          .doc();
+
+      DocumentSnapshot cartDoc = await cartRef.get();
+      return cartDoc.exists;
+    }
+    return false;
+  }
+
+@override
    Future<void> addToCart(Product item) async {
     User? user = _auth.currentUser;
     if (user != null) {
@@ -55,4 +71,5 @@ class CartRepositoryImpl implements CartRepository {
       await cartRef.set(item.toMap());
     }
   }
+
 }

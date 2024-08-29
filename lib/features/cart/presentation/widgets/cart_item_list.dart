@@ -14,7 +14,7 @@ class CartItemList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //المفروض هنا بعد منضيف data ف cart نستقبلها هنا للعرض
-
+ var cubit =  BlocProvider.of<CartCubit>(context);
     return BlocBuilder<CartCubit, CartState>(
       builder: (context, state) {
         if (state is CartLoaded) {
@@ -34,21 +34,17 @@ class CartItemList extends StatelessWidget {
                   IconButton(
                     icon:const  Icon(Icons.add, color: AppColors.primaryColor),
                     onPressed: () {
-                    // // add 1
-                    //     state.items[index].quantity;
+                  cubit.addOne();
                      
                     },
                   ),
-                  Text(state.items[index].quantity.toString(),
+                  Text(cubit.productNumber.toString(),
                       style: TextStyles.textStyle14),
                   IconButton(
                     icon:
                         const Icon(Icons.remove, color: AppColors.primaryColor),
                     onPressed: () {
-                        //                  // remove 1
-                        // if (state.items[index].quantity! > 1) {
-                        //  state.items[index].quantity;
-                        //}
+                          cubit.minusOne();                       
                      
                     },
                   ),
