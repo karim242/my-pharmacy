@@ -8,5 +8,5 @@ abstract class ProductsRepository {
 
   Future<List<Product>> getProductsOnOffer(String pharmacyName);
 
-
+Future<void> updateAvailableQuantity(String productId, int newAvailableQuantity);
 }

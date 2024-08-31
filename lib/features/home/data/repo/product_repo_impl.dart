@@ -1,11 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:my_pharmacy/features/home/data/models/product.dart';
 import 'package:my_pharmacy/features/home/data/repo/product_repo.dart';
 
 class ProductRepositoryImpl implements ProductsRepository {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-  final FirebaseAuth _auth = FirebaseAuth.instance;
 
   @override
   Future<List<Product>> getProductsByCategory(String categoryName) async {
@@ -55,6 +53,18 @@ class ProductRepositoryImpl implements ProductsRepository {
     }).toList();
 }
 
-
+ @override
+  Future<void> updateAvailableQuantity(String productId, int newAvailableQuantity) async {
+    try {
+      await _firestore
+          .collection('products')
+          .doc(productId)
+          .update({
+        'availableQuantity': newAvailableQuantity,
+      });
+    } catch (e) {
+      throw Exception('Failed to update available quantity: $e');
+    }
+  }
  
 }

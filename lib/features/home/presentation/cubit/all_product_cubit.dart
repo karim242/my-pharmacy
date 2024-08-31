@@ -3,7 +3,6 @@ import 'package:my_pharmacy/features/home/data/repo/product_repo.dart';
 import 'package:my_pharmacy/features/home/presentation/cubit/all_product_state.dart';
 
 import '../../../cart/presentation/cubit/cart_cubit.dart';
-import '../../../cart/presentation/cubit/cart_state.dart';
 import '../../data/models/product.dart';
 
 class ProductCubit extends Cubit<ProductState> {
@@ -57,6 +56,22 @@ class ProductCubit extends Cubit<ProductState> {
     }
   }
 
+Future<void> decrementAvailableQuantity(String productId, int currentAvailableQuantity) async {
+    if (currentAvailableQuantity > 0) {
+      final newAvailableQuantity = currentAvailableQuantity - 1;
+      await _repository.updateAvailableQuantity(productId, newAvailableQuantity);
+      emit(ProductUpdated());
+    } else {
+      // Handle case where no stock is available
+      print("No stock available");
+    }
+  }
+
+  Future<void> incrementAvailableQuantity(String productId, int currentAvailableQuantity) async {
+    final newAvailableQuantity = currentAvailableQuantity + 1;
+    await _repository.updateAvailableQuantity(productId, newAvailableQuantity);
+    emit(ProductUpdated());
+  }
 
    
 

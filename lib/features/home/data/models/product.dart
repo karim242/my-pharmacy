@@ -1,6 +1,7 @@
 class Product {
   final String address;
   final String productId;
+  int availableQuantity;
 
   final String categoryName;
   final String description;
@@ -26,6 +27,7 @@ class Product {
     required this.pharmacyName,
     required this.pharmacyImage,
     required this.price,
+    required this.availableQuantity, // ��ضافة الحقل الجديد
   });
 
   factory Product.fromMap(Map<String, dynamic> data) {
@@ -42,6 +44,7 @@ class Product {
       pharmacyName: data['pharmacyName'] as String,
       pharmacyImage: data['pharmacyimage'] as String,
       price: data['price']as double,
+      availableQuantity: data['availableQuantity'] as int, 
     );
   }
 
@@ -59,6 +62,7 @@ class Product {
       'pharmacyName': pharmacyName,
       'pharmacyimage': pharmacyImage,
       'price': price,
+      'availableQuantity': availableQuantity, // ��ضافة الحقل الجديد
     };
   }
 }

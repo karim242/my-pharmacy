@@ -9,4 +9,6 @@ abstract class CartRepository {
   Future<List<CartItem>> getCartItems();
    Future<bool> cartExists();
  // Future<void> checkCart(Product item);
+   Future<void> updateSelectedQuantityInCart( String productId, int newSelectedQuantity);
+
 }

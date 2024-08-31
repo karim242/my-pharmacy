@@ -2,7 +2,7 @@ class CartItem {
   final String productId;
   final String productName;
   final String productImage;
-   int? quantity;
+     int selectedQuantity;
   final String pharmacyName;
   final double price;
 
@@ -11,7 +11,7 @@ class CartItem {
     required this.pharmacyName,
     required this.productName,
     required this.productImage,
-    required this.quantity,
+    required this.selectedQuantity,
     required this.price,
   });
 
@@ -21,7 +21,7 @@ class CartItem {
       productId: data['productId'],
       productName: data['name'],
       pharmacyName: data['pharmacyName'],
-      quantity: data['quantity']?? 0, 
+      selectedQuantity: data['selectedQuantity']?? 0, 
       productImage: data['imageUrl'],
       price: data['price'],
     );
@@ -33,7 +33,7 @@ class CartItem {
       'name': productName,
       'pharmacyName': pharmacyName,
       'productImage': productImage,
-      'quantity': quantity,
+      'selectedQuantity': selectedQuantity,
       'price': price,
     };
   }

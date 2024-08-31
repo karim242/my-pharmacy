@@ -13,7 +13,6 @@ import 'package:my_pharmacy/features/home/data/models/product.dart';
 import 'package:my_pharmacy/features/home/presentation/widgets/choice_item_row.dart';
 import 'package:my_pharmacy/features/pharmacises/presentation/widgets/list_tile_in_view_details.dart';
 
-import '../../../../core/widget/custom_toast.dart';
 import '../../../home/presentation/cubit/all_product_cubit.dart';
 
 class CategoryDetailsView extends StatelessWidget {
@@ -114,7 +113,7 @@ class CategoryDetailsView extends StatelessWidget {
                           //showToast("Add to cart",);
                         },
                       ),
-                      CallUsBtn()
+                      const CallUsBtn()
                     ],
                   )
                 ],

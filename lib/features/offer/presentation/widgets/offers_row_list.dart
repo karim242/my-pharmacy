@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_pharmacy/features/offer/presentation/widgets/offer_item.dart';
-import 'package:my_pharmacy/features/pharmacises/presentation/cubit/pharmacy_cubit.dart';
-import 'package:my_pharmacy/features/pharmacises/presentation/cubit/pharmacy_state.dart';
 
 import '../cubit/offer_cubit.dart';
 import '../cubit/offer_state.dart';

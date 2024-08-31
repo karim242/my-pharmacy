@@ -68,6 +68,6 @@ void setupLocator() {
 
   //cartRepo
    getIt.registerLazySingleton<CartRepository>(() => CartRepositoryImpl());
-  getIt.registerFactory<CartCubit>(() => CartCubit(getIt<CartRepository>()));
+getIt.registerFactory<CartCubit>(() => CartCubit(getIt<CartRepository>(), getIt<ProductCubit>()));
 
 }

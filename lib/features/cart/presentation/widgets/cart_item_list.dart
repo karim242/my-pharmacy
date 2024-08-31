@@ -34,7 +34,7 @@ class CartItemList extends StatelessWidget {
                   IconButton(
                     icon:const  Icon(Icons.add, color: AppColors.primaryColor),
                     onPressed: () {
-                  cubit.addOne();
+                  cubit.incrementQuantity(state.items[index].productId,state.items[index].selectedQuantity);
                      
                     },
                   ),
@@ -44,7 +44,7 @@ class CartItemList extends StatelessWidget {
                     icon:
                         const Icon(Icons.remove, color: AppColors.primaryColor),
                     onPressed: () {
-                          cubit.minusOne();                       
+                  cubit.decrementQuantity(state.items[index].productId,state.items[index].selectedQuantity);
                      
                     },
                   ),

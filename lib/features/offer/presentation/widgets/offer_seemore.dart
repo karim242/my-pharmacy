@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:my_pharmacy/features/pharmacises/presentation/cubit/pharmacy_cubit.dart';
-import 'package:my_pharmacy/features/pharmacises/presentation/cubit/pharmacy_state.dart';
 import 'package:my_pharmacy/features/pharmacises/presentation/widgets/nearest_pharmacy_item.dart';
 
 import '../cubit/offer_cubit.dart';

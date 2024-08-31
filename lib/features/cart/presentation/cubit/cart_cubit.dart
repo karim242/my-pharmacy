@@ -1,14 +1,16 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_pharmacy/core/widget/custom_toast.dart';
 import 'package:my_pharmacy/features/home/data/models/product.dart';
+import 'package:my_pharmacy/features/home/presentation/cubit/all_product_cubit.dart';
 
 import '../../data/repo/cart_repo.dart';
 import 'cart_state.dart';
 
 class CartCubit extends Cubit<CartState> {
   final CartRepository _cartRepository;
+ final ProductCubit _productCubit;
 
-  CartCubit(this._cartRepository) : super(CartInitial());
+  CartCubit(this._cartRepository, this._productCubit) : super(CartInitial());
  int productNumber =0;
 void addOne(){
 productNumber++;
@@ -71,6 +73,37 @@ void minusOne(){
       await loadCartItems(); // إعادة تحميل البيانات بعد الحذف
     } catch (e) {
       emit(CartError("Failed to remove item from cart"));
+    }
+  }
+
+Future<void> incrementQuantity( String productId, int currentSelectedQuantity) async {
+    final newSelectedQuantity = currentSelectedQuantity + 1;
+    await _cartRepository.updateSelectedQuantityInCart( productId, newSelectedQuantity);
+    emit(CartUpdated());
+  }
+
+  Future<void> decrementQuantity( String productId, int currentSelectedQuantity) async {
+    if (currentSelectedQuantity > 1) {
+      final newSelectedQuantity = currentSelectedQuantity - 1;
+      await _cartRepository.updateSelectedQuantityInCart( productId, newSelectedQuantity);
+      emit(CartUpdated());
+    } else {
+      // Handle case where quantity is already 1 and can't be decreased
+      print("Minimum quantity reached");
+    }
+
+}
+ Future<void> updateCartAndProductQuantity(String userId, String productId, int currentSelectedQuantity, int currentAvailableQuantity) async {
+    try {
+      // Increment selected quantity in Cart
+      await incrementQuantity( productId, currentSelectedQuantity);
+
+      // Decrement available quantity in Product
+      await _productCubit.decrementAvailableQuantity(productId, currentAvailableQuantity);
+
+      emit(CartUpdated());
+    } catch (e) {
+      emit(CartError("Failed to update quantities: $e"));
     }
   }
 }

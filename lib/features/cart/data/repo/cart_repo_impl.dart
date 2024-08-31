@@ -71,5 +71,24 @@ class CartRepositoryImpl implements CartRepository {
       await cartRef.set(item.toMap());
     }
   }
+  @override
+  Future<void> updateSelectedQuantityInCart( String productId, int newSelectedQuantity) async {
+    try {
+       User? user = _auth.currentUser;
+    if (user != null) {
+      await _firestore
+          .collection('carts')
+          .doc(user.uid)
+          .collection('products')
+          .doc(productId)
+          .update({
+        'selectedQuantity': newSelectedQuantity,
+      });
+    }
+    } catch (e) {
+      throw Exception('Failed to update selected quantity: $e');
+    }
+  }
+
 
 }
