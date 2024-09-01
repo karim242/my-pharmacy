@@ -39,6 +39,8 @@ final double deliveryService= 15;
           child: BlocBuilder<CartCubit, CartState>(
             builder: (context, state) {
               if (state is CartLoaded) {
+                            double totalPrice = state.items[0].price * state.items[0].selectedQuantity;
+
                 if(state.items.isNotEmpty)
                 {
                 return Column(
@@ -76,7 +78,7 @@ final double deliveryService= 15;
                     SizedBox(height: 20.h),
                     TextAndPriceRow(
                       title: AppStrings.kTotalPurchases(context),
-                      price: state.items[0].price,
+                      price:totalPrice
                     ),
                     SizedBox(height: 20.h),
                     TextAndPriceRow(
@@ -86,7 +88,7 @@ final double deliveryService= 15;
                     SizedBox(height: 20.h),
                     TextAndPriceRow(
                       title: AppStrings.kTotal(context),
-                      price:state.items[0].price+deliveryService,
+                      price:totalPrice+deliveryService,
                     ),
                     SizedBox(height: 20.h),
 

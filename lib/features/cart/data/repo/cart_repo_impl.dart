@@ -77,7 +77,7 @@ class CartRepositoryImpl implements CartRepository {
        User? user = _auth.currentUser;
     if (user != null) {
       await _firestore
-          .collection('carts')
+          .collection('cart')
           .doc(user.uid)
           .collection('products')
           .doc(productId)

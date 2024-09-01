@@ -1,25 +1,17 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_pharmacy/core/widget/custom_toast.dart';
 import 'package:my_pharmacy/features/home/data/models/product.dart';
-import 'package:my_pharmacy/features/home/presentation/cubit/all_product_cubit.dart';
 
 import '../../data/repo/cart_repo.dart';
 import 'cart_state.dart';
 
 class CartCubit extends Cubit<CartState> {
   final CartRepository _cartRepository;
- final ProductCubit _productCubit;
+//  final ProductCubit _productCubit;
 
-  CartCubit(this._cartRepository, this._productCubit) : super(CartInitial());
+  CartCubit(this._cartRepository, ) : super(CartInitial());
  int productNumber =0;
-void addOne(){
-productNumber++;
-}
-void minusOne(){
-  if(productNumber>0){
-    productNumber--;
-  }
-}
+
 
   Future<void> loadCartItems() async {
     try {
@@ -99,7 +91,7 @@ Future<void> incrementQuantity( String productId, int currentSelectedQuantity) a
       await incrementQuantity( productId, currentSelectedQuantity);
 
       // Decrement available quantity in Product
-      await _productCubit.decrementAvailableQuantity(productId, currentAvailableQuantity);
+      // await _productCubit.decrementAvailableQuantity(productId, currentAvailableQuantity);
 
       emit(CartUpdated());
     } catch (e) {
