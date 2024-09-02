@@ -15,7 +15,7 @@ class ChatModel {
     required this.lastMessage,
     required this.timestamp,
     this.avatarUrl,
-    required this.messages, // الحقل الجديد
+    required this.messages,
   });
 
   factory ChatModel.fromDocument(DocumentSnapshot doc) {

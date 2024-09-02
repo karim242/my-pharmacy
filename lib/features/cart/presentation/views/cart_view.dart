@@ -15,10 +15,9 @@ import '/features/home/presentation/widgets/next_button.dart';
 
 class CartView extends StatelessWidget {
   const CartView({super.key});
-final double deliveryService= 15;
+  final double deliveryService = 15;
   @override
   Widget build(BuildContext context) {
-    
     context.read<CartCubit>().loadCartItems();
     return Scaffold(
       appBar: AppBar(
@@ -39,78 +38,70 @@ final double deliveryService= 15;
           child: BlocBuilder<CartCubit, CartState>(
             builder: (context, state) {
               if (state is CartLoaded) {
+                if (state.items.isNotEmpty) {
+                  double totalPrice =
+                      state.items[0].price * state.items[0].selectedQuantity;
 
-                if(state.items.isNotEmpty)
-                {
-                  // state.items[0].price * state.items[0].selectedQuantity;
-                    double totalPrice = 0.0;
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // const SizedBox(height: 8),
+                      Text(state.items[0].pharmacyName,
+                          style: TextStyles.textStyle14.copyWith(
+                            color: AppColors.blackColor,
+                            fontWeight: FontWeight.w400,
+                          )),
 
-                  for (var item in state.items) {
-                    totalPrice += item.price * item.selectedQuantity;
-               }
-                return Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    // const SizedBox(height: 8),
-                    Text(state.items[0].pharmacyName,
-                        style: TextStyles.textStyle14.copyWith(
-                          color: AppColors.blackColor,
-                          fontWeight: FontWeight.w400,
-                        )),
+                      SizedBox(height: 20.h),
 
-                    SizedBox(height: 20.h),
-
-                    const CartItemList(),
-                    SizedBox(height: 20.h),
-                    TextField(
-                      decoration: InputDecoration(
-                        hintText: AppStrings.kWriteUMessage(context),
-                        filled: true,
-                        contentPadding: const EdgeInsets.symmetric(
-                            vertical: 16, horizontal: 6),
-                        fillColor: AppColors.lightGrayColor,
-                        border: OutlineInputBorder(
-                          borderSide: BorderSide.none,
-                          borderRadius: BorderRadius.circular(6),
-                        ),
-                        enabledBorder: OutlineInputBorder(
+                      const CartItemList(),
+                      SizedBox(height: 20.h),
+                      TextField(
+                        decoration: InputDecoration(
+                          hintText: AppStrings.kWriteUMessage(context),
+                          filled: true,
+                          contentPadding: const EdgeInsets.symmetric(
+                              vertical: 20, horizontal: 6),
+                          fillColor: AppColors.lightGrayColor,
+                          border: OutlineInputBorder(
+                            borderSide: BorderSide.none,
                             borderRadius: BorderRadius.circular(6),
-                            borderSide: BorderSide.none),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(6),
+                              borderSide: BorderSide.none),
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 20.h),
-                    TitleText(title: AppStrings.kTotalPrice(context)),
-                    SizedBox(height: 20.h),
-                    TextAndPriceRow(
-                      title: AppStrings.kTotalPurchases(context),
-                      price:totalPrice
-                    ),
-                    SizedBox(height: 20.h),
-                    TextAndPriceRow(
-                      title: AppStrings.kDeliveryService(context),
-                      price: deliveryService,
-                    ),
-                    SizedBox(height: 20.h),
-                    TextAndPriceRow(
-                      title: AppStrings.kTotal(context),
-                      price:totalPrice+deliveryService,
-                    ),
-                    SizedBox(height: 20.h),
+                      SizedBox(height: 20.h),
+                      TitleText(title: AppStrings.kTotalPrice(context)),
+                      SizedBox(height: 20.h),
+                      TextAndPriceRow(
+                          title: AppStrings.kTotalPurchases(context),
+                          price: totalPrice),
+                      SizedBox(height: 20.h),
+                      TextAndPriceRow(
+                        title: AppStrings.kDeliveryService(context),
+                        price: deliveryService,
+                      ),
+                      SizedBox(height: 20.h),
+                      TextAndPriceRow(
+                        title: AppStrings.kTotal(context),
+                        price: totalPrice + deliveryService,
+                      ),
+                      SizedBox(height: 20.h),
 
-                    NextButton(
-                      lebale: AppStrings.kNextString(context),
-                      onTap: () {
-                        GoRouter.of(context).push(RoutesNames.kPaymentView);
-                      },
-                    ),
-                    SizedBox(height: 20.h),
-                  ],
-                );
-                }else{
-                                  return const Center(child: Text('No item data found'));
-
+                      NextButton(
+                        lebale: AppStrings.kNextString(context),
+                        onTap: () {
+                          GoRouter.of(context).push(RoutesNames.kPaymentView);
+                        },
+                      ),
+                      SizedBox(height: 20.h),
+                    ],
+                  );
+                } else {
+                  return const Center(child: Text('No item data found'));
                 }
-              
               } else if (state is CartLoading) {
                 return const Center(
                   child: CircularProgressIndicator(),

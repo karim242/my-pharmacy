@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_pharmacy/core/utils/app_colors.dart';
 import 'package:my_pharmacy/features/cart/presentation/views/cart_view.dart';
-import 'package:my_pharmacy/features/chat/presentation/views/conversation_view.dart';
+import 'package:my_pharmacy/features/chat/presentation/views/all_chats_view.dart';
 import 'package:my_pharmacy/features/home/presentation/view/home_view.dart';
 import 'package:my_pharmacy/features/home/presentation/view/setting_view.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -24,32 +24,11 @@ class RootView extends StatefulWidget {
 
 class _RootViewState extends State<RootView> {
   int _selectedIndex = 0;
-  final List<Widget> _widgetOptions = <Widget>[
-    MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (context) => getIt<CategoriesCubit>()..loadCategories(),
-        ),
-        BlocProvider(
-            create: (context) => getIt<PharmacyCubit>()..loadPharmacy()),
-        BlocProvider(
-            create: (context) => getIt<OfferCubit>()..loadOfferPharmacy()),
-        BlocProvider(create: (context) => getIt<ProductCubit>()),
-      ],
-      child: const HomeView(),
-    ),
-    BlocProvider(
-      create: (context) => getIt<CartCubit>()..loadCartItems(),
-      child: const CartView(),
-    ),
-    BlocProvider(
-      create: (context) => getIt<ChatCubit>()..loadChats(),
-      child: const ConversationView(),
-    ),
-    BlocProvider(
-        create: (context) => getIt<AuthCubit>(),
-      child: const SettingView(),
-    ),
+  static const List<Widget> _widgetOptions = <Widget>[
+    HomeView(),
+    CartView(),
+    AllChatsView(),
+    SettingView(),
   ];
 
   void _onItemTapped(int index) {

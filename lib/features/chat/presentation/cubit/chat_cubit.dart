@@ -1,64 +1,90 @@
+import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_pharmacy/features/chat/data/models/chat_model.dart';
 import 'package:my_pharmacy/features/chat/data/models/message_model.dart';
 import 'package:my_pharmacy/features/chat/data/repo/chat_repo.dart';
 import 'package:my_pharmacy/features/chat/presentation/cubit/chat_state.dart';
 
 class ChatCubit extends Cubit<ChatState> {
-  final ChatRepository repository;
+  final ChatRepository chatRepository;
 
-  ChatCubit(this.repository) : super(ChatInitial());
-  User? user = FirebaseAuth.instance.currentUser;
+  ChatCubit(this.chatRepository) : super(ChatInitial());
 
-  Future<void> loadChats() async {
+  Future<void> fetchChats() async {
+    emit(ChatLoading());
     try {
-      emit(ChatLoading());
-      if (user != null) {
-        String userId = user!.uid;
-
-        final chats = await repository.fetchChats(userId);
-
-        if (chats.isEmpty) {
-          emit(ChatEmpty());
-        } else {
-          emit(ChatLoaded(chats));
-        }
-      }
+      final chats = await chatRepository.getChats();
+      emit(ChatLoaded(chats));
     } catch (e) {
       emit(ChatError(e.toString()));
     }
   }
 
-  Future<void> sendMessage(
-      String chatId, String message, String senderId, bool isSent) async {
+  Future<void> fetchMessages(String chatId) async {
+    emit(ChatLoading());
     try {
-      final timestamp = Timestamp.now();
-      final newMessage = MessageModel(
-        senderId: senderId,
-        content: message,
-        timestamp: timestamp,
-        isSent: isSent,
-      );
-
-      await repository.updateLastMessage(chatId, newMessage, isSent);
-      repository.loadMessage(chatId);
-      if (state is ChatLoaded) {
-        final updatedChats = (state as ChatLoaded).chats.map((chat) {
-          if (chat.id == chatId) {
-            final updatedMessages = List<MessageModel>.from(chat.messages)
-              ..add(newMessage);
-            return chat.copyWith(
-                lastMessage: message,
-                timestamp: timestamp,
-                messages: updatedMessages);
-          }
-          return chat;
-        }).toList();
-        emit(ChatLoaded(updatedChats));
-      }
+      final messages = await chatRepository.getMessages(chatId);
+      emit(MessagesLoaded(messages));
     } catch (e) {
       emit(ChatError(e.toString()));
+    }
+  }
+
+  Future<void> sendMessage(String chatId, String messageContent,
+      String senderId, bool isSent) async {
+    final message = MessageModel(
+      senderId: senderId,
+      content: messageContent,
+      timestamp: Timestamp.now(),
+      isSent: isSent,
+    );
+
+    emit(ChatLoading());
+    try {
+      await chatRepository.sendMessage(chatId, message);
+      await fetchMessages(chatId);
+    } catch (e) {
+      emit(ChatError(e.toString()));
+    }
+  }
+
+  Future<void> createChat(ChatModel chat) async {
+    emit(ChatLoading());
+    try {
+      await chatRepository.createChat(chat);
+      await fetchChats();
+    } catch (e) {
+      emit(ChatError(e.toString()));
+    }
+  }
+
+  Future<void> updateChat(ChatModel chat) async {
+    emit(ChatLoading());
+    try {
+      await chatRepository.updateChat(chat);
+      await fetchChats();
+    } catch (e) {
+      emit(ChatError(e.toString()));
+    }
+  }
+
+  Future<void> deleteChat(String chatId) async {
+    emit(ChatLoading());
+    try {
+      await chatRepository.deleteChat(chatId);
+      await fetchChats();
+    } catch (e) {
+      emit(ChatError(e.toString()));
+    }
+  }
+
+  Future<void> fetchAllPharmacies() async {
+    emit(PharmacyLoading());
+    try {
+      final pharmacy = await chatRepository.getAllPharmacise();
+      emit(PharmacyLoaded(pharmacy));
+    } catch (e) {
+      emit(UsersError('Failed to fetch users: $e'));
     }
   }
 }

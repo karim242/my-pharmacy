@@ -32,7 +32,7 @@ class ConversationItem extends StatelessWidget {
         ),
         trailing: Text(chat.timestamp.toDate().toString()),
         onTap: () {
-          GoRouter.of(context).push(RoutesNames.kChattingView, extra: chat);
+          GoRouter.of(context).push(RoutesNames.kConversationView, extra: chat);
         });
   }
 }

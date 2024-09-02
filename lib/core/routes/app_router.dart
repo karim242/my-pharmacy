@@ -8,14 +8,15 @@ import 'package:my_pharmacy/features/auth/presentation/views/sign_in_view.dart';
 import 'package:my_pharmacy/features/auth/presentation/views/sign_up_view.dart';
 import 'package:my_pharmacy/features/category/data/model/categories_model.dart';
 import 'package:my_pharmacy/features/chat/data/models/chat_model.dart';
-import 'package:my_pharmacy/features/chat/presentation/views/conversation_view.dart';
+import 'package:my_pharmacy/features/chat/presentation/views/all_chats_view.dart';
+import 'package:my_pharmacy/features/chat/presentation/views/all_users_view.dart';
 import 'package:my_pharmacy/features/home/data/models/product.dart';
 import 'package:my_pharmacy/features/offer/presentation/view/offer_view.dart';
 import 'package:my_pharmacy/features/pharmacises/data/model/pharmacy_model.dart';
 import 'package:my_pharmacy/features/profile/presentation/views/address_saved_view.dart';
 import 'package:my_pharmacy/features/category/presentation/views/categories_view.dart';
 import 'package:my_pharmacy/features/category/presentation/views/category_details_view.dart';
-import 'package:my_pharmacy/features/chat/presentation/views/chatting_view.dart';
+import 'package:my_pharmacy/features/chat/presentation/views/conversation_view.dart';
 import 'package:my_pharmacy/features/pharmacises/presentation/views/nearest_pharmacy_view.dart';
 import 'package:my_pharmacy/features/cart/presentation/views/payment_view.dart';
 import 'package:my_pharmacy/features/profile/presentation/views/personal_info_view.dart';
@@ -106,16 +107,16 @@ abstract class AppRouter {
           ); // Pass the object to the page
         }),
     GoRoute(
-        path: RoutesNames.kChattingView,
+        path: RoutesNames.kConversationView,
         builder: (context, state) {
           final chat = state.extra as ChatModel; // Retrieve the object here
-          return ChattingView(
+          return ConversationView(
             chat: chat,
           );
         }),
     GoRoute(
-        path: RoutesNames.kConversationView,
-        builder: (context, state) => const ConversationView()),
+        path: RoutesNames.kAllChatsView,
+        builder: (context, state) => const AllChatsView()),
     GoRoute(
         path: RoutesNames.kPaymentView,
         builder: (context, state) => const PaymentView()),
@@ -125,6 +126,10 @@ abstract class AppRouter {
     GoRoute(
         path: RoutesNames.kAddressSavedView,
         builder: (context, state) => const AddressSavedView()),
+    GoRoute(
+        path: RoutesNames.KallUsersView,
+        builder: (context, state) => const AllUsersView()),
+
     // GoRoute(
     //     path: RoutesNames.kaddData,
     //     builder: (context, state) => BlocProvider(

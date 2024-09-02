@@ -11,16 +11,17 @@ import 'package:my_pharmacy/features/pharmacises/presentation/widgets/list_tile_
 import 'package:my_pharmacy/features/pharmacises/presentation/widgets/pharmacy_grid_view.dart';
 
 class PharmacyDetailsView extends StatelessWidget {
-  const PharmacyDetailsView({super.key, required this.pharmacy, });
+  const PharmacyDetailsView({
+    super.key,
+    required this.pharmacy,
+  });
   // final PharmacyModel nearestPharmacy;
   final PharmacyModel pharmacy;
-
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:  
-        Padding(
+      body: Padding(
         padding: EdgeInsets.only(right: 38.0, left: 38.0, top: 70.0.h),
         child: SingleChildScrollView(
           child: Column(
@@ -30,7 +31,7 @@ class PharmacyDetailsView extends StatelessWidget {
               ClipRRect(
                 borderRadius: BorderRadius.circular(16),
                 child: Image.network(
-                 pharmacy.imageUrl, // Replace with your image path
+                  pharmacy.imageUrl, // Replace with your image path
                   fit: BoxFit.fill,
                   width: 138.r,
                   height: 116.r,
@@ -39,7 +40,7 @@ class PharmacyDetailsView extends StatelessWidget {
               SizedBox(
                 height: 16.h,
               ),
-              TitleText(title:pharmacy.name),
+              TitleText(title: pharmacy.name),
               SizedBox(
                 height: 16.h,
               ),
@@ -69,7 +70,7 @@ class PharmacyDetailsView extends StatelessWidget {
                   CallUsBtn(
                     onTap: () {
                       GoRouter.of(context).push(
-                        RoutesNames.kConversationView,
+                        RoutesNames.kAllChatsView,
                       );
                     },
                   )
@@ -78,7 +79,9 @@ class PharmacyDetailsView extends StatelessWidget {
               SizedBox(
                 height: 22.h,
               ),
-               PharmacyGridView(pharmacyName: pharmacy.name,)
+              PharmacyGridView(
+                pharmacyName: pharmacy.name,
+              )
             ],
           ),
         ),

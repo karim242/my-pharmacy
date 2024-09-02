@@ -13,11 +13,13 @@ abstract class RoutesNames {
   static const String kCategoryView = '/CategoryView';
   static const String kCategoryDetailsView = '/CategoryDetailsView';
   static const String kPharmacyDetailsView = '/pharmacyDetailsView';
-  static const String kConversationView = '/ConversationView';
-  static const String kChattingView = '/ChattingView';
+  static const String kAllChatsView = '/ConversationView';
+  static const String kConversationView = '/ChattingView';
   static const String kPaymentView = '/PaymentView';
   static const String kOfferDetailsView = '/OfferDetailsView';
   static const String kPersonalInfoView = '/PersonalInfoView';
 
   static const String kAddressSavedView = '/AddressSavedView';
+
+  static const String KallUsersView = '/allUsersView';
 }
