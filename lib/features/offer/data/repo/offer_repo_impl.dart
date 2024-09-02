@@ -12,7 +12,7 @@ class  OfferRepoImpl extends OfferRepo {
     final snapshot = await _firestore.collection('pharmacies').where('offer', isEqualTo: true).get();
     return snapshot.docs.map((doc) {
       final data = doc.data();
-      return PharmacyModel.fromJson(data);
+      return PharmacyModel.fromMap(data);
     }).toList();
   }
 }

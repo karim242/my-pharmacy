@@ -39,10 +39,15 @@ final double deliveryService= 15;
           child: BlocBuilder<CartCubit, CartState>(
             builder: (context, state) {
               if (state is CartLoaded) {
-                            double totalPrice = state.items[0].price * state.items[0].selectedQuantity;
 
                 if(state.items.isNotEmpty)
                 {
+                  // state.items[0].price * state.items[0].selectedQuantity;
+                    double totalPrice = 0.0;
+
+                  for (var item in state.items) {
+                    totalPrice += item.price * item.selectedQuantity;
+               }
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -62,7 +67,7 @@ final double deliveryService= 15;
                         hintText: AppStrings.kWriteUMessage(context),
                         filled: true,
                         contentPadding: const EdgeInsets.symmetric(
-                            vertical: 20, horizontal: 6),
+                            vertical: 16, horizontal: 6),
                         fillColor: AppColors.lightGrayColor,
                         border: OutlineInputBorder(
                           borderSide: BorderSide.none,

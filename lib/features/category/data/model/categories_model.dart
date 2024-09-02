@@ -5,7 +5,7 @@ class CategoriesModel {
   CategoriesModel(
       {required this.id, required this.name, required this.imageUrl});
 
-  factory CategoriesModel.fromJson(Map<String, dynamic> json) {
+  factory CategoriesModel.fromMap(Map<String, dynamic> json) {
     return CategoriesModel(
       id: json['id'] ?? '',
       name: json['name'] ?? '',
@@ -13,7 +13,7 @@ class CategoriesModel {
     );
   }
 
-   Map<String, dynamic> toJson() {
+   Map<String, dynamic> toMap() {
      return {
        'id': id,
        'name': name,

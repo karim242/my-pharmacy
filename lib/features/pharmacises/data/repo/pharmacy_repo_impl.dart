@@ -10,7 +10,7 @@ class PharmacyRepoImpl extends PharmacyRepo {
     final snapshot = await _firestore.collection('pharmacies').get();
     return snapshot.docs.map((doc) {
       final data = doc.data();
-      return PharmacyModel.fromJson(data);
+      return PharmacyModel.fromMap(data);
     }).toList();
   }
 

@@ -10,7 +10,7 @@ class PharmacyModel {
   PharmacyModel({
     required this.id, required this.name, required this.imageUrl,required this.address,required this.phone,required this.offer,
     });
-  factory PharmacyModel.fromJson(Map<String, dynamic> json) {
+  factory PharmacyModel.fromMap(Map<String, dynamic> json) {
     return PharmacyModel(
       id: json['id'] ?? '',
       name: json['name'] ?? '',
@@ -21,7 +21,7 @@ class PharmacyModel {
     );
   }
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toMap() {
     return {
       'id': id,
       'name': name,

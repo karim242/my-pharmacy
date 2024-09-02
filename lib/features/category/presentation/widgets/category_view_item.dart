@@ -74,6 +74,8 @@ final Product product;
           ),
           Text(
            product.name,
+            maxLines: 1,
+            overflow:TextOverflow.ellipsis,
             style: TextStyles.textStyle12.copyWith(
                 color: AppColors.secondColor, fontWeight: FontWeight.bold),
           ),
@@ -82,6 +84,7 @@ final Product product;
             child: Text(
              product.pharmacyName,
             //  category.pharmacyName,
+           
               style: TextStyles.textStyle9,
             ),
           ),
