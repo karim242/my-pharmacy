@@ -30,7 +30,7 @@ class AllChatsView extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          context.go(RoutesNames.KallUsersView);
+          context.push(RoutesNames.KallUsersView);
         },
         backgroundColor: AppColors.primaryColor,
         child: const Icon(

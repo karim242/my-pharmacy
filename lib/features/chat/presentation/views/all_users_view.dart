@@ -2,6 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:my_pharmacy/core/routes/routes_names.dart';
+import 'package:my_pharmacy/core/utils/app_colors.dart';
+import 'package:my_pharmacy/core/utils/text_styles.dart';
 import 'package:my_pharmacy/features/chat/data/repo/chat_repo.dart';
 import 'package:my_pharmacy/features/chat/presentation/cubit/chat_cubit.dart';
 import 'package:my_pharmacy/features/chat/presentation/cubit/chat_state.dart';
@@ -14,13 +18,27 @@ class AllUsersView extends StatelessWidget {
     Future.microtask(() => context.read<ChatCubit>().fetchChats());
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Users')),
-      body: UsersList(),
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        automaticallyImplyLeading: false,
+        title: const Text('الصيدليات'),
+        actions: [
+          IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: const Icon(Icons.arrow_back_ios)),
+        ],
+      ),
+      body: const UsersList(),
     );
   }
 }
 
 class UsersList extends StatelessWidget {
+  const UsersList({super.key});
+
   @override
   Widget build(BuildContext context) {
     context.read<ChatCubit>().fetchAllPharmacies();
@@ -36,8 +54,19 @@ class UsersList extends StatelessWidget {
             itemBuilder: (context, index) {
               final pharmacie = pharmacies[index];
               return ListTile(
-                title: Text(pharmacie.name),
-                subtitle: Text(pharmacie.address),
+                leading: CircleAvatar(
+                  backgroundImage: AssetImage(pharmacie.imageUrl),
+                ),
+                title: Text(
+                  pharmacie.name,
+                  style: TextStyles.textStyle14
+                      .copyWith(color: AppColors.blackColor),
+                ),
+                subtitle: Text(
+                  pharmacie.address,
+                  style: TextStyles.textStyle12
+                      .copyWith(color: AppColors.grayColor),
+                ),
               );
             },
           );

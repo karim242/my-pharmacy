@@ -1,9 +1,6 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:my_pharmacy/dependencies.dart';
-import 'package:my_pharmacy/features/auth/data/models/user_model.dart';
 import 'package:my_pharmacy/features/chat/data/models/chat_model.dart';
 import 'package:my_pharmacy/features/chat/data/models/message_model.dart';
-import 'package:my_pharmacy/features/chat/data/repo/chat_repo.dart';
 import 'package:my_pharmacy/features/pharmacises/data/model/pharmacy_model.dart';
 
 class ChatRepositoryImplementation implements ChatRepository {
@@ -64,7 +61,7 @@ class ChatRepositoryImplementation implements ChatRepository {
     try {
       final snapshot = await _firestore.collection('pharmacies').get();
       return snapshot.docs
-          .map((doc) => PharmacyModel.fromJson(doc.data()))
+          .map((doc) => PharmacyModel.fromMap(doc.data()))
           .toList();
     } catch (e) {
       throw Exception('Failed to get users: $e');

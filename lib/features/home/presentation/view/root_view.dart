@@ -5,15 +5,6 @@ import 'package:my_pharmacy/features/chat/presentation/views/all_chats_view.dart
 import 'package:my_pharmacy/features/home/presentation/view/home_view.dart';
 import 'package:my_pharmacy/features/home/presentation/view/setting_view.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:my_pharmacy/features/offer/presentation/cubit/offer_cubit.dart';
-import 'package:my_pharmacy/features/pharmacises/presentation/cubit/pharmacy_cubit.dart';
-import '../../../../core/services/service_locator.dart';
-import '../../../auth/presentation/cubit/auth_cubit.dart';
-import '../../../cart/presentation/cubit/cart_cubit.dart';
-import '../../../category/presentation/cubit/category_cubit.dart';
-import '../../../chat/presentation/cubit/chat_cubit.dart';
-import '../cubit/all_product_cubit.dart';
 
 class RootView extends StatefulWidget {
   const RootView({super.key});
